@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWENZER.EXE — Projets</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- PROJECT MODAL (copié depuis index) -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-corner tl"></div>
+      <div class="modal-corner tr"></div>
+      <div class="modal-corner bl"></div>
+      <div class="modal-corner br"></div>
+      <div class="modal-topbar">
+        <div class="modal-topbar-left">
+          <div class="modal-dot r" onclick="closeModal()" style="cursor:pointer;" title="Fermer"></div>
+          <div class="modal-dot y"></div>
+          <div class="modal-dot g"></div>
+          <span class="modal-topbar-title">PROJET // AWENZER.EXE</span>
+        </div>
+        <a class="modal-link-btn" href="#" target="_blank" rel="noopener" style="display:none;">▶ VOIR SUR YOUTUBE</a>
+        <button class="modal-fav-btn" id="modal-fav-btn" title="Ajouter aux favoris">♡</button>
+        <button class="modal-close-btn" onclick="closeModal()">✕ FERMER</button>
+      </div>
+      <div class="modal-img-area">
+        <div class="modal-img-placeholder">[ IMAGE DU PROJET ]</div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tag"></div>
+        <h2 class="modal-title"></h2>
+        <p class="modal-desc"></p>
+        <div class="modal-meta-grid"></div>
+        <div class="modal-skills-section">
+          <div class="modal-section-label">// COMPÉTENCES MOBILISÉES</div>
+          <div class="modal-tags-list modal-skills-list"></div>
+        </div>
+        <div class="modal-tools-section" style="margin-top:16px;">
+          <div class="modal-section-label">// OUTILS UTILISÉS</div>
+          <div class="modal-tools-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">AWENZER</a>
+    <ul class="nav-links">
+      <li><a href="index.html#featured">Accueil</a></li>
+      <li><a href="index.html#skills">Compétences</a></li>
+      <li><a href="projects.html" style="color:var(--purple-light)">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-status">
+      <div class="status-dot"></div>
+      GALERIE // AWENZER
+    </div>
+  </nav>
+
+  <!-- MINIMAP -->
+  <div id="minimap">
+    <div class="minimap-drag-handle" id="minimap-drag-handle" title="Cliquez pour réduire / déplacer">
+      <span class="minimap-label">// MAP</span>
+      <span class="minimap-toggle-icon" id="minimap-toggle-icon">−</span>
+    </div>
+    <div class="minimap-body" id="minimap-body">
+      <div class="minimap-canvas-wrap">
+        <canvas id="minimap-canvas" width="200" height="160"></canvas>
+        <div class="minimap-canvas-overlay">
+          <div class="minimap-corner tl"></div>
+          <div class="minimap-corner tr"></div>
+          <div class="minimap-corner bl"></div>
+          <div class="minimap-corner br"></div>
+        </div>
+        <div class="minimap-hud-label" id="minimap-hud-label">—</div>
+      </div>
+      <div class="minimap-mission">
+        <div class="minimap-mission-title">MISSION // AWENZER</div>
+        <div class="minimap-mission-obj">
+          <span class="minimap-mission-icon">!</span>
+          Chercher un travail dans la créa
+        </div>
+      </div>
+      <div class="minimap-social-row">
+        <a href="https://youtube.com/@awenzer" target="_blank" class="minimap-social-btn" title="YouTube">▶ YT</a>
+        <a href="https://instagram.com/awnzer" target="_blank" class="minimap-social-btn" title="Instagram">◈ IG</a>
+        <a href="https://linkedin.com/in/awen-escoulan" target="_blank" class="minimap-social-btn" title="LinkedIn">⬡ LI</a>
+      </div>
+    </div>
+  </div>
+  <button class="minimap-toggle">▶ MAP</button>
+
+
+  <!-- PROJECTS HERO -->
+  <section class="projects-hero" id="projects-hero-section">
+    <div class="projects-hero-bg"></div>
+    <canvas id="matrix-canvas" style="opacity:0.2;"></canvas>
+    <div class="projects-question">// SÉLECTIONNEZ UNE CATÉGORIE</div>
+    <h1 class="projects-headline">QUE VOULEZ-<br><span>VOUS VOIR ?</span></h1>
+    <div class="category-buttons">
+      <button class="cat-btn" data-cat="youtube">▶ YOUTUBE</button>
+      <button class="cat-btn" data-cat="video">◈ VIDÉO</button>
+      <button class="cat-btn" data-cat="3d">◆ 3D</button>
+      <button class="cat-btn" data-cat="galian">⬡ GALIAN</button>
+      <button class="cat-btn" data-cat="graphisme">◎ GRAPHISME</button>
+      <button class="cat-btn" data-cat="autres">+ AUTRES</button>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <div id="projects-gallery">
+
+    <div class="gallery-header" id="gallery-header">
+      <button class="gallery-nav-btn" data-cat="youtube">YOUTUBE</button>
+      <button class="gallery-nav-btn" data-cat="video">VIDÉO</button>
+      <button class="gallery-nav-btn" data-cat="3d">3D</button>
+      <button class="gallery-nav-btn" data-cat="galian">GALIAN</button>
+      <button class="gallery-nav-btn" data-cat="graphisme">GRAPHISME</button>
+      <button class="gallery-nav-btn" data-cat="autres">AUTRES</button>
+      <div class="gallery-count" id="gallery-count"><span>—</span> PROJETS</div>
+    </div>
+
+    <!-- YOUTUBE -->
+    <div class="gallery-content" data-cat="youtube">
+      <div class="gallery-title-bar">
+        <h2>YOUTUBE</h2>
+        <span class="g-tag">CHAÎNE PERSONNELLE · DOCUMENTAIRES · FILMS</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docGreenzer)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/greenzer.png" alt="Green Montana" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Film 3D — Green Montana</div>
+            <div class="gallery-item-meta">AWENZER · 2026 · YOUTUBE</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docVald)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/vald.png" alt="Vald" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Film — Vald</div>
+            <div class="gallery-item-meta">AWENZER · 2024 · YOUTUBE</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docPretty)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/pretty.png" alt="Pretty Dollcorpse" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Film — Pretty Dollcorpse</div>
+            <div class="gallery-item-meta">AWENZER · 2025 · YOUTUBE</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.doc8songs)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/8songs.png" alt="8 chansons" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">8 chansons qui VONT vous détruire</div>
+            <div class="gallery-item-meta">AWENZER · 2026 · YOUTUBE</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docSkyrim)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/skyrim.png" alt="Skyrim" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Documentaire — Skyrim</div>
+            <div class="gallery-item-meta">AWENZER · 2025 · YOUTUBE</div>
+          </div>
+        </div>
+        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
+            <div class="gallery-item-meta">VOTRE CONTENU</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDÉO -->
+    <div class="gallery-content" data-cat="video">
+      <div class="gallery-title-bar">
+        <h2>VIDÉO</h2>
+        <span class="g-tag">MONTAGE · POST-PRODUCTION · ÉVÉNEMENTIEL</span>
+      </div>
+
+      <!-- SHORTFILM -->
+      <div class="gallery-subsection-label">// SHORTFILM</div>
+      <div class="gallery-grid" style="margin-bottom:40px;">
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.fiction)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/video-court-metrage.jpg" alt="Court-Métrage" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Fiction Court-Métrage</div>
+            <div class="gallery-item-meta">AWENZER · 2023 · FICTION</div>
+          </div>
+        </div>
+        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
+            <div class="gallery-item-meta">VOTRE CONTENU</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-subsection-divider"></div>
+
+      <!-- PULLBOY -->
+      <div class="gallery-subsection-label">// PULLBOY</div>
+      <div class="gallery-grid" style="margin-bottom:40px;">
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.pullboy)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/video-pullboy.jpg" alt="Pull Boy" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Montage Sportif — Pull Boy</div>
+            <div class="gallery-item-meta">PULL BOY · 2023 · POST-PROD</div>
+          </div>
+        </div>
+        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
+            <div class="gallery-item-meta">VOTRE CONTENU</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-subsection-divider"></div>
+
+      <!-- KRT STUDIOS -->
+      <div class="gallery-subsection-label">// KRT STUDIOS</div>
+      <div class="gallery-grid" style="margin-bottom:40px;">
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.krt)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/video-krt.jpg" alt="KRT Studios" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Cast E-Sport — KRT Studios</div>
+            <div class="gallery-item-meta">KRT STUDIOS · 2024 · EVENT</div>
+          </div>
+        </div>
+        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
+            <div class="gallery-item-meta">VOTRE CONTENU</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-subsection-divider"></div>
+
+      <!-- LA VISION -->
+      <div class="gallery-subsection-label">// LA VISION</div>
+      <div class="gallery-grid">
+        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
+            <div class="gallery-item-meta">VOTRE CONTENU</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D -->
+    <div class="gallery-content" data-cat="3d">
+      <div class="gallery-title-bar">
+        <h2>MODÉLISATION 3D</h2>
+        <span class="g-tag">BLENDER · SUBSTANCE · RENDU</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.scene3d)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/3d-scene.jpg" alt="Scène 3D" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Scène 3D — Environnement</div>
+            <div class="gallery-item-meta">BLENDER · 2024</div>
+          </div>
+        </div>
+        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
+            <div class="gallery-item-meta">VOTRE CONTENU</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALIAN -->
+    <div class="gallery-content" data-cat="galian">
+      <div class="gallery-title-bar">
+        <h2>GALIAN</h2>
+        <span class="g-tag">ALTERNANCE · COMMUNICATION · DA · 2025–2026</span>
+      </div>
+
+      <!-- GALIAN SUBCATEGORY TABS -->
+      <!-- ─── GALIAN SECTION : VIDÉOS ─── -->
+      <div class="galian-separator">
+        <span class="galian-sep-icon">▶</span>
+        <span class="galian-sep-label">VIDÉOS</span>
+        <div class="galian-sep-line"></div>
+      </div>
+      <div class="gallery-grid">
+
+          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianOctobreRose)">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+              <img src="images/galian/octobre-rose.jpg" alt="Octobre Rose" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>OCTOBRE ROSE</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Octobre Rose</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianBosch)">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+              <img src="images/galian/bosch.jpg" alt="Bosch" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>BOSCH VÉLO</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Bosch — Vélo électrique</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianLevee)">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+              <img src="images/galian/levee-fonds.jpg" alt="Levée de fond" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>LEVÉE DE FOND</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Levée de fond</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianNoel)">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+              <img src="images/galian/offre-noel.jpg" alt="Offre de Noël" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>OFFRE DE NOËL</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Offre de Noël</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianSpecialiste)">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+              <img src="images/galian/le-specialiste.jpg" alt="Le Spécialiste" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>LE SPÉCIALISTE</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Le Spécialiste</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="openVideoGallery('galianSAV')">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LES ÉPISODES</div>
+              <img src="images/galian/sav.jpg" alt="SAV" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>SÉRIE SAV</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Série SAV</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · SÉRIE</div>
+            </div>
+          </div>
+
+      </div>
+
+      <!-- ─── GALIAN SECTION : RÉSEAUX SOCIAUX ─── -->
+      <div class="galian-separator">
+        <span class="galian-sep-icon">◈</span>
+        <span class="galian-sep-label">RÉSEAUX SOCIAUX</span>
+        <div class="galian-sep-line"></div>
+      </div>
+      <div class="gallery-grid">
+
+          <div class="gallery-item" onclick="openVideoGallery('galianShorts')">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LES SHORTS</div>
+              <img src="images/galian/shorts.jpg" alt="Shorts" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>SHORTS</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Shorts Instagram</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · REELS</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="openVideoGallery('galianPosts')">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LES POSTS</div>
+              <img src="images/galian/posts-instagram.jpg" alt="Publications Instagram" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>PUBLICATIONS IG</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Publications Instagram</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · INSTAGRAM</div>
+            </div>
+          </div>
+
+      </div>
+
+      <!-- ─── GALIAN SECTION : PHOTOS ─── -->
+      <div class="galian-separator">
+        <span class="galian-sep-icon">◎</span>
+        <span class="galian-sep-label">PHOTOS</span>
+        <div class="galian-sep-line"></div>
+      </div>
+      <div class="gallery-grid">
+
+          <div class="gallery-item" onclick="openPhotoGallery('galianPhotos')">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
+              <img src="images/galian/photos-cover.jpg" alt="Photos Galian" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>GALERIE PHOTOS</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Galerie Photos</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · PHOTO</div>
+            </div>
+          </div>
+
+      </div>
+
+      <!-- ─── GALIAN SECTION : PRODUCTION GRAPHIQUE ─── -->
+      <div class="galian-separator">
+        <span class="galian-sep-icon">⬡</span>
+        <span class="galian-sep-label">PRODUCTION GRAPHIQUE</span>
+        <div class="galian-sep-line"></div>
+      </div>
+      <div class="gallery-grid">
+
+          <div class="gallery-item" onclick="openPhotoGallery('galianCinema')">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
+              <img src="images/galian/cinema-cover.jpg" alt="Galian X Cinéma" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>GALIAN × CINÉMA</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Galian × Cinéma</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · GRAPHISME</div>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="openPhotoGallery('galianAffiches')">
+            <div class="gallery-item-img">
+              <div class="gallery-item-hover-overlay">→ VOIR LES AFFICHES</div>
+              <img src="images/galian/affiches-cover.jpg" alt="Affiches" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>AFFICHES</div>'">
+            </div>
+            <div class="gallery-item-body">
+              <div class="gallery-item-name">Affiches</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · GRAPHISME</div>
+            </div>
+          </div>
+
+      </div>
+
+        </div>
+
+    <!-- GRAPHISME -->
+    <div class="gallery-content" data-cat="graphisme">
+      <div class="gallery-title-bar">
+        <h2>GRAPHISME</h2>
+        <span class="g-tag">PHOTOSHOP · IDENTITÉ · PRINT</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianDA)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/graphisme-galian.jpg" alt="DA Galian" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Direction artistique — Galian</div>
+            <div class="gallery-item-meta">GALIAN · 2025 · BRAND</div>
+          </div>
+        </div>
+        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
+            <div class="gallery-item-meta">VOTRE CONTENU</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTRES -->
+    <div class="gallery-content" data-cat="autres">
+      <div class="gallery-title-bar">
+        <h2>AUTRES</h2>
+        <span class="g-tag">MOTION DESIGN · GÉNÉRIQUE · DIVERS</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.generiqueAnime)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/motion-generique.jpg" alt="Générique animé" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Générique animé</div>
+            <div class="gallery-item-meta">AFTER EFFECTS · 2024</div>
+          </div>
+        </div>
+        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
+            <div class="gallery-item-meta">VOTRE CONTENU</div>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+
+    </div>
+
+  <!-- ═══ PHOTO GALLERY OVERLAY (musée cyberpunk) ═══ -->
+  <div id="photo-gallery-overlay" class="pg-overlay">
+    <div class="pg-header">
+      <div class="pg-header-left">
+        <div class="pg-dots"><span></span><span></span><span></span></div>
+        <span class="pg-title" id="pg-title">GALERIE // AWENZER.EXE</span>
+      </div>
+      <div class="pg-header-right">
+        <span class="pg-counter" id="pg-counter">—</span>
+        <button class="gallery-fav-btn" id="pg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('photo')">♡</button>
+        <button class="pg-close" onclick="closePhotoGallery()">✕ FERMER</button>
+      </div>
+    </div>
+    <div class="pg-wall" id="pg-wall"></div>
+    <!-- Lightbox -->
+    <div class="pg-lightbox" id="pg-lightbox">
+      <div class="pg-lightbox-bg" onclick="closeLightbox()"></div>
+      <div class="pg-lightbox-content">
+        <img id="pg-lightbox-img" src="" alt="">
+        <button class="pg-lb-nav pg-lb-prev" id="pg-lb-prev">&#8592;</button>
+        <button class="pg-lb-nav pg-lb-next" id="pg-lb-next">&#8594;</button>
+        <button class="pg-lb-close" onclick="closeLightbox()">✕</button>
+        <div class="pg-lb-counter" id="pg-lb-counter"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ VIDEO GALLERY OVERLAY (futuriste) ═══ -->
+  <div id="video-gallery-overlay" class="vg-overlay">
+    <div class="vg-header">
+      <div class="vg-header-left">
+        <div class="pg-dots"><span></span><span></span><span></span></div>
+        <span class="vg-title" id="vg-title">VIDÉOS // AWENZER.EXE</span>
+      </div>
+      <button class="gallery-fav-btn" id="vg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('video')">♡</button>
+      <button class="pg-close" onclick="closeVideoGallery()">✕ FERMER</button>
+    </div>
+    <div class="vg-desc" id="vg-desc"></div>
+    <div class="vg-grid" id="vg-grid"></div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">AWENZER.EXE</div>
+    <div class="footer-copy">© 2026 AWEN ESCOULAN — TOUS DROITS RÉSERVÉS</div>
+    <div class="footer-links">
+      <a href="https://youtube.com/@awenzer" target="_blank">YOUTUBE</a>
+      <a href="https://instagram.com/awnzer" target="_blank">INSTAGRAM</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/minimap.js"></script>
+
+
+
+
+  <!-- FAVORITES INVENTORY -->
+  <div id="fav-inventory" class="fav-inventory empty">
+    <div class="fav-inventory-header">
+      <span class="fav-inv-icon">◈</span>
+      <span class="fav-inv-title">FAVORIS</span>
+      <span class="fav-inv-count" id="fav-count">0</span>
+    </div>
+    <div class="fav-inv-grid" id="fav-grid">
+      <div class="fav-inv-empty">// Aucun favori</div>
+    </div>
+  </div>
+  <!-- SPOTIFY FLOATING PLAYER -->
+  <div id="spotify-player" class="spotify-float">
+    <div class="spotify-float-bar" id="spotify-drag-handle">
+      <span class="spotify-float-icon">♪</span>
+      <span class="spotify-float-label">OBLIGER — GREEN MONTANA</span>
+      <button class="spotify-float-toggle" id="spotify-toggle" title="Réduire">▼</button>
+    </div>
+    <div class="spotify-float-content" id="spotify-content">
+      <iframe
+        src="https://open.spotify.com/embed/track/4jxX1SYeB6AQTOdtOwr2hg?utm_source=generator&theme=0"
+        width="320" height="80" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</body>
+</html>

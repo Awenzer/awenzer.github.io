@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWENZER.EXE — Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">AWENZER</a>
+    <ul class="nav-links">
+      <li><a href="index.html#featured">Accueil</a></li>
+      <li><a href="index.html#skills">Compétences</a></li>
+      <li><a href="projects.html">Galerie</a></li>
+      <li><a href="contact.html" style="color:var(--purple-light)">Contact</a></li>
+    </ul>
+    <div class="nav-status">
+      <div class="status-dot"></div>
+      DISPONIBLE MASTER 2025
+    </div>
+  </nav>
+
+
+
+  <!-- SUBTLE MATRIX BG -->
+  <canvas id="matrix-canvas" style="opacity:0.12; position:fixed;"></canvas>
+
+  <!-- CONTACT PAGE -->
+  <section id="contact-page">
+
+    <div class="section-label">CONTACT</div>
+    <h2 class="section-title reveal">TRAVAILLONS<br><span>ENSEMBLE</span></h2>
+
+    <div class="contact-layout">
+
+      <!-- LEFT: INFO -->
+      <div class="contact-info reveal-left">
+
+        <p style="font-size:17px; color:var(--gray); margin-bottom:40px; max-width:380px; line-height:1.8; font-weight:300;">
+          En recherche d'un master en direction artistique sur
+          <span style="color:var(--white); font-weight:600;">Paris, Bordeaux ou Rennes</span>.
+          Ouvert à toute collaboration créative.
+        </p>
+
+        <div class="contact-item">
+          <div class="contact-icon">EMAIL_</div>
+          <div>
+            <div class="contact-value"><a href="/cdn-cgi/l/email-protection#8eeff9ebe0a0ebfdede1fbe2efe0cee9e3efe7e2a0ede1e3" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="b6d7c1d3d898d3c5d5d9c3dad7d8f6d1dbd7dfda98d5d9db">[email&#160;protected]</span></a></div>
+            <div class="contact-sublabel">RÉPONSE SOUS 48H</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">TEL_</div>
+          <div>
+            <div class="contact-value">06 49 89 21 73</div>
+            <div class="contact-sublabel">DISPONIBLE EN JOURNÉE</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">LOC_</div>
+          <div>
+            <div class="contact-value">Paris · Bordeaux · Rennes</div>
+            <div class="contact-sublabel">MOBILITÉ FRANCE</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">STATUS_</div>
+          <div>
+            <div class="contact-value" style="color:var(--cyan); display:flex; align-items:center; gap:10px;">
+              <span style="width:8px;height:8px;background:var(--purple-light);border-radius:50%;display:inline-block;animation:blink 1.4s infinite;"></span>
+              DISPONIBLE
+            </div>
+            <div class="contact-sublabel">RECHERCHE MASTER 2025–2026</div>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <a href="https://youtube.com/@awenzer" target="_blank" class="social-link">▶ YOUTUBE</a>
+          <a href="https://instagram.com/awnzer" target="_blank" class="social-link">◈ INSTAGRAM</a>
+        </div>
+
+        <!-- MINI BIO TERMINAL -->
+        <div style="margin-top:48px; padding:20px 24px; border:1px solid var(--border); background:rgba(140,70,240,0.02);">
+          <div style="font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--gray); letter-spacing:2px; margin-bottom:12px;">// AWENZER.LOG</div>
+          <div style="font-family:'Share Tech Mono',monospace; font-size:12px; color:var(--purple-light); line-height:2;">
+            <span style="color:var(--purple-light)">$</span> whoami<br>
+            <span style="color:var(--white)">Awen Escoulan · 21 ans · Créateur</span><br>
+            <span style="color:var(--purple-light)">$</span> skills --list<br>
+            <span style="color:var(--white)">Vidéo · Motion · 3D · DA · Content</span><br>
+            <span style="color:var(--purple-light)">$</span> reach --out<br>
+            <span style="color:var(--purple-light)">→ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="17766072793972647478627b767957707a767e7b3974787a">[email&#160;protected]</a>_</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: TERMINAL FORM -->
+      <div class="reveal" style="transition-delay:0.2s">
+        <div class="terminal">
+          <div class="terminal-header">
+            <div class="term-dot" onclick="this.closest('.terminal').style.display='none'" style="cursor:pointer;" title="Fermer"></div>
+            <div class="term-dot"></div>
+            <div class="term-dot"></div>
+            <div class="terminal-title">CONTACT.SH // AWENZER.EXE</div>
+          </div>
+          <div class="terminal-body">
+            <!--
+              POUR ACTIVER L'ENVOI D'EMAILS :
+              1. Créez un compte gratuit sur https://formspree.io
+              2. Créez un formulaire et copiez votre endpoint (ex: https://formspree.io/f/xxxxxyyy)
+              3. Remplacez action="YOUR_FORMSPREE_ENDPOINT" ci-dessous par votre URL
+            -->
+            <form id="contact-form" action="YOUR_FORMSPREE_ENDPOINT" method="POST">
+              <input type="hidden" name="_subject" value="Nouveau message depuis AWENZER.EXE">
+              <input type="hidden" name="_replyto" id="hidden-email">
+
+              <div class="term-line">
+                <div class="term-prompt">$</div>
+                <div class="term-field">
+                  <label class="term-label" for="t-name">NOM_</label>
+                  <input type="text" id="t-name" name="nom" class="term-input" placeholder="Votre nom..." autocomplete="off" required>
+                </div>
+              </div>
+
+              <div class="term-line">
+                <div class="term-prompt">$</div>
+                <div class="term-field">
+                  <label class="term-label" for="t-email">EMAIL_</label>
+                  <input type="email" id="t-email" name="email" class="term-input" placeholder="votre@email.com" autocomplete="off" required>
+                </div>
+              </div>
+
+              <div class="term-line">
+                <div class="term-prompt">$</div>
+                <div class="term-field">
+                  <label class="term-label" for="t-subject">SUJET_</label>
+                  <input type="text" id="t-subject" name="sujet" class="term-input" placeholder="Collaboration, stage, master..." autocomplete="off">
+                </div>
+              </div>
+
+              <div class="term-line">
+                <div class="term-prompt">$</div>
+                <div class="term-field">
+                  <label class="term-label" for="t-message">MESSAGE_</label>
+                  <textarea id="t-message" name="message" class="term-textarea" placeholder="Votre message..." rows="4" required></textarea>
+                </div>
+              </div>
+
+              <div style="padding-left:28px;">
+                <button type="submit" class="term-submit" id="submit-btn">→ ENVOYER LE MESSAGE</button>
+              </div>
+
+              <div class="term-output" id="term-output"></div>
+            </form>
+          </div>
+        </div>
+
+        <div style="margin-top:20px; font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--gray); letter-spacing:2px; text-align:right;">
+          // POWERED BY FORMSPREE — REMPLACEZ L'ENDPOINT DANS LE CODE
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">AWENZER.EXE</div>
+    <div class="footer-copy">© 2026 AWEN ESCOULAN — TOUS DROITS RÉSERVÉS</div>
+    <div class="footer-links">
+      <a href="https://youtube.com/@awenzer" target="_blank">YOUTUBE</a>
+      <a href="https://instagram.com/awnzer" target="_blank">INSTAGRAM</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+  <script>
+  // Contact form with Formspree
+  (function() {
+    const form = document.getElementById('contact-form');
+    const output = document.getElementById('term-output');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (!form) return;
+
+    // Sync email to hidden field for reply-to
+    document.getElementById('t-email').addEventListener('input', function() {
+      document.getElementById('hidden-email').value = this.value;
+    });
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const name  = document.getElementById('t-name').value.trim();
+      const email = document.getElementById('t-email').value.trim();
+      const msg   = document.getElementById('t-message').value.trim();
+
+      if (!name || !email || !msg) {
+        showOutput('error', '// ERREUR : Veuillez remplir tous les champs obligatoires.');
+        return;
+      }
+
+      const action = form.getAttribute('action');
+
+      // If not configured yet, show demo feedback
+      if (!action || action === 'YOUR_FORMSPREE_ENDPOINT') {
+        showOutput('demo',
+          '// DÉMO — Formulaire non connecté.\n' +
+          '// Pour activer l\'envoi : créez un compte sur formspree.io\n' +
+          '// et remplacez YOUR_FORMSPREE_ENDPOINT dans contact.html\n' +
+          '► Message simulé envoyé à : awen.escoulan@gmail.com\n' +
+          '► De : ' + name.toUpperCase()
+        );
+        return;
+      }
+
+      // Real submission
+      submitBtn.textContent = '→ ENVOI EN COURS...';
+      submitBtn.disabled = true;
+
+      try {
+        const data = new FormData(form);
+        const response = await fetch(action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          showOutput('success',
+            '// STATUS : SUCCÈS\n' +
+            '► TRANSMISSION RÉUSSIE ✓\n' +
+            '► DESTINATAIRE : awen.escoulan@gmail.com\n' +
+            '► MESSAGE DE ' + name.toUpperCase() + ' REÇU ✓\n' +
+            '// RÉPONSE SOUS 48H_'
+          );
+          form.reset();
+          submitBtn.textContent = '✓ MESSAGE ENVOYÉ';
+        } else {
+          const json = await response.json();
+          showOutput('error', '// ERREUR : ' + (json.error || 'Échec de l\'envoi. Réessayez.'));
+          submitBtn.textContent = '→ ENVOYER LE MESSAGE';
+          submitBtn.disabled = false;
+        }
+      } catch (err) {
+        showOutput('error', '// ERREUR RÉSEAU : Vérifiez votre connexion.');
+        submitBtn.textContent = '→ ENVOYER LE MESSAGE';
+        submitBtn.disabled = false;
+      }
+    });
+
+    function showOutput(type, text) {
+      const colors = { success: 'var(--purple-light)', error: '#ff2244', demo: 'var(--accent)' };
+      output.style.borderLeftColor = colors[type] || 'var(--purple-light)';
+      outpu
