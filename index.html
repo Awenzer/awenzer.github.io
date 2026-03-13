@@ -6,6 +6,17 @@
   <title>AWENZER.EXE — Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/pages.css">
+  <script>
+    // Hide desktop-only widgets on mobile immediately
+    if (window.innerWidth <= 768) {
+      document.addEventListener('DOMContentLoaded', function() {
+        ['minimap','spotify-player','fav-inventory'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) { el.style.setProperty('display','none','important'); }
+        });
+      });
+    }
+  </script>
 </head>
 <body>
 

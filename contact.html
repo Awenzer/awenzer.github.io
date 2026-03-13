@@ -6,6 +6,17 @@
   <title>AWENZER.EXE — Contact</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/pages.css">
+  <script>
+    // Hide desktop-only widgets on mobile immediately
+    if (window.innerWidth <= 768) {
+      document.addEventListener('DOMContentLoaded', function() {
+        ['minimap','spotify-player','fav-inventory'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) { el.style.setProperty('display','none','important'); }
+        });
+      });
+    }
+  </script>
 </head>
 <body>
 
@@ -26,7 +37,17 @@
       <div class="status-dot"></div>
       DISPONIBLE MASTER 2025
     </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <!-- MOBILE NAV DRAWER -->
+  <div class="nav-mobile-drawer" id="nav-mobile-drawer">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#skills">Compétences</a>
+    <a href="projects.html">Galerie</a>
+    <a href="contact.html" class="active-page">Contact</a>
+  </div>
 
 
 

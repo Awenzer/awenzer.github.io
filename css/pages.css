@@ -930,44 +930,48 @@
    ============================================= */
 @media (max-width: 768px) {
 
-  /* ── Projects hero ── */
-  #projects-hero-section { padding: 90px 20px 48px; }
-  .projects-hero-title { font-size: clamp(32px, 10vw, 56px); }
-  .gallery-header { padding: 0 16px; height: 52px; }
-  .gallery-header-title { font-size: 10px; letter-spacing: 2px; }
-  .cat-btn { font-size: 9px; padding: 7px 12px; letter-spacing: 1.5px; }
-  .gallery-content { padding: 32px 16px; }
+  /* Projects page */
+  #projects-hero-section { padding: 88px 20px 44px; }
+  .projects-hero-title { font-size: clamp(30px, 10vw, 52px); }
+
+  /* Category buttons */
+  .gallery-header { padding: 0 12px; height: auto; min-height: 48px; flex-wrap: wrap; gap: 4px; padding-top: 6px; padding-bottom: 6px; }
+  .cat-btn { font-size: 9px; padding: 6px 10px; letter-spacing: 1px; }
+  .gallery-content { padding: 28px 16px; }
+
+  /* Gallery grid: 2 columns */
   .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .gallery-item-body { padding: 10px; }
-  .gallery-item-name { font-size: 11px; }
+  .gallery-item-body { padding: 8px; }
+  .gallery-item-name { font-size: 10px; }
   .gallery-item-meta { font-size: 8px; }
 
-  /* ── Contact ── */
-  #contact-page { padding: 90px 20px 60px; }
-  .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-  .contact-item { gap: 12px; }
-  .terminal-body { padding: 16px; }
-  .term-line { gap: 8px; }
-  .term-input, .term-textarea { font-size: 13px; }
-  .term-submit { font-size: 10px; padding: 10px 16px; }
-
-  /* ── Photo gallery overlay ── */
-  .pg-header { padding: 0 16px; height: 50px; }
-  .pg-title { font-size: 9px; letter-spacing: 1.5px; }
-  .pg-wall { padding: 16px; gap: 12px; grid-template-columns: repeat(2, 1fr); }
-  .pg-frame-inner { height: 140px !important; }
-
-  /* ── Video gallery overlay ── */
-  .vg-header { padding: 0 16px; height: 50px; }
-  .vg-title { font-size: 9px; letter-spacing: 1.5px; }
-  .vg-grid { padding: 16px; grid-template-columns: 1fr; gap: 10px; }
-
-  /* ── Galian tabs ── */
-  .galian-tabs { gap: 4px; flex-wrap: wrap; }
+  /* Galian tabs */
+  .galian-tabs { gap: 4px; flex-wrap: wrap; padding: 0 16px; }
   .galian-tab { font-size: 9px; padding: 6px 10px; }
-  .galian-separator { margin: 24px 0 20px; }
+  .galian-separator { margin: 20px 0 16px; }
 
-  /* ── Nav gallery ── */
-  .gallery-nav { padding: 0 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .gallery-nav-btn { font-size: 10px; white-space: nowrap; padding: 10px 0; }
+  /* Nav gallery scroll */
+  .gallery-nav { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .gallery-nav-btn { font-size: 10px; white-space: nowrap; }
+
+  /* Photo gallery overlay */
+  .pg-overlay { position: fixed; }
+  .pg-header { padding: 0 14px; height: 48px; }
+  .pg-title { font-size: 9px; letter-spacing: 1px; }
+  .pg-wall { padding: 14px; gap: 10px; grid-template-columns: repeat(2, 1fr); }
+  .pg-frame-inner { height: 130px !important; }
+  .pg-close { font-size: 10px; padding: 4px 8px; }
+
+  /* Video gallery overlay */
+  .vg-header { padding: 0 14px; height: 48px; }
+  .vg-title { font-size: 9px; letter-spacing: 1px; }
+  .vg-grid { padding: 14px; grid-template-columns: 1fr; gap: 10px; }
+
+  /* Contact page */
+  #contact-page { padding: 88px 20px 52px; }
+  .contact-layout { grid-template-columns: 1fr; gap: 36px; }
+  .terminal-body { padding: 14px; }
+  .term-input, .term-textarea { font-size: 13px; }
+  .term-submit { font-size: 10px; padding: 10px 14px; }
+  .contact-social { flex-wrap: wrap; gap: 10px; }
 }
