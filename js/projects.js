@@ -107,9 +107,16 @@ window.projectsData = {
     tools: ['Premiere Pro', 'Photoshop', 'After Effects', 'Wordpress'],
   },
   pullboy: {
+    img: 'images/pullboy-1.jpg',
     tag: 'MONTAGE · POST-PRODUCTION · SPORT',
-    title: 'Monteur vidéo — Pull Boy',
+    title: 'Pull Boy',
     desc: 'Post-production complète de vidéos sportives pour la chaîne YouTube Pull Boy. Montage, étalonnage, motion design et gestion des exports finaux.',
+    linkType: 'video',
+    links: [
+      { label: 'Vidéo Pull Boy — 01', url: 'LIEN_PULLBOY_1' },
+      { label: 'Vidéo Pull Boy — 02', url: 'LIEN_PULLBOY_2' },
+      { label: 'Vidéo Pull Boy — 03', url: 'LIEN_PULLBOY_3' },
+    ],
     meta: {
       'PÉRIODE': '2023 — 2024',
       'TYPE': 'Freelance / Montage',
@@ -120,9 +127,16 @@ window.projectsData = {
     tools: ['Premiere Pro', 'After Effects', 'Lightroom'],
   },
   krt: {
+    img: 'images/krt-1.jpg',
     tag: 'E-SPORT · ÉVÉNEMENTIEL · MONTAGE',
-    title: 'Monteur vidéo — KRT Studios',
-    desc: `Montage vidéo événementiel, cast de tournoi e-sport et enregistrement d\'interviews pour KRT Studios. Production live et post-production.`,
+    title: 'KRT Studios',
+    desc: `Montage vidéo événementiel, cast de tournoi e-sport et enregistrement d'interviews pour KRT Studios. Production live et post-production.`,
+    linkType: 'video',
+    links: [
+      { label: 'Monteur vidéo — 01', url: 'https://www.youtube.com/watch?v=mUrKL-exXeg' },
+      { label: 'Monteur vidéo — 02', url: 'https://www.youtube.com/watch?v=hokhw75-UJM' },
+      { label: 'Monteur vidéo — 03', url: 'https://www.youtube.com/watch?v=m2Lh3ZkGImM' },
+    ],
     meta: {
       'PÉRIODE': '2024',
       'TYPE': 'Freelance / Event',
@@ -133,6 +147,7 @@ window.projectsData = {
     tools: ['Premiere Pro', 'After Effects'],
   },
   docGreenzer: {
+    year: '2026', views: '1,4K', videoId: 'xVT-5BexUuc',
     imgs: ['images/projets/greenzer.png', 'images/projets/greenzer2.png', 'images/projets/greenzer3.png', 'images/projets/greenzer4.png', 'images/projets/greenzer5.png'],
     tag: 'YOUTUBE · FILM NARRATIF · 2026',
     title: 'Nostalgia+ — Green Montana',
@@ -143,6 +158,7 @@ window.projectsData = {
     tools: ['Blender', 'Premiere Pro', 'After Effects'],
   },
   docVald: {
+    year: '2026', views: '12K',  videoId: 'mxFWV8hGKhg',
     imgs: ['images/vald/vald-1.jpg', 'images/vald/vald-2.jpg', 'images/vald/vald-3.jpg', 'images/vald/vald-4.jpg', 'images/vald/vald-5.jpg'],
     tag: 'YOUTUBE · FICTION PSYCHOLOGIQUE · 2026',
     title: 'Vald et la malédiction de Vent Brisé',
@@ -153,6 +169,7 @@ window.projectsData = {
     tools: ['Blender', 'Premiere Pro', 'After Effects', 'IA générative'],
   },
   docPretty: {
+    year: '2025', views: '6K',   videoId: '1QS32IuWMHQ',
     imgs: ['images/youtube/prettydollcorpse/pretty-1.jpg', 'images/youtube/prettydollcorpse/pretty-2.jpg', 'images/youtube/prettydollcorpse/pretty-3.jpg', 'images/youtube/prettydollcorpse/pretty-4.jpg', 'images/youtube/prettydollcorpse/pretty-5.jpg'],
     tag: 'YOUTUBE · FICTION NARRATIVE · 2025',
     title: 'Pretty Dollcorpse',
@@ -164,6 +181,7 @@ window.projectsData = {
   },
 
   doc8songs: {
+    year: '2026', views: '400',  videoId: 'bVZNTE-iFhk',
     imgs: ['images/8songs/8songs-1.jpg', 'images/8songs/8songs-2.jpg', 'images/8songs/8songs-3.jpg', 'images/8songs/8songs-4.jpg'],
     tag: 'YOUTUBE · EXPÉRIENCE IMMERSIVE · 2025',
     title: '8 chansons qui TE font culpabiliser',
@@ -175,7 +193,8 @@ window.projectsData = {
   },
   
   docSkyrim: {
-    imgs: ['images/youtube/skyrim/skyrim-1.jpg', 'images/youtube/skyrim/skyrim-2.jpg', 'images/youtube/skyrim/skyrim-3.jpg', 'images/youtube/skyrim/skyrim-4.jpg', 'images/youtube/skyrim/skyrim-5.jpg'],
+    year: '2023', views: '190K', videoId: 'O3mQ-2S25Vo',
+    imgs: ['images/skyrim/skyrim-1.jpg', 'images/skyrim/skyrim-2.jpg', 'images/skyrim/skyrim-3.jpg'],
     tag: 'YOUTUBE · ANALYSE · RÉTRO · 2023',
     title: 'Pourquoi Skyrim reste un chef-d’œuvre',
     desc: `Cette vidéo publiée en 2023 avait pour objectif de revenir sur Skyrim, un jeu devenu culte, pour montrer <strong>pourquoi il restait encore aujourd’hui une œuvre majeure du jeu vidéo</strong>. L’idée n’était pas simplement de recommander un classique, mais d’expliquer ce qui rend ce RPG aussi marquant plus de dix ans après sa sortie : son univers, son sens de l’exploration, sa direction artistique, sa musique et sa capacité rare à créer un sentiment d’immersion durable.<br><br>La vidéo prend la forme d’un commentaire personnel et analytique, à mi-chemin entre rétrospective, vulgarisation et hommage. J’y retrace les grandes forces du jeu, son héritage dans la série The Elder Scrolls, la richesse de certaines quêtes, l’impact de sa bande originale, ainsi que la manière dont Skyrim a marqué toute une génération de joueurs. Le projet repose sur une approche très incarnée, où l’analyse s’appuie autant sur la culture vidéoludique que sur le ressenti du joueur.<br><br>Le projet a été entièrement réalisé seul. J’ai écrit le script, structuré la progression du propos et conçu le montage pour maintenir un équilibre entre information, narration et rythme. <strong>L’enjeu principal était de traiter un sujet très connu sans tomber dans la simple nostalgie</strong>, en proposant une vidéo capable de parler autant à des joueurs de longue date qu’à des personnes découvrant l’importance du jeu.<br><br>Le montage et la post-production ont été réalisés avec la suite Adobe, principalement <strong>Premiere Pro et After Effects</strong>. Le travail s’est concentré sur le rythme, la fluidité entre les séquences de jeu, les transitions et la mise en valeur de l’atmosphère propre à Skyrim.<br><br><strong>Cette vidéo a atteint environ 180 000 vues</strong>, ce qui en fait l’un de mes formats les plus visibles sur ce type de sujet. Elle représente bien ma manière d’aborder la vidéo d’analyse sur YouTube : partir d’un objet culturel populaire, ici un jeu vidéo culte, pour en faire un contenu personnel, immersif et accessible, capable de transmettre à la fois une réflexion et une émotion.`,
@@ -228,6 +247,48 @@ window.projectsData = {
     tools: ['Photoshop', 'Premiere Pro', 'After Effects'],
   },
 };
+
+window.projectsData.editGreenMontana = {
+  tag: 'SHORTFILM · 3D · EDIT · 2024',
+  title: 'EDIT — Green Montana "Obliger"',
+  desc: `Petite vidéo 3D sur le dernier son de Green Montana. Validée par l'artiste.`,
+  videoEmbed: 'https://www.youtube.com/embed/GACfQpkP2YQ?autoplay=1',
+  videoThumb: 'https://img.youtube.com/vi/GACfQpkP2YQ/maxresdefault.jpg',
+  link: 'https://youtu.be/GACfQpkP2YQ',
+  meta: { 'TYPE': 'Edit 3D', 'ARTISTE': 'Green Montana', 'ANNÉE': '2024' },
+  skills: ['Modélisation 3D', 'Motion design', 'Montage'],
+  tools: ['Blender', 'After Effects', 'Premiere Pro'],
+};
+
+window.projectsData.shortfilmCAS = {
+  tag: 'SHORTFILM · CINÉMATIQUE · 2024',
+  title: 'Dreams From Bunker Hills — Cigarettes After Sex',
+  desc: `Petits plans qui capturent une émotion autour d'une chanson.`,
+  videoEmbed: 'https://www.youtube.com/embed/QcyldzA-mPA?autoplay=1',
+  videoThumb: 'https://img.youtube.com/vi/QcyldzA-mPA/maxresdefault.jpg',
+  link: 'https://www.youtube.com/watch?v=QcyldzA-mPA',
+  meta: { 'TYPE': 'Shortfilm', 'ARTISTE': 'Cigarettes After Sex', 'ANNÉE': '2024' },
+  skills: ['Réalisation', 'Montage', 'Direction artistique'],
+  tools: ['Premiere Pro', 'After Effects'],
+};
+
+
+window.projectsData.laVision = {
+  img: 'images/lavision-1.jpg',
+  tag: 'VIDÉO · MÉDIA RAP · 2024',
+  title: 'La Vision',
+  desc: "Créateur de contenu pour le média rap La Vision. Opportunité bénévole qui m'a apporté des contacts et des accès à des évènements.",
+  linkType: 'video',
+  links: [
+    { label: 'La Vision — Reel 01', url: 'https://www.instagram.com/reel/C7uR8BRAF0L/' },
+    { label: 'La Vision — Reel 02', url: 'https://www.instagram.com/reel/C5RCJattus_/' },
+    { label: 'La Vision — Reel 03', url: 'https://www.instagram.com/reel/C5jMSO5Lv3i/' },
+  ],
+  meta: { 'TYPE': 'Contenu bénévole', 'MÉDIA': 'La Vision', 'FORMAT': 'Reels Instagram', 'ANNÉE': '2024' },
+  skills: ['Réalisation', 'Montage', 'Direction artistique'],
+  tools: ['Premiere Pro', 'After Effects'],
+};
+
 
 // ═══════════════════════════════════════════════
 // GALIAN — PROJETS DATA
@@ -390,6 +451,94 @@ window.projectsData.galianAffiches = {
   meta: { 'CLIENT': 'Galian', 'TYPE': 'Print + Digital', 'FORMAT': 'Affiches', 'ANNÉE': '2025–2026' },
   skills: ['Direction artistique', 'Design graphique', 'Print'],
   tools: ['Photoshop'],
+};
+
+// ═══════════════════════════════════════════════
+// NOUVEAUX PROJETS YOUTUBE (PDF)
+// ═══════════════════════════════════════════════
+
+window.projectsData.docJolagreen = {
+  year: '2025', views: '1,5K', videoId: 'siaI74eCyek',
+  imgs: ['images/jolagreen/jolagreen-1.jpg','images/jolagreen/jolagreen-2.jpg','images/jolagreen/jolagreen-3.jpg','images/jolagreen/jolagreen-4.jpg','images/jolagreen/jolagreen-5.jpg'],
+  tag: 'YOUTUBE · DOCUMENTAIRE · 2025',
+  title: 'Jolagreen23',
+  desc: `Cette vidéo propose à la fois un portrait de l'artiste émergent Jolagreen23 et une réflexion plus large sur l'influence du jeu vidéo dans la construction personnelle et artistique. L'objectif était de montrer comment un univers culturel, ici celui du gaming, peut devenir <strong>une véritable direction artistique dans la musique</strong> et influencer la manière dont un artiste construit son identité.<br><br>La première partie retrace la trajectoire de Jolagreen23, de ses débuts dans un home studio créé pendant le confinement jusqu'à l'affirmation progressive d'un univers musical très identifiable. Son style robotique, ses références constantes aux mécaniques de jeux vidéo et sa communication visuelle inspirée de cet imaginaire participent à créer une direction artistique cohérente et originale dans le paysage du rap français.<br><br>La seconde partie élargit le propos en explorant la place du jeu vidéo dans la vie des individus. À travers différents exemples et expériences personnelles, la vidéo interroge la manière dont les mondes virtuels peuvent agir comme des espaces d'évasion, de stimulation ou même de reconstruction émotionnelle, au même titre que d'autres formes d'art comme la musique, le cinéma ou la littérature.<br><br>Le projet a été entièrement réalisé seul. J'ai écrit le script, construit la narration et réalisé le montage avec la suite Adobe, principalement Premiere Pro et After Effects. La vidéo intègre également des éléments de motion design afin d'illustrer certaines informations et renforcer la dimension visuelle du propos.<br><br>Cette vidéo illustre ma démarche de création sur YouTube : partir d'un artiste ou d'un objet culturel précis pour ouvrir une réflexion plus large sur l'imaginaire, les émotions et les influences qui façonnent les œuvres et les personnes qui les consomment.`,
+  link: 'https://youtu.be/siaI74eCyek',
+  meta: { 'ANNÉE': '2025', 'TYPE': 'Portrait / Documentaire', 'PLATEFORME': 'YouTube', 'SUJET': 'Jolagreen23' },
+  skills: ['Écriture', 'Narration', 'Réalisation', 'Montage', 'Motion design'],
+  tools: ['Premiere Pro', 'After Effects'],
+};
+
+window.projectsData.docBabysolo = {
+  year: '2024', views: '900', videoId: 'Bk41C7exT1o',
+  imgs: ['images/babysolo/babysolo-1.jpg','images/babysolo/babysolo-2.jpg','images/babysolo/babysolo-3.jpg','images/babysolo/babysolo-4.jpg','images/babysolo/babysolo-5.jpg'],
+  tag: 'YOUTUBE · MINI-DOCUMENTAIRE · 2024',
+  title: 'Babysolo33',
+  desc: `Cette vidéo prend la forme d'un mini-documentaire consacré à l'artiste émergente Babysolo33. L'objectif était de retracer son parcours artistique et de comprendre comment son univers très personnel s'est construit, depuis son enfance à Biarritz jusqu'à la création de ses premiers projets musicaux. Le projet repose sur un important travail de recherche afin de documenter une artiste encore très peu médiatisée et de mettre en lumière les éléments qui façonnent son identité artistique.<br><br>La vidéo explore notamment la dimension très DIY de sa carrière : une grande partie de sa musique et de ses visuels ont été conçus dans sa chambre, dans une logique proche du journal intime. Son esthétique inspirée des années 2000, son goût pour les récits personnels et son approche très cinématographique de la musique participent à créer un univers singulier, à mi-chemin entre <strong>pop, cloud rap et narration autobiographique</strong>.<br><br>Le documentaire revient également sur plusieurs moments clés de sa trajectoire : ses débuts sur SoundCloud, la promotion atypique de sa musique via Tinder, la création d'un lien direct avec son public à travers des initiatives comme le "Babyphone", ainsi que la construction de son premier projet Sadbaby Confession, pensé comme une forme de teen movie musical.<br><br>Le projet a été entièrement réalisé seul. J'ai effectué la recherche, écrit le script et construit la narration afin de transformer ces éléments biographiques en un récit fluide et immersif. Le montage a été réalisé avec la suite Adobe, principalement Premiere Pro et After Effects, avec un travail particulier sur le rythme narratif et l'intégration d'extraits d'interviews pour enrichir le propos.<br><br>La vidéo a également été remarquée par l'artiste elle-même, qui a <strong>validé le documentaire dans les commentaires</strong>. Cette reconnaissance renforce l'idée que ce travail parvient à retranscrire fidèlement son univers et l'intention artistique derrière son projet.`,
+  link: 'https://youtu.be/Bk41C7exT1o',
+  meta: { 'ANNÉE': '2024', 'TYPE': 'Mini-documentaire', 'PLATEFORME': 'YouTube', 'SUJET': 'Babysolo33' },
+  skills: ['Recherche', 'Écriture', 'Narration', 'Réalisation', 'Montage'],
+  tools: ['Premiere Pro', 'After Effects'],
+};
+
+window.projectsData.docCAS = {
+  year: '2024', views: '4K', videoId: 'sImpo2LK0TI',
+  imgs: ['images/CAS/CAS-1.jpg','images/CAS/CAS-2.jpg','images/CAS/CAS-3.jpg','images/CAS/CAS-4.jpg','images/CAS/CAS-5.jpg'],
+  tag: 'YOUTUBE · DOCUMENTAIRE · 2024',
+  title: 'Cigarettes After Sex',
+  desc: `Cette vidéo prend la forme d'un documentaire consacré au groupe Cigarettes After Sex, avec pour objectif de comprendre comment leur musique parvient à retranscrire des sensations amoureuses avec une intensité aussi singulière. À travers le parcours de Greg Gonzalez et l'histoire du groupe, le projet explore la construction d'un univers musical centré sur l'amour, le souvenir, le désir et la mélancolie.<br><br>Au-delà du simple récit biographique, la vidéo a été pensée comme <strong>une expérience sensorielle</strong>. L'enjeu principal était de retrouver, dans la mise en scène même, quelque chose de l'esthétique du groupe : une ambiance nocturne, douce, sensuelle et contemplative. Le travail ne reposait donc pas uniquement sur l'écriture documentaire, mais aussi sur la façon de faire ressentir visuellement et sonorement ce que la musique de Cigarettes After Sex provoque chez l'auditeur.<br><br>Le projet a été entièrement réalisé seul. J'ai mené la recherche, écrit le script et construit la narration pour transformer l'histoire du groupe en un récit fluide, immersif et émotionnel. Le montage a été réalisé avec la suite Adobe, principalement Premiere Pro et After Effects, avec un soin particulier porté au rythme, aux respirations, aux textures visuelles et à l'articulation entre voix, musique et silence.<br><br>Cette vidéo représente bien ma manière d'aborder le format documentaire sur YouTube : ne pas seulement transmettre des informations, mais <strong>créer une vraie atmosphère autour du sujet</strong>. Ici, le fond et la forme ont été pensés ensemble pour produire une vidéo qui raconte un groupe tout en essayant de faire ressentir, à son échelle, la même douceur mélancolique que sa musique.`,
+  link: 'https://youtu.be/sImpo2LK0TI',
+  meta: { 'ANNÉE': '2024', 'TYPE': 'Documentaire sensoriel', 'PLATEFORME': 'YouTube', 'SUJET': 'Cigarettes After Sex' },
+  skills: ['Écriture', 'Narration', 'Réalisation', 'Montage', 'Direction artistique'],
+  tools: ['Premiere Pro', 'After Effects'],
+};
+
+window.projectsData.docDepression = {
+  year: '2023', views: '1K', videoId: 'D23HXUJrxlg',
+  imgs: ['images/depression/depression-1.jpg','images/depression/depression-2.jpg','images/depression/depression-3.jpg','images/depression/depression-4.jpg','images/depression/depression-5.jpg'],
+  tag: 'YOUTUBE · PERSONNEL · 2023',
+  title: 'Dépression',
+  desc: `Cette vidéo est un projet très personnel dans lequel je parle directement de ma dépression, de ma rupture, de mes habitudes de vie et des épreuves qui ont marqué une période importante de mon parcours. L'objectif n'était pas seulement de raconter des événements, mais de proposer un vrai récit intime sur la <strong>tristesse, la reconstruction, l'amitié, le rapport au bonheur</strong> et la manière dont on réapprend à vivre après avoir traversé une phase sombre.<br><br>C'est sans doute l'un des projets les plus difficiles que j'ai eu à écrire et à réaliser. Le sujet demandait de trouver un équilibre entre sincérité, pudeur et mise en forme, sans tomber dans quelque chose de <strong>trop brut ni de trop romancé</strong>. Cette vidéo représente <strong>une part très fidèle de qui je suis</strong>, de ma vision du monde et de la façon dont certaines épreuves ont transformé ma manière de vivre, de sortir, d'aimer et de créer.<br><br>Le projet a été entièrement réalisé seul. J'ai écrit le texte, pensé la structure en chapitres et conçu la vidéo comme une œuvre introspective portée autant par la parole que par l'ambiance. Une attention particulière a été portée à la mise en scène, avec des plans du quotidien, de la ville, de la voiture, de la salle de sport ou encore de moments partagés avec mes proches, afin d'ancrer le récit dans quelque chose de concret, vivant et personnel.<br><br>Le montage et la post-production ont été réalisés avec la suite Adobe, principalement Premiere Pro et After Effects. Le travail sur la musique, le rythme, les respirations et les images était essentiel pour traduire les variations émotionnelles du récit. L'objectif était de faire ressentir l'état mental raconté, mais aussi le mouvement progressif vers quelque chose de <strong>plus apaisé et plus lumineux</strong>.<br><br>Cette vidéo occupe une place particulière dans mon travail, car elle ne repose pas sur l'analyse d'un artiste ou d'une œuvre extérieure, mais sur ma propre histoire. Elle représente à la fois un exutoire, une prise de parole sincère et une bonne synthèse de ce que j'essaie de créer : des vidéos capables de mêler <strong>émotion, narration, sensibilité visuelle et vérité personnelle</strong>.`,
+  link: 'https://youtu.be/D23HXUJrxlg',
+  meta: { 'ANNÉE': '2023', 'TYPE': 'Introspectif / Personnel', 'PLATEFORME': 'YouTube', 'FORMAT': 'Chapitres' },
+  skills: ['Écriture', 'Réalisation', 'Montage', 'Direction artistique'],
+  tools: ['Premiere Pro', 'After Effects'],
+};
+
+window.projectsData.docGreenzer2 = {
+  year: '2023', views: '20K', videoId: 'gOnbAvSl_os',
+  imgs: ['images/greenzer2/greenzer2-1.jpg','images/greenzer2/greenzer2-2.jpg','images/greenzer2/greenzer2-3.jpg'],
+  tag: 'YOUTUBE · DOCUMENTAIRE · 2023',
+  title: 'Green Montana — Alaska',
+  desc: `Cette vidéo est un documentaire consacré à Alaska, le premier album de Green Montana. L'objectif était de montrer comment ce projet dépasse le simple cadre d'un album de rap pour devenir une véritable expérience sensorielle, entièrement construite autour du ressenti, de la solitude, du froid et de la mélancolie. Plus qu'une analyse classique, la vidéo cherche à expliquer <strong>pourquoi Alaska marque autant par son ambiance que par ses morceaux</strong>.<br><br>Le projet repose sur un important travail de recherche en amont, notamment grâce à des échanges et à une interview du directeur artistique de Green Montana, qui m'ont permis de mieux comprendre la fabrication de l'album, ses intentions visuelles et sa construction émotionnelle. Cette matière a ensuite été intégrée dans une narration pensée pour rendre le documentaire à la fois précis, immersif et sensible.<br><br>Une grande partie du travail a porté sur la mise en scène et l'ambiance générale de la vidéo. L'enjeu était de retrouver, par le montage, le rythme, les transitions et l'univers sonore, la sensation que procure l'écoute de l'album. Le fond et la forme ont donc été pensés ensemble pour prolonger l'identité de Alaska et faire ressentir au spectateur la cohérence artistique du projet.<br><br>Le documentaire a été entièrement réalisé seul, avec la suite Adobe, principalement Premiere Pro et After Effects. J'y ai travaillé l'écriture, le montage, la narration et la direction d'ambiance pour produire un format plus cinématographique que mes vidéos habituelles. La vidéo a ensuite été <strong><strong>validée par Green Montana lui-même ainsi que par son directeur artistique</strong></strong>, ce qui représente une reconnaissance particulièrement importante pour ce projet.<br><br>Cette vidéo occupe une place forte dans mon parcours, car elle synthétise ce que j'aime faire dans mes documentaires : croiser <strong>recherche, sensibilité personnelle et travail d'atmosphère</strong> pour parler d'une œuvre de manière plus immersive et plus émotionnelle.`,
+  link: 'https://youtu.be/gOnbAvSl_os',
+  meta: { 'ANNÉE': '2023', 'TYPE': 'Documentaire musical', 'PLATEFORME': 'YouTube', 'SUJET': 'Green Montana — Alaska' },
+  skills: ['Recherche', 'Écriture', 'Narration', 'Réalisation', 'Montage', 'Direction artistique'],
+  tools: ['Premiere Pro', 'After Effects'],
+};
+
+window.projectsData.docSCH = {
+  year: '2022', views: '6K', videoId: '3D6_L_wJqqk',
+  imgs: ['images/sch/sch-1.jpg'],
+  tag: 'YOUTUBE · DOCUMENTAIRE · 2022',
+  title: 'SCH',
+  desc: `Cette vidéo est un documentaire centré sur l'évolution artistique de SCH, avec l'idée d'analyser la manière dont sa musique, ses thèmes et son interprétation ont changé au fil des années. Le projet s'intéresse autant à son parcours musical qu'à son évolution plus intime : le deuil, la mélancolie, la violence intérieure, puis une forme d'apaisement et de recherche de bonheur dans ses projets plus récents.<br><br>L'objectif était de montrer que l'œuvre de SCH <strong>ne peut pas se résumer à une esthétique froide ou mafieuse</strong>, mais qu'elle est profondément traversée par l'émotion. À travers plusieurs albums et morceaux-clés, la vidéo met en lumière la façon dont il est passé d'un rap de survie, de rage et de mystère à une musique plus lumineuse, plus festive, parfois plus apaisée, sans jamais totalement perdre la noirceur qui a construit son identité.<br><br>Le projet a été entièrement réalisé seul. J'ai écrit le script, structuré la progression du documentaire et construit un récit qui relie l'évolution de sa discographie à celle de son état d'esprit. Le but n'était pas seulement de commenter ses albums, mais de raconter une trajectoire humaine et artistique cohérente, en faisant ressortir les ruptures, les continuités et les émotions qui traversent sa carrière.<br><br>Le montage et la post-production ont été réalisés avec la suite Adobe, principalement Premiere Pro et After Effects. Une attention particulière a été portée à la narration, au rythme et à l'ambiance générale, afin de retrouver ce qui fait la force de SCH : sa capacité à transporter l'auditeur dans <strong>un univers très marqué, souvent cinématographique, entre mélancolie, tension et grandeur</strong>.<br><br>Cette vidéo représente bien ma manière d'aborder le documentaire musical : utiliser un artiste comme point de départ pour <strong>raconter quelque chose de plus large sur les émotions</strong>, les transformations et la façon dont une œuvre évolue avec la vie de celui qui la crée.`,
+  link: 'https://youtu.be/3D6_L_wJqqk',
+  meta: { 'ANNÉE': '2022', 'TYPE': 'Documentaire musical', 'PLATEFORME': 'YouTube', 'SUJET': 'SCH' },
+  skills: ['Écriture', 'Narration', 'Réalisation', 'Montage'],
+  tools: ['Premiere Pro', 'After Effects'],
+};
+
+window.projectsData.docMaes = {
+  year: '2022', views: '130K', videoId: '63m750Xt3rg',
+  imgs: ['images/maes/maes-1.jpg'],
+  tag: 'YOUTUBE · ACTUALITÉ · 2022',
+  title: 'Maes',
+  desc: `Cette vidéo traitait d'un sujet d'actualité autour du rappeur Maes et a rencontré un fort succès sur la chaîne. Elle m'a permis de toucher un public plus large et de comprendre les mécanismes de visibilité liés aux sujets très récents.<br><br>Avec le recul, ce format ne correspond cependant pas à la direction que je souhaite donner à mon travail : le rythme imposé par l'actualité laisse peu de place <strong>à la réflexion, à la mise en scène et à la dimension artistique</strong> que j'essaie d'apporter dans mes vidéos. Cette expérience m'a donc surtout servi de leçon pour mieux définir le type de projets que je souhaite développer à l'avenir.`,
+  link: 'https://youtu.be/63m750Xt3rg',
+  meta: { 'ANNÉE': '2022', 'TYPE': 'Actualité', 'PLATEFORME': 'YouTube', 'SUJET': 'Maes' },
+  skills: ['Écriture', 'Montage', 'Réalisation'],
+  tools: ['Premiere Pro', 'After Effects'],
 };
 
 // ─── GALIAN SUBCATEGORY TABS JS ───────────────

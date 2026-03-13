@@ -227,50 +227,15 @@
   <!-- FEATURED PROJECTS -->
   <section id="featured">
     <div class="section-label">PROJETS SÉLECTIONNÉS</div>
-    <h2 class="section-title reveal">MES <span>TRAVAUX</span></h2>
-    <div class="featured-grid">
-      <div class="project-card reveal" style="transition-delay:0.1s" onclick="openModal(window.projectsData&&window.projectsData.youtube)">
-        <div class="project-img-placeholder"><img src="images/projets/projet-youtube.jpg" alt="Awenzer YouTube" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="project-scan"></div>
-        <div class="project-body">
-          <div class="project-tag">YOUTUBE · DOCUMENTAIRE</div>
-          <h3 class="project-name">Awenzer — Chaîne YouTube</h3>
-          <p class="project-desc">Recherches, worldbuilding, tournage, montage et publication de documentaires et fictions sur l'art. 7 000 abonnés, 400 000 vues.</p>
-          <button class="project-link">VOIR LE PROJET</button>
-        </div>
-      </div>
-      <div class="project-card reveal" style="transition-delay:0.2s" onclick="openModal(window.projectsData&&window.projectsData.galian)">
-        <div class="project-img-placeholder"><img src="images/projets/projet-galian.jpg" alt="Galian" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="project-scan"></div>
-        <div class="project-body">
-          <div class="project-tag">COMMUNICATION · RÉSEAUX</div>
-          <h3 class="project-name">Chargé de comm — Galian</h3>
-          <p class="project-desc">Création de contenus vidéos & photos, gestion réseaux sociaux, emailing et analyses marketing. 2025–2026.</p>
-          <button class="project-link">VOIR LE PROJET</button>
-        </div>
-      </div>
-      <div class="project-card reveal" style="transition-delay:0.3s" onclick="openModal(window.projectsData&&window.projectsData.pullboy)">
-        <div class="project-img-placeholder"><img src="images/projets/projet-pullboy.jpg" alt="Pull Boy" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="project-scan"></div>
-        <div class="project-body">
-          <div class="project-tag">MONTAGE · SPORT</div>
-          <h3 class="project-name">Monteur vidéo — Pull Boy</h3>
-          <p class="project-desc">Post-production complète de vidéos sportives pour la chaîne YouTube Pull Boy. 2023–2024.</p>
-          <button class="project-link">VOIR LE PROJET</button>
-        </div>
-      </div>
-      <div class="project-card reveal" style="transition-delay:0.4s" onclick="openModal(window.projectsData&&window.projectsData.krt)">
-        <div class="project-img-placeholder"><img src="images/projets/projet-krt.jpg" alt="KRT Studios" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="project-scan"></div>
-        <div class="project-body">
-          <div class="project-tag">E-SPORT · MONTAGE</div>
-          <h3 class="project-name">Monteur vidéo — KRT Studios</h3>
-          <p class="project-desc">Montage vidéo, cast de tournoi e-sport et enregistrement d'interviews. 2024.</p>
-          <button class="project-link">VOIR LE PROJET</button>
-        </div>
-      </div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <h2 class="section-title reveal" style="margin-bottom:0;">MES <span>TRAVAUX</span></h2>
+      <button class="featured-refresh-btn reveal" style="transition-delay:0.1s;" onclick="window.refreshFeatured && window.refreshFeatured(true)">
+        <span class="featured-refresh-icon" id="featured-refresh-icon">&#8635;</span>
+        RAFRAÎCHIR
+      </button>
     </div>
-    <div style="text-align:center; margin-top:60px;" class="reveal">
+    <div class="featured-grid" id="featured-grid" style="margin-top:48px;min-height:300px;"></div>
+    <div style="text-align:center;margin-top:60px;" class="reveal">
       <a href="projects.html" class="btn btn-outline">VOIR TOUTE LA GALERIE</a>
     </div>
   </section>
@@ -406,6 +371,66 @@
     </div>
   </footer>
 
+  <!-- ═══ PHOTO GALLERY OVERLAY (musée cyberpunk) ═══ -->
+  <div id="photo-gallery-overlay" class="pg-overlay" onclick="if(event.target===this)closePhotoGallery()">
+    <div class="pg-modal-box">
+    <div class="pg-header">
+      <div class="pg-header-left">
+        <div class="pg-dots">
+          <span onclick="closePhotoGallery()" title="Fermer" style="cursor:pointer;"></span>
+          <span></span><span></span>
+        </div>
+        <span class="pg-title" id="pg-title">GALERIE // AWENZER.EXE</span>
+      </div>
+      <div class="pg-header-right">
+        <span class="pg-counter" id="pg-counter">—</span>
+        <button class="modal-fav-btn gallery-overlay-fav" id="pg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('photo')">♡</button>
+        <button class="pg-close" onclick="closePhotoGallery()">✕ FERMER</button>
+      </div>
+    </div>
+    <div class="pg-gallery-info" id="pg-gallery-info" style="display:none;">
+      <p class="pg-gallery-desc" id="pg-gallery-desc"></p>
+      <div class="pg-gallery-skills" id="pg-gallery-skills"></div>
+    </div>
+    <div class="pg-wall" id="pg-wall"></div>
+    <!-- Lightbox -->
+    <div class="pg-lightbox" id="pg-lightbox">
+      <div class="pg-lightbox-bg" onclick="closeLightbox()"></div>
+      <div class="pg-lightbox-content">
+        <img id="pg-lightbox-img" src="" alt="">
+        <button class="pg-lb-nav pg-lb-prev" id="pg-lb-prev">&#8592;</button>
+        <button class="pg-lb-nav pg-lb-next" id="pg-lb-next">&#8594;</button>
+        <button class="pg-lb-close" onclick="closeLightbox()">✕</button>
+        <div class="pg-lb-counter" id="pg-lb-counter"></div>
+      </div>
+    </div>
+    </div><!-- /pg-modal-box -->
+  </div>
+
+  <!-- ═══ VIDEO GALLERY OVERLAY (futuriste) ═══ -->
+  <div id="video-gallery-overlay" class="vg-overlay" onclick="if(event.target===this)closeVideoGallery()">
+    <div class="vg-modal-box">
+    <div class="vg-header">
+      <div class="vg-header-left">
+        <div class="pg-dots">
+          <span onclick="closeVideoGallery()" title="Fermer" style="cursor:pointer;"></span>
+          <span></span><span></span>
+        </div>
+        <span class="vg-title" id="vg-title">VIDÉOS // AWENZER.EXE</span>
+      </div>
+      <button class="modal-fav-btn gallery-overlay-fav" id="vg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('video')">♡</button>
+      <button class="pg-close" onclick="closeVideoGallery()">✕ FERMER</button>
+    </div>
+    <div class="vg-gallery-info" id="vg-gallery-info" style="display:none;">
+      <p class="vg-gallery-desc" id="vg-gallery-desc"></p>
+      <div class="vg-gallery-skills" id="vg-gallery-skills"></div>
+    </div>
+    <div class="vg-desc" id="vg-desc"></div>
+    <div class="vg-grid" id="vg-grid"></div>
+    </div><!-- /vg-modal-box -->
+  </div>
+
+  <script src="js/gallery.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/main.js"></script>
   <script src="js/minimap.js"></script>
@@ -445,5 +470,155 @@
       </iframe>
     </div>
   </div>
+  <!-- FEATURED RANDOM PROJECTS -->
+  <script>
+  (function() {
+    // Exclus : projets initiaux de l'ancienne page d'accueil + entrées sans valeur d'affichage
+    var EXCLUDED = [
+      'youtube', 'galian', 'pullboy', 'krt',   // anciens projets statiques de la home
+      'generiqueAnime', 'scene3d', 'fiction',   // projets trop vagues / sans image
+      'laVision',                               // galerie vidéo sans image de couverture
+      'galianDA', 'galianSocial',               // doublons internes Galian
+      'galianPosts', 'galianShorts',            // galeries sans thumb utile
+    ];
+
+    function getProjectPool() {
+      if (!window.projectsData) return [];
+      return Object.keys(window.projectsData).filter(function(key) {
+        if (EXCLUDED.indexOf(key) !== -1) return false;
+        var d = window.projectsData[key];
+        return !!(d && d.title);
+      });
+    }
+
+    function getImg(d) {
+      return (d.imgs && d.imgs[0]) || (d.photos && d.photos[0]) || d.videoThumb || d.img || '';
+    }
+
+    function getTag(d) {
+      if (!d.tag) return '';
+      return d.tag.split('\u00b7').slice(0,2).map(function(s){ return s.trim(); }).join(' \u00b7 ');
+    }
+
+    function getDesc(d) {
+      if (!d.desc) return '';
+      var plain = d.desc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+      return plain.length > 120 ? plain.slice(0, 117) + '...' : plain;
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    var lastPick = [];
+
+    function buildCards(grid, picked) {
+      grid.innerHTML = '';
+      picked.forEach(function(key, i) {
+        var d   = window.projectsData[key];
+        var img = getImg(d);
+        var tag = getTag(d);
+        var desc = getDesc(d);
+        var year = d.year || (d.meta && (d.meta['ANNÉE'] || d.meta['PÉRIODE'])) || '';
+
+        var card = document.createElement('div');
+        card.className = 'project-card';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(14px)';
+        card.style.cursor = 'pointer';
+
+        // Assigner l'action au clic selon le type de projet
+        (function(k, data) {
+          if (data.photos) {
+            card.onclick = function(k){ return function(){ window.openPhotoGallery && window.openPhotoGallery(k); }; }(k);
+          } else if (data.links) {
+            card.onclick = function(k){ return function(){ window.openVideoGallery && window.openVideoGallery(k); }; }(k);
+          } else if (data.videoEmbed) {
+            card.onclick = function(k){ return function(){ window.openEmbedPlayer && window.openEmbedPlayer(k); }; }(k);
+          } else {
+            card.onclick = function(d){ return function(){ window.openModal && window.openModal(d); }; }(d);
+          }
+        })(key, d);
+
+        var imgNode = '';
+        if (img) {
+          imgNode = '<img src="' + img + '" alt="" style="width:100%;height:100%;object-fit:cover;">';
+        }
+        card.innerHTML =
+          '<div class="project-img-placeholder">' + imgNode + '</div>'
+          + '<div class="project-scan"></div>'
+          + '<div class="project-body">'
+          +   '<div class="project-tag">' + tag + (year ? ' \u00b7 ' + year : '') + '</div>'
+          +   '<h3 class="project-name">' + (d.title || '') + '</h3>'
+          +   '<p class="project-desc">' + desc + '</p>'
+          +   '<button class="project-link">VOIR LE PROJET</button>'
+          + '</div>';
+
+        grid.appendChild(card);
+
+        setTimeout((function(c){ return function(){
+          c.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+          c.style.opacity = '1';
+          c.style.transform = 'translateY(0)';
+        }; })(card), 40 + i * 90);
+      });
+    }
+
+    window.refreshFeatured = function(animate) {
+      var grid = document.getElementById('featured-grid');
+      if (!grid) return;
+      var pool = getProjectPool();
+      if (pool.length === 0) return;
+
+      var available = pool.filter(function(k){ return lastPick.indexOf(k) === -1; });
+      if (available.length < 4) available = pool;
+      var picked = shuffle(available).slice(0, 4);
+      lastPick = picked;
+
+      if (animate && grid.children.length > 0) {
+        var kids = Array.prototype.slice.call(grid.children);
+        kids.forEach(function(c, i){
+          c.style.transition = 'opacity 0.18s ' + (i*40) + 'ms, transform 0.18s ' + (i*40) + 'ms';
+          c.style.opacity = '0';
+          c.style.transform = 'translateY(10px)';
+        });
+        setTimeout(function(){ buildCards(grid, picked); }, 260);
+      } else {
+        buildCards(grid, picked);
+      }
+
+      // Animate icon
+      var icon = document.getElementById('featured-refresh-icon');
+      if (icon) {
+        icon.style.transition = 'transform 0.45s ease';
+        icon.style.transform = 'rotate(360deg)';
+        setTimeout(function(){
+          icon.style.transition = 'none';
+          icon.style.transform = 'rotate(0deg)';
+        }, 460);
+      }
+    };
+
+    // Init avec retry jusqu'à ce que projectsData soit disponible
+    function init() {
+      if (window.projectsData && Object.keys(window.projectsData).length > 0) {
+        window.refreshFeatured(false);
+      } else {
+        setTimeout(init, 60);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
 </body>
 </html>

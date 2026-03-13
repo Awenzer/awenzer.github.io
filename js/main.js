@@ -483,11 +483,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Render ─────────────────────────────────────
+  // ── renderInventory exposée globalement ──────
   function renderInventory() {
     var inv     = document.getElementById('fav-inventory');
     var grid    = document.getElementById('fav-grid');
     var counter = document.getElementById('fav-count');
     if (!inv || !grid) return;
+
+    // Reload from storage (may have been updated by gallery patch)
+    var stored = loadFavs();
+    Object.keys(stored).forEach(function(k) { favs[k] = stored[k]; });
+    Object.keys(favs).forEach(function(k) { if (!stored[k]) delete favs[k]; });
 
     var keys = Object.keys(favs);
     if (counter) counter.textContent = keys.length;
@@ -503,21 +509,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     keys.forEach(function(key) {
       var data   = favs[key].data;
-      var imgSrc = (data.imgs && data.imgs[0]) || data.img || '';
+      var imgSrc = (data.imgs && data.imgs[0])
+                || (data.photos && data.photos[0])
+                || data.videoThumb
+                || data.img
+                || '';
 
       var thumb = document.createElement('div');
       thumb.className = 'fav-thumb';
 
-      // Image
       var img = imgSrc
         ? '<img src="' + imgSrc + '" alt="" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:1px;pointer-events:none;">'
-        : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(140,70,240,0.4);pointer-events:none;">◈</div>';
+        : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(140,70,240,0.4);pointer-events:none;">\u25c8</div>';
 
-      // Hover menu inline via JS — no CSS overflow issues
       thumb.innerHTML = img
         + '<div class="fav-hover-menu" style="display:none;position:fixed;z-index:99999;background:rgba(5,5,12,0.97);border:1px solid rgba(255,215,0,0.3);box-shadow:0 6px 24px rgba(0,0,0,0.9);padding:5px;border-radius:2px;width:88px;">'
-        +   '<button class="fav-btn-open" style="display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px 6px;font-family:monospace;font-size:8px;letter-spacing:1.5px;color:#c084fc;width:100%;border-radius:1px;">▶ OUVRIR</button>'
-        +   '<button class="fav-btn-del"  style="display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px 6px;font-family:monospace;font-size:8px;letter-spacing:1.5px;color:#ff4444;width:100%;border-radius:1px;">✕ RETIRER</button>'
+        +   '<button class="fav-btn-open" style="display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px 6px;font-family:monospace;font-size:8px;letter-spacing:1.5px;color:#c084fc;width:100%;border-radius:1px;">\u25b6 OUVRIR</button>'
+        +   '<button class="fav-btn-del"  style="display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px 6px;font-family:monospace;font-size:8px;letter-spacing:1.5px;color:#ff4444;width:100%;border-radius:1px;">\u2715 RETIRER</button>'
         + '</div>';
 
       var menu = thumb.querySelector('.fav-hover-menu');
@@ -525,46 +533,67 @@ document.addEventListener('DOMContentLoaded', () => {
       var overThumb = false;
       var overMenu  = false;
 
-      function showMenu() {
-        clearTimeout(hideTimer);
-        var r = thumb.getBoundingClientRect();
-        var menuH = 66;
-        // coller juste au-dessus, 0px de gap
-        var top = r.top - menuH;
-        if (top < 4) top = r.bottom; // pas de place en haut → passe en dessous, 0 gap
-        menu.style.top  = top + 'px';
-        menu.style.left = (r.left + r.width / 2 - 44) + 'px';
-        menu.style.display = 'block';
+      function makeShowMenu(t, m) {
+        return function() {
+          clearTimeout(hideTimer);
+          var r = t.getBoundingClientRect();
+          var top = r.top - 66;
+          if (top < 4) top = r.bottom;
+          m.style.top  = top + 'px';
+          m.style.left = (r.left + r.width / 2 - 44) + 'px';
+          m.style.display = 'block';
+        };
       }
-      function scheduleHide() {
-        clearTimeout(hideTimer);
-        hideTimer = setTimeout(function() {
-          if (!overThumb && !overMenu) menu.style.display = 'none';
-        }, 200);
+      function makeScheduleHide(getOver1, getOver2, m) {
+        return function() {
+          clearTimeout(hideTimer);
+          hideTimer = setTimeout(function() {
+            if (!getOver1() && !getOver2()) m.style.display = 'none';
+          }, 200);
+        };
       }
 
-      thumb.addEventListener('mouseenter', function() { overThumb = true;  showMenu(); });
-      thumb.addEventListener('mouseleave', function() { overThumb = false; scheduleHide(); });
-      menu.addEventListener('mouseenter',  function() { overMenu  = true;  clearTimeout(hideTimer); });
-      menu.addEventListener('mouseleave',  function() { overMenu  = false; scheduleHide(); });
+      // Use closure-safe flag objects
+      var flags = { thumb: false, menu: false };
+      thumb.addEventListener('mouseenter', function() { flags.thumb = true;  makeShowMenu(thumb, menu)(); });
+      thumb.addEventListener('mouseleave', function() { flags.thumb = false; makeScheduleHide(function(){return flags.thumb;}, function(){return flags.menu;}, menu)(); });
+      menu.addEventListener('mouseenter',  function() { flags.menu  = true;  clearTimeout(hideTimer); });
+      menu.addEventListener('mouseleave',  function() { flags.menu  = false; makeScheduleHide(function(){return flags.thumb;}, function(){return flags.menu;}, menu)(); });
 
-      thumb.querySelector('.fav-btn-open').addEventListener('click', function(e) {
-        e.stopPropagation(); menu.style.display = 'none';
-        window.openModal(data);
-      });
-      thumb.querySelector('.fav-btn-del').addEventListener('click', function(e) {
-        e.stopPropagation(); menu.style.display = 'none';
-        delete favs[key]; saveFavs(favs); renderInventory();
-        if (currentModalData && getFavKey(currentModalData) === key) updateFavBtn(currentModalData);
-      });
+      // OUVRIR : modal, photo gallery, vidéo gallery ou embed player
+      (function(d) {
+        thumb.querySelector('.fav-btn-open').addEventListener('click', function(e) {
+          e.stopPropagation(); menu.style.display = 'none';
+          var pKey = d._projectKey;
+          if (d.photos && pKey && window.openPhotoGallery) {
+            window.openPhotoGallery(pKey);
+          } else if (d.links && pKey && window.openVideoGallery) {
+            window.openVideoGallery(pKey);
+          } else if (d.videoEmbed && pKey && window.openEmbedPlayer) {
+            window.openEmbedPlayer(pKey);
+          } else if (window.openModal) {
+            window.openModal(d);
+          }
+        });
+      })(data);
 
-      // Move menu to body so it's never clipped
+      (function(k) {
+        thumb.querySelector('.fav-btn-del').addEventListener('click', function(e) {
+          e.stopPropagation(); menu.style.display = 'none';
+          delete favs[k]; saveFavs(favs); renderInventory();
+          if (currentModalData && getFavKey(currentModalData) === k) updateFavBtn(currentModalData);
+        });
+      })(key);
+
       document.body.appendChild(menu);
       thumb._menu = menu;
-
       grid.appendChild(thumb);
     });
   }
+
+  // Exposer globalement pour le gallery patch
+  window._renderInventory = renderInventory;
+  window._showFavTutorial = showTutorial;
 
   document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
@@ -577,17 +606,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
+
 // ── GALLERY FAV PATCH ──────────────────────────
-// Patch openPhotoGallery et openVideoGallery pour exposer currentModalData
+// Patch openPhotoGallery et openVideoGallery
 (function() {
   var _openPhoto = window.openPhotoGallery;
   var _openVideo = window.openVideoGallery;
+  var STORAGE_KEY  = 'awenzer_favs';
+  var TUTORIAL_KEY = 'awenzer_fav_tutorial_shown';
+
+  function loadFavs() {
+    try { return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; }
+  }
+  function saveFavs(f) {
+    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(f)); } catch(e) {}
+  }
+  function getFavKey(data) {
+    return data && (data.title || data.tag || JSON.stringify(data).slice(0, 40));
+  }
 
   window.openPhotoGallery = function(key) {
     _openPhoto && _openPhoto(key);
     var data = window.projectsData && window.projectsData[key];
     if (data) {
+      // Stocker la clé projectsData pour rouvrir depuis l'inventaire
+      data._projectKey = key;
       window._currentGalleryData = data;
+      window._currentGalleryKey  = key;
       window._currentGalleryType = 'photo';
       updateGalleryFavBtn('photo', data);
     }
@@ -597,21 +642,13 @@ document.addEventListener('DOMContentLoaded', () => {
     _openVideo && _openVideo(key);
     var data = window.projectsData && window.projectsData[key];
     if (data) {
+      data._projectKey = key;
       window._currentGalleryData = data;
+      window._currentGalleryKey  = key;
       window._currentGalleryType = 'video';
       updateGalleryFavBtn('video', data);
     }
   };
-
-  function getFavKey(data) {
-    return data && (data.title || data.tag || JSON.stringify(data).slice(0, 40));
-  }
-  function loadFavs() {
-    try { return JSON.parse(sessionStorage.getItem('awenzer_favs') || '{}'); } catch(e) { return {}; }
-  }
-  function saveFavs(f) {
-    try { sessionStorage.setItem('awenzer_favs', JSON.stringify(f)); } catch(e) {}
-  }
 
   function updateGalleryFavBtn(type, data) {
     var btnId = type === 'photo' ? 'pg-fav-btn' : 'vg-fav-btn';
@@ -619,8 +656,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!btn || !data) return;
     var favs = loadFavs();
     var isFav = !!favs[getFavKey(data)];
-    btn.textContent = isFav ? '♥' : '♡';
-    btn.style.color = isFav ? '#ffd700' : '';
+    btn.textContent = isFav ? '\u2665' : '\u2661';
+    btn.classList.toggle('active', isFav);
     btn.title = isFav ? 'Retirer des favoris' : 'Ajouter aux favoris';
   }
 
@@ -633,51 +670,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (favs[key]) {
       delete favs[key];
+      saveFavs(favs);
     } else {
       favs[key] = { data: data, addedAt: Date.now() };
+      saveFavs(favs);
       if (btn) { btn.style.transform = 'scale(1.5)'; setTimeout(function() { btn.style.transform = ''; }, 200); }
+      // Tutorial au premier ajout
+      if (!sessionStorage.getItem(TUTORIAL_KEY)) {
+        sessionStorage.setItem(TUTORIAL_KEY, '1');
+        if (window._showFavTutorial) window._showFavTutorial();
+      }
     }
-    saveFavs(favs);
     updateGalleryFavBtn(type, data);
-
-    // Re-render inventory if it exists on this page
-    if (typeof renderInventory === 'function') renderInventory();
-    // Trigger a custom event so the inventory module can listen
-    document.dispatchEvent(new CustomEvent('favs-updated'));
+    // Utiliser la vraie renderInventory du module principal
+    if (window._renderInventory) window._renderInventory();
   };
 
-  // Listen for favs-updated to re-render inventory
-  document.addEventListener('favs-updated', function() {
-    var grid    = document.getElementById('fav-grid');
-    var inv     = document.getElementById('fav-inventory');
-    var counter = document.getElementById('fav-count');
-    if (!grid || !inv) return;
-    var favs = loadFavs();
-    var keys = Object.keys(favs);
-    if (counter) counter.textContent = keys.length;
-    inv.classList.toggle('empty', keys.length === 0);
-    // Trigger full re-render via the main inventory module
-    // We dispatch a second event that renderInventory listens to internally
-    // Simpler: just reload the grid content directly
-    grid.innerHTML = '';
-    keys.sort(function(a,b){ return favs[b].addedAt - favs[a].addedAt; });
-    keys.forEach(function(key) {
-      var data   = favs[key].data;
-      var imgSrc = (data.imgs && data.imgs[0]) || (data.photos && data.photos[0]) || data.img || '';
-      var thumb  = document.createElement('div');
-      thumb.className = 'fav-thumb';
-      thumb.innerHTML = imgSrc
-        ? '<img src="' + imgSrc + '" alt="" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;">'
-        : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(140,70,240,0.4);">◈</div>';
-      thumb.title = data.title || '';
-      thumb.addEventListener('click', function() {
-        if (data.photos) { window.openPhotoGallery && window.openPhotoGallery(key); }
-        else if (data.links) { window.openVideoGallery && window.openVideoGallery(key); }
-        else if (window.openModal) { window.openModal(data); }
-      });
-      grid.appendChild(thumb);
-    });
-  });
 })();
 
 // ── HAMBURGER MENU ─────────────────────────────

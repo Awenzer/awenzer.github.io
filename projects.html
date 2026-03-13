@@ -130,7 +130,6 @@
     <div class="category-buttons">
       <button class="cat-btn" data-cat="youtube">▶ YOUTUBE</button>
       <button class="cat-btn" data-cat="video">◈ VIDÉO</button>
-      <button class="cat-btn" data-cat="3d">◆ 3D</button>
       <button class="cat-btn" data-cat="galian">⬡ GALIAN</button>
       <button class="cat-btn" data-cat="graphisme">◎ GRAPHISME</button>
       <button class="cat-btn" data-cat="autres">+ AUTRES</button>
@@ -143,7 +142,6 @@
     <div class="gallery-header" id="gallery-header">
       <button class="gallery-nav-btn" data-cat="youtube">YOUTUBE</button>
       <button class="gallery-nav-btn" data-cat="video">VIDÉO</button>
-      <button class="gallery-nav-btn" data-cat="3d">3D</button>
       <button class="gallery-nav-btn" data-cat="galian">GALIAN</button>
       <button class="gallery-nav-btn" data-cat="graphisme">GRAPHISME</button>
       <button class="gallery-nav-btn" data-cat="autres">AUTRES</button>
@@ -157,61 +155,136 @@
         <span class="g-tag">CHAÎNE PERSONNELLE · DOCUMENTAIRES · FILMS</span>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docGreenzer)">
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docGreenzer)">
           <div class="gallery-item-img">
             <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/greenzer.png" alt="Green Montana" style="width:100%;height:100%;object-fit:cover;">
+            <img src="images/projets/greenzer.png" alt="Green Montana" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docGreenzer">— VUES</div>
           </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name">Film 3D — Green Montana</div>
+            <div class="gallery-item-name">Nostalgia+ — Green Montana</div>
             <div class="gallery-item-meta">AWENZER · 2026 · YOUTUBE</div>
           </div>
         </div>
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docVald)">
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docVald)">
           <div class="gallery-item-img">
             <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/vald.png" alt="Vald" style="width:100%;height:100%;object-fit:cover;">
+            <img src="images/projets/vald.png" alt="Vald" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docVald">— VUES</div>
           </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name">Film — Vald</div>
+            <div class="gallery-item-name">Vald et la malédiction de Vent Brisé</div>
+            <div class="gallery-item-meta">AWENZER · 2026 · YOUTUBE</div>
+          </div>
+        </div>
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docPretty)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/projets/pretty.png" alt="Pretty Dollcorpse" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docPretty">— VUES</div>
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Pretty Dollcorpse</div>
+            <div class="gallery-item-meta">AWENZER · 2025 · YOUTUBE</div>
+          </div>
+        </div>
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.doc8songs)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/8songs/8songs-1.jpg" alt="8 chansons" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-doc8songs">— VUES</div>
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">8 chansons qui TE font culpabiliser</div>
+            <div class="gallery-item-meta">AWENZER · 2026 · YOUTUBE</div>
+          </div>
+        </div>
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docSkyrim)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/skyrim/skyrim-1.jpg" alt="Skyrim" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docSkyrim">— VUES</div>
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Pourquoi Skyrim reste un chef-d'œuvre</div>
+            <div class="gallery-item-meta">AWENZER · 2023 · YOUTUBE</div>
+          </div>
+        </div>
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docJolagreen)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/jolagreen/jolagreen-1.jpg" alt="Jolagreen23" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docJolagreen">— VUES</div>
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Jolagreen23 — Jeu vidéo & identité</div>
+            <div class="gallery-item-meta">AWENZER · 2025 · YOUTUBE</div>
+          </div>
+        </div>
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docBabysolo)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/babysolo/babysolo-1.jpg" alt="Babysolo33" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docBabysolo">— VUES</div>
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Babysolo33 — Portrait</div>
             <div class="gallery-item-meta">AWENZER · 2024 · YOUTUBE</div>
           </div>
         </div>
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docPretty)">
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docCAS)">
           <div class="gallery-item-img">
             <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/pretty.png" alt="Pretty Dollcorpse" style="width:100%;height:100%;object-fit:cover;">
+            <img src="images/CAS/CAS-1.jpg" alt="Cigarettes After Sex" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docCAS">— VUES</div>
           </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name">Film — Pretty Dollcorpse</div>
-            <div class="gallery-item-meta">AWENZER · 2025 · YOUTUBE</div>
+            <div class="gallery-item-name">Cigarettes After Sex</div>
+            <div class="gallery-item-meta">AWENZER · 2024 · YOUTUBE</div>
           </div>
         </div>
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.doc8songs)">
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docDepression)">
           <div class="gallery-item-img">
             <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/8songs.png" alt="8 chansons" style="width:100%;height:100%;object-fit:cover;">
+            <img src="images/depression/depression-1.jpg" alt="Dépression" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docDepression">— VUES</div>
           </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name">8 chansons qui VONT vous détruire</div>
-            <div class="gallery-item-meta">AWENZER · 2026 · YOUTUBE</div>
+            <div class="gallery-item-name">Dépression — Journal intime</div>
+            <div class="gallery-item-meta">AWENZER · 2023 · YOUTUBE</div>
           </div>
         </div>
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docSkyrim)">
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docGreenzer2)">
           <div class="gallery-item-img">
             <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/skyrim.png" alt="Skyrim" style="width:100%;height:100%;object-fit:cover;">
+            <img src="images/greenzer2/greenzer2-1.jpg" alt="Green Montana Alaska" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docGreenzer2">— VUES</div>
           </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name">Documentaire — Skyrim</div>
-            <div class="gallery-item-meta">AWENZER · 2025 · YOUTUBE</div>
+            <div class="gallery-item-name">Green Montana — Alaska</div>
+            <div class="gallery-item-meta">AWENZER · 2023 · YOUTUBE</div>
           </div>
         </div>
-        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
-          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docSCH)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/sch/sch-1.jpg" alt="SCH" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docSCH">— VUES</div>
+          </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
-            <div class="gallery-item-meta">VOTRE CONTENU</div>
+            <div class="gallery-item-name">SCH — Évolution artistique</div>
+            <div class="gallery-item-meta">AWENZER · 2022 · YOUTUBE</div>
+          </div>
+        </div>
+                <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.docMaes)">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
+            <img src="images/maes/maes-1.jpg" alt="Maes" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div class="gallery-item-views" id="views-docMaes">— VUES</div>
+          </div>
+          <div class="gallery-item-body">
+            <div class="gallery-item-name">Maes — Actualité</div>
+            <div class="gallery-item-meta">AWENZER · 2022 · YOUTUBE</div>
           </div>
         </div>
       </div>
@@ -227,23 +300,31 @@
       <!-- SHORTFILM -->
       <div class="gallery-subsection-label">// SHORTFILM</div>
       <div class="gallery-grid" style="margin-bottom:40px;">
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.fiction)">
+
+        <div class="gallery-item" onclick="openEmbedPlayer('editGreenMontana')">
           <div class="gallery-item-img">
-            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/video-court-metrage.jpg" alt="Court-Métrage" style="width:100%;height:100%;object-fit:cover;">
+            <div class="gallery-item-hover-overlay">▶ LIRE LA VIDÉO</div>
+            <img src="https://img.youtube.com/vi/GACfQpkP2YQ/maxresdefault.jpg" alt="Edit Green Montana" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://img.youtube.com/vi/GACfQpkP2YQ/hqdefault.jpg'">
+            <div class="gallery-item-play-badge">▶</div>
           </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name">Fiction Court-Métrage</div>
-            <div class="gallery-item-meta">AWENZER · 2023 · FICTION</div>
+            <div class="gallery-item-name">EDIT — Green Montana "Obliger"</div>
+            <div class="gallery-item-meta">AWENZER · 2024 · 3D</div>
           </div>
         </div>
-        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
-          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
+
+        <div class="gallery-item" onclick="openEmbedPlayer('shortfilmCAS')">
+          <div class="gallery-item-img">
+            <div class="gallery-item-hover-overlay">▶ LIRE LA VIDÉO</div>
+            <img src="https://img.youtube.com/vi/QcyldzA-mPA/maxresdefault.jpg" alt="Dreams From Bunker Hills" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://img.youtube.com/vi/QcyldzA-mPA/hqdefault.jpg'">
+            <div class="gallery-item-play-badge">▶</div>
+          </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
-            <div class="gallery-item-meta">VOTRE CONTENU</div>
+            <div class="gallery-item-name">Dreams From Bunker Hills — CAS</div>
+            <div class="gallery-item-meta">AWENZER · 2024 · CINÉMATIQUE</div>
           </div>
         </div>
+
       </div>
 
       <div class="gallery-subsection-divider"></div>
@@ -251,21 +332,14 @@
       <!-- PULLBOY -->
       <div class="gallery-subsection-label">// PULLBOY</div>
       <div class="gallery-grid" style="margin-bottom:40px;">
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.pullboy)">
+        <div class="gallery-item" onclick="openVideoGallery('pullboy')">
           <div class="gallery-item-img">
-            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/video-pullboy.jpg" alt="Pull Boy" style="width:100%;height:100%;object-fit:cover;">
+            <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
+            <img src="images/pullboy-1.jpg" alt="Pull Boy" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>PULL BOY</div>'">
           </div>
           <div class="gallery-item-body">
             <div class="gallery-item-name">Montage Sportif — Pull Boy</div>
-            <div class="gallery-item-meta">PULL BOY · 2023 · POST-PROD</div>
-          </div>
-        </div>
-        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
-          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
-          <div class="gallery-item-body">
-            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
-            <div class="gallery-item-meta">VOTRE CONTENU</div>
+            <div class="gallery-item-meta">PULL BOY · 2023–2024 · MONTAGE</div>
           </div>
         </div>
       </div>
@@ -275,21 +349,14 @@
       <!-- KRT STUDIOS -->
       <div class="gallery-subsection-label">// KRT STUDIOS</div>
       <div class="gallery-grid" style="margin-bottom:40px;">
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.krt)">
+        <div class="gallery-item" onclick="openVideoGallery('krt')">
           <div class="gallery-item-img">
-            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/video-krt.jpg" alt="KRT Studios" style="width:100%;height:100%;object-fit:cover;">
+            <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
+            <img src="images/krt-1.jpg" alt="KRT Studios" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>KRT STUDIOS</div>'">
           </div>
           <div class="gallery-item-body">
             <div class="gallery-item-name">Cast E-Sport — KRT Studios</div>
-            <div class="gallery-item-meta">KRT STUDIOS · 2024 · EVENT</div>
-          </div>
-        </div>
-        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
-          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
-          <div class="gallery-item-body">
-            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
-            <div class="gallery-item-meta">VOTRE CONTENU</div>
+            <div class="gallery-item-meta">KRT STUDIOS · 2024 · E-SPORT</div>
           </div>
         </div>
       </div>
@@ -299,38 +366,14 @@
       <!-- LA VISION -->
       <div class="gallery-subsection-label">// LA VISION</div>
       <div class="gallery-grid">
-        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
-          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
-          <div class="gallery-item-body">
-            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
-            <div class="gallery-item-meta">VOTRE CONTENU</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3D -->
-    <div class="gallery-content" data-cat="3d">
-      <div class="gallery-title-bar">
-        <h2>MODÉLISATION 3D</h2>
-        <span class="g-tag">BLENDER · SUBSTANCE · RENDU</span>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.scene3d)">
+        <div class="gallery-item" onclick="openVideoGallery('laVision')">
           <div class="gallery-item-img">
-            <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-            <img src="images/projets/3d-scene.jpg" alt="Scène 3D" style="width:100%;height:100%;object-fit:cover;">
+            <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
+            <img src="images/lavision-1.jpg" alt="La Vision" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
           </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name">Scène 3D — Environnement</div>
-            <div class="gallery-item-meta">BLENDER · 2024</div>
-          </div>
-        </div>
-        <div class="gallery-item" style="border-style:dashed; opacity:0.4; cursor:default;">
-          <div class="gallery-item-img" style="font-size:28px; color:var(--gray);">+</div>
-          <div class="gallery-item-body">
-            <div class="gallery-item-name" style="color:var(--gray);">Ajouter un projet</div>
-            <div class="gallery-item-meta">VOTRE CONTENU</div>
+            <div class="gallery-item-name">La Vision</div>
+            <div class="gallery-item-meta">AWENZER · 2024 · VIDÉO</div>
           </div>
         </div>
       </div>
@@ -566,16 +609,25 @@
     </div>
 
   <!-- ═══ PHOTO GALLERY OVERLAY (musée cyberpunk) ═══ -->
-  <div id="photo-gallery-overlay" class="pg-overlay">
+  <div id="photo-gallery-overlay" class="pg-overlay" onclick="if(event.target===this)closePhotoGallery()">
+    <div class="pg-modal-box">
     <div class="pg-header">
       <div class="pg-header-left">
-        <div class="pg-dots"><span></span><span></span><span></span></div>
+        <div class="pg-dots">
+          <span onclick="closePhotoGallery()" title="Fermer" style="cursor:pointer;"></span>
+          <span></span><span></span>
+        </div>
         <span class="pg-title" id="pg-title">GALERIE // AWENZER.EXE</span>
       </div>
       <div class="pg-header-right">
         <span class="pg-counter" id="pg-counter">—</span>
+        <button class="modal-fav-btn gallery-overlay-fav" id="pg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('photo')">♡</button>
         <button class="pg-close" onclick="closePhotoGallery()">✕ FERMER</button>
       </div>
+    </div>
+    <div class="pg-gallery-info" id="pg-gallery-info" style="display:none;">
+      <p class="pg-gallery-desc" id="pg-gallery-desc"></p>
+      <div class="pg-gallery-skills" id="pg-gallery-skills"></div>
     </div>
     <div class="pg-wall" id="pg-wall"></div>
     <!-- Lightbox -->
@@ -589,19 +641,30 @@
         <div class="pg-lb-counter" id="pg-lb-counter"></div>
       </div>
     </div>
+    </div><!-- /pg-modal-box -->
   </div>
 
   <!-- ═══ VIDEO GALLERY OVERLAY (futuriste) ═══ -->
-  <div id="video-gallery-overlay" class="vg-overlay">
+  <div id="video-gallery-overlay" class="vg-overlay" onclick="if(event.target===this)closeVideoGallery()">
+    <div class="vg-modal-box">
     <div class="vg-header">
       <div class="vg-header-left">
-        <div class="pg-dots"><span></span><span></span><span></span></div>
+        <div class="pg-dots">
+          <span onclick="closeVideoGallery()" title="Fermer" style="cursor:pointer;"></span>
+          <span></span><span></span>
+        </div>
         <span class="vg-title" id="vg-title">VIDÉOS // AWENZER.EXE</span>
       </div>
+      <button class="modal-fav-btn gallery-overlay-fav" id="vg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('video')">♡</button>
       <button class="pg-close" onclick="closeVideoGallery()">✕ FERMER</button>
+    </div>
+    <div class="vg-gallery-info" id="vg-gallery-info" style="display:none;">
+      <p class="vg-gallery-desc" id="vg-gallery-desc"></p>
+      <div class="vg-gallery-skills" id="vg-gallery-skills"></div>
     </div>
     <div class="vg-desc" id="vg-desc"></div>
     <div class="vg-grid" id="vg-grid"></div>
+    </div><!-- /vg-modal-box -->
   </div>
 
   <footer>
@@ -654,5 +717,239 @@
       </iframe>
     </div>
   </div>
+  <!-- YOUTUBE VIEWS LOADER -->
+  <script>
+  (function() {
+    // Map: projectKey -> YouTube videoId
+    // Views are loaded via oEmbed (no API key needed) then cached in sessionStorage
+    var videoMap = {
+      docGreenzer:  'xVT-5BexUuc',
+      docVald:      'mxFWV8hGKhg',
+      docPretty:    '1QS32IuWMHQ',
+      doc8songs:    'bVZNTE-iFhk',
+      docSkyrim:    'O3mQ-2S25Vo',
+      docJolagreen: 'siaI74eCyek',
+      docBabysolo:  'Bk41C7exT1o',
+      docCAS:       'sImpo2LK0TI',
+      docDepression:'D23HXUJrxlg',
+      docGreenzer2: 'gOnbAvSl_os',
+      docSCH:       '3D6_L_wJqqk',
+      docMaes:      '63m750Xt3rg',
+    };
+
+    // Fallback static views (shown if fetch fails)
+    var staticViews = {
+      docGreenzer:  '1,4K',  docVald:      '12K',  docPretty:    '6K',
+      doc8songs:    '400',   docSkyrim:    '190K', docJolagreen: '1,5K',
+      docBabysolo:  '900',   docCAS:       '4K',   docDepression:'1K',
+      docGreenzer2: '20K',   docSCH:       '6K',   docMaes:      '130K',
+    };
+
+    function formatViews(n) {
+      if (n >= 1000000) return (n/1000000).toFixed(1).replace('.0','') + 'M';
+      if (n >= 1000)    return Math.round(n/1000) + 'K';
+      return n.toString();
+    }
+
+    function setViewBadge(key, text) {
+      var el = document.getElementById('views-' + key);
+      if (el) el.textContent = '▶ ' + text + ' VUES';
+    }
+
+    // Try YouTube oEmbed to get title (oEmbed doesn't return views)
+    // Use noembed.com as proxy which sometimes includes view data
+    // Fallback: show static values immediately, then try to update
+    function loadViews(key, videoId) {
+      var cacheKey = 'yt_views_' + videoId;
+      var cached = sessionStorage.getItem(cacheKey);
+      if (cached) { setViewBadge(key, cached); return; }
+
+      // Set static immediately
+      setViewBadge(key, staticViews[key] || '—');
+
+      // Try to fetch real view count via a public stats API
+      fetch('https://www.googleapis.com/youtube/v3/videos?part=statistics&id=' + videoId + '&key=AIzaSyD-placeholder')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data && data.items && data.items[0] && data.items[0].statistics) {
+            var views = formatViews(parseInt(data.items[0].statistics.viewCount));
+            sessionStorage.setItem(cacheKey, views);
+            setViewBadge(key, views);
+          }
+        })
+        .catch(function() {
+          // API key not set — keep static value, that's fine
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      Object.keys(videoMap).forEach(function(key) {
+        loadViews(key, videoMap[key]);
+      });
+    });
+  })();
+  </script>
+
+
+  <!-- AUTO-OPEN depuis URL params (ex: projects.html?open=photo&key=galianCinema) -->
+  <script>
+  (function() {
+    function autoOpenFromURL() {
+      var params = new URLSearchParams(window.location.search);
+      var type = params.get('open');
+      var key  = params.get('key');
+      if (!type || !key) return;
+
+      // Mémoriser qu'on vient d'une autre page pour le retour à la fermeture
+      window._galleryReturnURL = document.referrer || 'index.html';
+
+      // Nettoyer l'URL sans recharger
+      try { history.replaceState(null, '', window.location.pathname); } catch(e){}
+
+      // Attendre que projectsData et les fonctions soient disponibles
+      var attempts = 0;
+      function tryOpen() {
+        attempts++;
+        if (attempts > 40) return; // max 2s
+        var ready = window.projectsData && window.projectsData[key];
+        if (!ready) { setTimeout(tryOpen, 50); return; }
+
+        if (type === 'photo' && window.openPhotoGallery) {
+          window.openPhotoGallery(key);
+        } else if (type === 'video' && window.openVideoGallery) {
+          window.openVideoGallery(key);
+        } else if (type === 'embed' && window.openEmbedPlayer) {
+          window.openEmbedPlayer(key);
+        } else {
+          setTimeout(tryOpen, 50);
+        }
+      }
+      setTimeout(tryOpen, 100);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', autoOpenFromURL);
+    } else {
+      autoOpenFromURL();
+    }
+  })();
+  </script>
+
+
+  <script>
+  // Patch close functions : si on vient d'une autre page, y retourner à la fermeture
+  (function() {
+    var _closePhoto = window.closePhotoGallery;
+    var _closeVideo = window.closeVideoGallery;
+
+    window.closePhotoGallery = function() {
+      _closePhoto && _closePhoto();
+      if (window._galleryReturnURL) {
+        var url = window._galleryReturnURL;
+        window._galleryReturnURL = null;
+        setTimeout(function() { window.location.href = url; }, 420);
+      }
+    };
+
+    window.closeVideoGallery = function() {
+      _closeVideo && _closeVideo();
+      if (window._galleryReturnURL) {
+        var url = window._galleryReturnURL;
+        window._galleryReturnURL = null;
+        setTimeout(function() { window.location.href = url; }, 420);
+      }
+    };
+  })();
+  </script>
+
+  <!-- EMBED VIDEO PLAYER MODAL -->
+  <div id="embed-player-overlay" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.92);backdrop-filter:blur(8px);align-items:center;justify-content:center;flex-direction:column;">
+    <div style="position:relative;width:90vw;max-width:900px;">
+      <div style="position:absolute;top:-44px;right:0;display:flex;align-items:center;gap:10px;">
+        <button id="embed-fav-btn" onclick="toggleEmbedFav()" style="background:none;border:1px solid rgba(255,215,0,0.25);color:#5a5a7a;font-size:17px;padding:4px 12px;cursor:pointer;transition:all 0.2s;line-height:1;" title="Ajouter aux favoris">♡</button>
+        <button onclick="closeEmbedPlayer()" style="background:none;border:1px solid rgba(255,255,255,0.2);color:#fff;font-family:monospace;font-size:11px;letter-spacing:2px;padding:6px 14px;cursor:pointer;">✕ FERMER</button>
+      </div>
+      <div id="embed-player-title" style="font-family:monospace;font-size:11px;letter-spacing:3px;color:var(--purple-light);margin-bottom:12px;"></div>
+      <!-- Custom player : miniature + bouton YouTube -->
+      <div id="embed-player-box" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:1px solid var(--border);background:#000;cursor:pointer;" onclick="openEmbedExternal()">
+        <img id="embed-player-thumb" src="" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.85;">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
+          <div id="embed-play-icon" style="width:72px;height:72px;background:rgba(255,0,0,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;transition:transform 0.2s;box-shadow:0 4px 24px rgba(0,0,0,0.6);">▶</div>
+          <div style="font-family:monospace;font-size:11px;letter-spacing:2px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,0.8);text-transform:uppercase;">Ouvrir sur YouTube</div>
+        </div>
+      </div>
+      <div id="embed-player-desc" style="margin-top:12px;font-family:monospace;font-size:11px;color:var(--gray);line-height:1.7;"></div>
+    </div>
+  </div>
+
+  <script>
+  var _currentEmbedKey = null;
+  window.openEmbedPlayer = function(key) {
+    var data = window.projectsData && window.projectsData[key];
+    if (!data) return;
+    _currentEmbedKey = key;
+    var ov    = document.getElementById('embed-player-overlay');
+    var thumb = document.getElementById('embed-player-thumb');
+    var title = document.getElementById('embed-player-title');
+    var desc  = document.getElementById('embed-player-desc');
+    if (thumb) thumb.src = data.videoThumb || '';
+    if (title) title.textContent = (data.title || '').toUpperCase() + ' // AWENZER.EXE';
+    if (desc)  desc.textContent = data.desc || '';
+    ov.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    updateEmbedFavBtn(key);
+  };
+  window.openEmbedExternal = function() {
+    var data = window.projectsData && window.projectsData[_currentEmbedKey];
+    if (data && data.link) window.open(data.link, '_blank', 'noopener');
+  };
+  function getFavKey(data) {
+    return data && (data.title || data.tag || JSON.stringify(data).slice(0, 40));
+  }
+  function loadFavsEmbed() {
+    try { return JSON.parse(sessionStorage.getItem('awenzer_favs') || '{}'); } catch(e) { return {}; }
+  }
+  function saveFavsEmbed(f) {
+    try { sessionStorage.setItem('awenzer_favs', JSON.stringify(f)); } catch(e) {}
+  }
+  function updateEmbedFavBtn(key) {
+    var btn = document.getElementById('embed-fav-btn');
+    if (!btn) return;
+    var data = window.projectsData && window.projectsData[key];
+    if (!data) return;
+    var favs = loadFavsEmbed();
+    var isFav = !!favs[getFavKey(data)];
+    btn.textContent = isFav ? '♥' : '♡';
+    btn.style.color = isFav ? '#ffd700' : '#5a5a7a';
+    btn.style.borderColor = isFav ? 'rgba(255,215,0,0.5)' : 'rgba(255,215,0,0.25)';
+  }
+  window.toggleEmbedFav = function() {
+    if (!_currentEmbedKey) return;
+    var data = window.projectsData && window.projectsData[_currentEmbedKey];
+    if (!data) return;
+    var key = getFavKey(data);
+    var favs = loadFavsEmbed();
+    if (favs[key]) {
+      delete favs[key];
+    } else {
+      favs[key] = { data: data, addedAt: Date.now() };
+      var btn = document.getElementById('embed-fav-btn');
+      if (btn) { btn.style.transform = 'scale(1.4)'; setTimeout(function(){ btn.style.transform=''; }, 200); }
+    }
+    saveFavsEmbed(favs);
+    updateEmbedFavBtn(_currentEmbedKey);
+    document.dispatchEvent(new CustomEvent('favs-updated'));
+  };
+  window.closeEmbedPlayer = function() {
+    var ov = document.getElementById('embed-player-overlay');
+    var thumb = document.getElementById('embed-player-thumb');
+    if (thumb) thumb.src = '';
+    if (ov) ov.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') window.closeEmbedPlayer();
+  });
+  </script>
 </body>
 </html>
