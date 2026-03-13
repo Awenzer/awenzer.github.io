@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWENZER.EXE — Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script>
+    // Hide desktop-only widgets on mobile immediately
+    if (window.innerWidth <= 768) {
+      document.addEventListener('DOMContentLoaded', function() {
+        ['minimap','spotify-player','fav-inventory'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) { el.style.setProperty('display','none','important'); }
+        });
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">AWENZER</a>
+    <ul class="nav-links">
+      <li><a href="index.html#featured">Projets</a></li>
+      <li><a href="index.html#skills">Compétences</a></li>
+      <li><a href="projects.html">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-status">
+      <div class="status-dot"></div>
+      AWENZER.EXE v2.0.26
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <!-- MOBILE NAV DRAWER -->
+  <div class="nav-mobile-drawer" id="nav-mobile-drawer">
+    <a href="index.html#featured">Projets</a>
+    <a href="index.html#skills">Compétences</a>
+    <a href="projects.html">Galerie</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- MINIMAP DRAGGABLE -->
+  <div id="minimap">
+    <div class="minimap-drag-handle" id="minimap-drag-handle" title="Cliquez pour réduire / déplacer">
+      <span class="minimap-label">// MAP</span>
+      <span class="minimap-toggle-icon" id="minimap-toggle-icon">−</span>
+    </div>
+
+    <div class="minimap-body" id="minimap-body">
+      <!-- CANVAS MINIMAP -->
+      <div class="minimap-canvas-wrap">
+        <canvas id="minimap-canvas" width="200" height="160"></canvas>
+        <div class="minimap-canvas-overlay">
+          <div class="minimap-corner tl"></div>
+          <div class="minimap-corner tr"></div>
+          <div class="minimap-corner bl"></div>
+          <div class="minimap-corner br"></div>
+        </div>
+        <div class="minimap-hud-label" id="minimap-hud-label">HERO</div>
+      </div>
+
+      <!-- MISSION HUD -->
+      <div class="minimap-mission">
+        <div class="minimap-mission-title">MISSION // AWENZER</div>
+        <div class="minimap-mission-obj">
+          <span class="minimap-mission-icon">!</span>
+          Chercher un travail dans la créa
+        </div>
+      </div>
+
+      <!-- SOCIAL BUTTONS ROW -->
+      <div class="minimap-social-row">
+        <a href="https://youtube.com/@awenzer" target="_blank" class="minimap-social-btn" title="YouTube @awenzer">
+          ▶ YT
+        </a>
+        <a href="https://instagram.com/awnzer" target="_blank" class="minimap-social-btn" title="Instagram @awnzer">
+          ◈ IG
+        </a>
+        <a href="https://linkedin.com/in/awen-escoulan" target="_blank" class="minimap-social-btn" title="LinkedIn">
+          ⬡ LI
+        </a>
+      </div>
+    </div>
+  </div>
+  <button class="minimap-toggle">▶ MAP</button>
+
+  <!-- PROJECT MODAL -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-corner tl"></div>
+      <div class="modal-corner tr"></div>
+      <div class="modal-corner bl"></div>
+      <div class="modal-corner br"></div>
+      <div class="modal-topbar">
+        <div class="modal-topbar-left">
+          <div class="modal-dot r" onclick="closeModal()" style="cursor:pointer;" title="Fermer"></div>
+          <div class="modal-dot y"></div>
+          <div class="modal-dot g"></div>
+          <span class="modal-topbar-title">PROJET // AWENZER.EXE</span>
+        </div>
+        <a class="modal-link-btn" href="#" target="_blank" rel="noopener" style="display:none;">▶ VOIR SUR YOUTUBE</a>
+        <button class="modal-fav-btn" id="modal-fav-btn" title="Ajouter aux favoris">♡</button>
+        <button class="modal-close-btn" onclick="closeModal()">✕ FERMER</button>
+      </div>
+      <div class="modal-img-area">
+        <div class="modal-img-placeholder">[ IMAGE ddd ]</div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tag"></div>
+        <h2 class="modal-title"></h2>
+        <p class="modal-desc"></p>
+        <div class="modal-meta-grid"></div>
+        <div class="modal-skills-section">
+          <div class="modal-section-label">// COMPÉTENCES MOBILISÉES</div>
+          <div class="modal-tags-list modal-skills-list"></div>
+        </div>
+        <div class="modal-tools-section" style="margin-top:16px;">
+          <div class="modal-section-label">// OUTILS UTILISÉS</div>
+          <div class="modal-tools-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CV MODAL (PDF viewer) -->
+  <div id="cv-modal-overlay" class="modal-overlay">
+    <div class="modal-box" style="max-width:860px; width:95vw;">
+      <div class="modal-corner tl"></div>
+      <div class="modal-corner tr"></div>
+      <div class="modal-corner bl"></div>
+      <div class="modal-corner br"></div>
+      <div class="modal-topbar">
+        <div class="modal-topbar-left">
+          <div class="modal-dot r" onclick="closeCVModal()" style="cursor:pointer;" title="Fermer"></div>
+          <div class="modal-dot y"></div>
+          <div class="modal-dot g"></div>
+          <span class="modal-topbar-title">CV // AWEN ESCOULAN.PDF</span>
+        </div>
+        <button class="modal-close-btn" onclick="closeCVModal()">✕ FERMER</button>
+      </div>
+      <div style="padding:0; background:#0a0a0f;">
+        <iframe src="CV-AWEN-ESCOULAN.pdf" style="width:100%; height:75vh; border:none; display:block;"></iframe>
+      </div>
+      <div style="padding:16px 24px; border-top:1px solid var(--border); display:flex; gap:12px; background:var(--panel);">
+        <a href="CV-AWEN-ESCOULAN.pdf" download class="btn btn-outline" style="font-size:11px; padding:10px 20px;">↓ TÉLÉCHARGER PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div id="hero-video-container" class="hero-video-bg"></div>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="hero-photo-bg">
+  <video autoplay muted loop playsinline src="images/hero/hero-bg.mp4"
+    style="width:100%;height:100%;object-fit:cover;opacity:0.35;filter:grayscale(40%) contrast(1.1);">
+  </video>
+</div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content hero-split">
+
+      <!-- LEFT: name + bio -->
+      <div class="hero-left">
+        <div class="hero-system-text">SYSTEM BOOT // AWENZER.EXE // v2.0.26</div>
+        <h1 class="hero-name">
+          <span class="hero-name-glitch-wrap">
+            <span class="name-real">AWEN<br><span style="color:var(--purple-light)">ESCOULAN</span></span>
+            <span class="name-alter">AWENZER</span>
+          </span>
+        </h1>
+        <div class="hero-alias">// AWENZER //</div>
+        <p class="hero-desc">
+          Créateur de contenu & <em>directeur artistique</em> — vidéo, motion design, 3D.
+          Storyteller visuel avec <em>7 000 abonnés</em> et <em>400 000 vues</em>.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num" data-count="7000" data-suffix="">0</div>
+            <div class="stat-label">ABONNÉS YOUTUBE</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" data-count="400000" data-suffix="">0</div>
+            <div class="stat-label">VUES TOTALES</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">ANS D'EXPÉRIENCE</div>
+          </div>
+        </div>
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-primary">VOIR MES PROJETS</a>
+          <a href="contact.html" class="btn btn-outline">ME CONTACTER</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: photo -->
+      <div class="hero-right">
+        <div class="hero-portrait">
+          <div class="hero-portrait-frame">
+            <div class="portrait-scan"></div>
+            <img id="hero-portrait-img" src="images/hero/portrait.jpg" alt="Awen Escoulan" />
+          </div>
+          <div class="hero-portrait-tag">// AWEN ESCOULAN</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section id="featured">
+    <div class="section-label">PROJETS SÉLECTIONNÉS</div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <h2 class="section-title reveal" style="margin-bottom:0;">MES <span>TRAVAUX</span></h2>
+      <button class="featured-refresh-btn reveal" style="transition-delay:0.1s;" onclick="window.refreshFeatured && window.refreshFeatured(true)">
+        <span class="featured-refresh-icon" id="featured-refresh-icon">&#8635;</span>
+        RAFRAÎCHIR
+      </button>
+    </div>
+    <div class="featured-grid" id="featured-grid" style="margin-top:48px;min-height:300px;"></div>
+    <div style="text-align:center;margin-top:60px;" class="reveal">
+      <a href="projects.html" class="btn btn-outline">VOIR TOUTE LA GALERIE</a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">COMPÉTENCES</div>
+    <h2 class="section-title reveal">MES <span>OUTILS</span></h2>
+    <div class="skills-layout">
+      <div class="skills-software reveal-left">
+        <h3>// LOGICIELS</h3>
+        <div class="software-grid">
+          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · ADOBE',title:'Premiere Pro',desc:'Montage vidéo professionnel — outil principal de toute la chaîne de post-production.',meta:{TYPE:'NLE / Montage',ÉDITEUR:'Adobe',MAÎTRISE:'Expert'},skills:['Montage','Color grading','Export'],tools:['Premiere Pro']})">
+            <div class="sw-icon">Pr</div><div class="sw-name">PREMIERE PRO</div>
+          </div>
+          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · ADOBE',title:'Photoshop',desc:'Retouche photo, création de visuels et graphisme pour tous supports print et digital.',meta:{TYPE:'Retouche / Graphisme',ÉDITEUR:'Adobe',MAÎTRISE:'Avancé'},skills:['Retouche','Compositing','Design'],tools:['Photoshop']})">
+            <div class="sw-icon">Ps</div><div class="sw-name">PHOTOSHOP</div>
+          </div>
+          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · ADOBE',title:'After Effects',desc:'Motion design, animation graphique, VFX et titres animés.',meta:{TYPE:'Motion design',ÉDITEUR:'Adobe',MAÎTRISE:'Avancé'},skills:['Animation','Motion design','VFX'],tools:['After Effects']})">
+            <div class="sw-icon" style="color:var(--accent)">Ae</div><div class="sw-name">AFTER EFFECTS</div>
+          </div>
+          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · TEXTURING',title:'Substance',desc:'Texturing et création de matériaux PBR pour les productions 3D.',meta:{TYPE:'Texturing 3D',ÉDITEUR:'Adobe',MAÎTRISE:'Intermédiaire'},skills:['Texturing','Matériaux PBR'],tools:['Substance']})">
+            <div class="sw-icon" style="color:#ff6b35">S</div><div class="sw-name">SUBSTANCE</div>
+          </div>
+          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · 3D',title:'Blender',desc:'Modélisation 3D, rigging, animation et rendu cycles.',meta:{TYPE:'3D / Rendu',ÉDITEUR:'Blender Foundation',MAÎTRISE:'Intermédiaire'},skills:['Modélisation','Rendu','Animation 3D'],tools:['Blender']})">
+            <div class="sw-icon" style="color:#e8602c">Bl</div><div class="sw-name">BLENDER</div>
+          </div>
+          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · ADOBE',title:'Lightroom',desc:'Étalonnage photo et gestion de catalogues.',meta:{TYPE:'Photo / Étalonnage',ÉDITEUR:'Adobe',MAÎTRISE:'Avancé'},skills:['Étalonnage','Gestion catalogue'],tools:['Lightroom']})">
+            <div class="sw-icon" style="color:var(--accent)">Lrc</div><div class="sw-name">LIGHTROOM</div>
+          </div>
+          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · WEB',title:'WordPress',desc:'Création et gestion de sites web avec WordPress.',meta:{TYPE:'CMS / Web',ÉDITEUR:'WordPress.org',MAÎTRISE:'Intermédiaire'},skills:['CMS','Gestion de contenu'],tools:['WordPress']})">
+            <div class="sw-icon" style="color:#21759b">Wp</div><div class="sw-name">WORDPRESS</div>
+          </div>
+          <div class="sw-item" style="border-style:dashed; opacity:0.4; cursor:default;">
+            <div class="sw-icon" style="font-size:18px; color:var(--gray)">+</div>
+            <div class="sw-name">TON OUTIL</div>
+          </div>
+        </div>
+
+        <div style="margin-top:40px;">
+          <h3 style="margin-bottom:20px;">// SOFT SKILLS</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Créativité</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Narration</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Curiosité</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Esprit critique</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Autonomie</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Persévérance</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Rigueur</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Adaptabilité</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Storytelling</span>
+            <span style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--gray);padding:6px 14px;border:1px solid rgba(140,70,240,0.2);letter-spacing:1px;">Gestion du temps</span>
+          </div>
+        </div>
+
+        <!-- CV DOWNLOAD -->
+        <div style="margin-top:40px; padding:24px; border:1px solid rgba(140,70,240,0.3); background:rgba(140,70,240,0.04);">
+          <div style="font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:700; color:var(--purple-light); letter-spacing:3px; margin-bottom:16px;">// MON CV</div>
+          <p style="font-size:14px; color:var(--gray); margin-bottom:20px; line-height:1.6;">Visualisez ou téléchargez mon curriculum vitae complet.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <button onclick="openCVModal()" class="btn btn-primary" style="font-size:11px; padding:12px 24px;">
+              ◎ VISUALISER LE CV
+            </button>
+            <a href="CV-AWEN-ESCOULAN.pdf" download class="btn btn-outline" style="font-size:11px; padding:12px 24px;">
+              ↓ TÉLÉCHARGER PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-bars reveal">
+        <h3>// HARD SKILLS</h3>
+
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · VIDÉO',title:'Réalisation vidéo',desc:'Direction complète de productions vidéo : casting, tournage, direction technique et artistique.',meta:{NIVEAU:'Expert',EXPÉRIENCE:'6+ ans'},skills:['Tournage','Direction artistique','Cadrage','Lumière'],tools:['Premiere Pro','After Effects','Lightroom']})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Réalisation vidéo</span><span class="skill-bar-pct">95%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95%"></div></div>
+        </div>
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · POST-PROD',title:'Montage vidéo',desc:'Post-production professionnelle : montage, étalonnage, sound design et exports multi-formats.',meta:{NIVEAU:'Expert',EXPÉRIENCE:'6+ ans'},skills:['Montage','Étalonnage','Sound design'],tools:['Premiere Pro','After Effects']})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Montage vidéo</span><span class="skill-bar-pct">92%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92%"></div></div>
+        </div>
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · SCRIPT',title:'Écriture de script',desc:'Écriture de scénarios, narration documentaire et création de structures narratives visuelles.',meta:{NIVEAU:'Avancé',EXPÉRIENCE:'4+ ans'},skills:['Scénarisation','Narration','Worldbuilding','Structure narrative'],tools:[]})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Écriture de script</span><span class="skill-bar-pct">88%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
+        </div>
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · DA',title:'Direction artistique',desc:'Définition de l\'identité visuelle, direction de shooting, création de chartes graphiques.',meta:{NIVEAU:'Avancé',EXPÉRIENCE:'4+ ans'},skills:['Identité visuelle','Charte graphique','Direction de shooting'],tools:['Photoshop','After Effects']})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Direction artistique</span><span class="skill-bar-pct">88%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
+        </div>
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · MOTION',title:'Motion design',desc:'Animation graphique, titres cinématiques, motion graphics pour productions vidéo.',meta:{NIVEAU:'Avancé',EXPÉRIENCE:'3+ ans'},skills:['Animation','Typography','VFX léger'],tools:['After Effects','Premiere Pro']})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Motion design</span><span class="skill-bar-pct">80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80%"></div></div>
+        </div>
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · 3D',title:'Modélisation 3D',desc:'Modélisation, texturing et rendu 3D sous Blender et Substance.',meta:{NIVEAU:'Intermédiaire',EXPÉRIENCE:'2+ ans'},skills:['Modélisation','Texturing','Rendu'],tools:['Blender','Substance']})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Modélisation 3D</span><span class="skill-bar-pct">72%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="72%"></div></div>
+        </div>
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · COULEUR',title:'Colorimétrie',desc:'Étalonnage couleur de photos et vidéos, création de LUTs et directions artistiques chromatiques.',meta:{NIVEAU:'Avancé',EXPÉRIENCE:'4+ ans'},skills:['Étalonnage','LUTs','Color grading'],tools:['Premiere Pro','Lightroom']})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Colorimétrie</span><span class="skill-bar-pct">85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div>
+        </div>
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · CONTENU',title:'Création de contenu',desc:'Stratégie et exécution de contenu multi-plateforme : YouTube, Instagram, LinkedIn.',meta:{NIVEAU:'Expert',EXPÉRIENCE:'6+ ans'},skills:['Scripting','Storytelling','SEO YouTube'],tools:['Premiere Pro','Photoshop','Lightroom']})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Création de contenu</span><span class="skill-bar-pct">96%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="96%"></div></div>
+        </div>
+        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · DIGITAL',title:'Stratégie contenu digital',desc:'Analyse des performances, planification éditoriale et optimisation des canaux digitaux.',meta:{NIVEAU:'Intermédiaire',EXPÉRIENCE:'3+ ans'},skills:['Analytics','Planification','SEO','Community management'],tools:['WordPress']})">
+          <div class="skill-bar-header"><span class="skill-bar-name">Stratégie contenu digital</span><span class="skill-bar-pct">78%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78%"></div></div>
+        </div>
+
+        <div style="margin-top:48px; padding:24px; border:1px solid var(--border); background:rgba(140,70,240,0.03);">
+          <div style="font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:700; color:var(--accent); letter-spacing:3px; margin-bottom:16px;">// FORMATIONS</div>
+          <div style="margin-bottom:16px;">
+            <div style="font-family:'Orbitron',monospace; font-size:14px; color:var(--white); margin-bottom:4px;">Master Direction Artistique</div>
+            <div style="font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:600; color:var(--purple-light);">My Digital School Rennes · 2025–2026</div>
+          </div>
+          <div>
+            <div style="font-family:'Orbitron',monospace; font-size:14px; color:var(--white); margin-bottom:4px;">BUT Métiers du Multimédia & Internet</div>
+            <div style="font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:600; color:var(--purple-light);">IUT Lannion · 2022–2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">AWENZER.EXE</div>
+    <div class="footer-copy">© 2026 AWEN ESCOULAN — TOUS DROITS RÉSERVÉS</div>
+    <div class="footer-links">
+      <a href="https://youtube.com/@awenzer" target="_blank">YOUTUBE</a>
+      <a href="https://instagram.com/awnzer" target="_blank">INSTAGRAM</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </footer>
+
+  <!-- ═══ PHOTO GALLERY OVERLAY (musée cyberpunk) ═══ -->
+  <div id="photo-gallery-overlay" class="pg-overlay" onclick="if(event.target===this)closePhotoGallery()">
+    <div class="pg-modal-box">
+    <div class="pg-header">
+      <div class="pg-header-left">
+        <div class="pg-dots">
+          <span onclick="closePhotoGallery()" title="Fermer" style="cursor:pointer;"></span>
+          <span></span><span></span>
+        </div>
+        <span class="pg-title" id="pg-title">GALERIE // AWENZER.EXE</span>
+      </div>
+      <div class="pg-header-right">
+        <span class="pg-counter" id="pg-counter">—</span>
+        <button class="modal-fav-btn gallery-overlay-fav" id="pg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('photo')">♡</button>
+        <button class="pg-close" onclick="closePhotoGallery()">✕ FERMER</button>
+      </div>
+    </div>
+    <div class="pg-gallery-info" id="pg-gallery-info" style="display:none;">
+      <p class="pg-gallery-desc" id="pg-gallery-desc"></p>
+      <div class="pg-gallery-skills" id="pg-gallery-skills"></div>
+    </div>
+    <div class="pg-wall" id="pg-wall"></div>
+    <!-- Lightbox -->
+    <div class="pg-lightbox" id="pg-lightbox">
+      <div class="pg-lightbox-bg" onclick="closeLightbox()"></div>
+      <div class="pg-lightbox-content">
+        <img id="pg-lightbox-img" src="" alt="">
+        <button class="pg-lb-nav pg-lb-prev" id="pg-lb-prev">&#8592;</button>
+        <button class="pg-lb-nav pg-lb-next" id="pg-lb-next">&#8594;</button>
+        <button class="pg-lb-close" onclick="closeLightbox()">✕</button>
+        <div class="pg-lb-counter" id="pg-lb-counter"></div>
+      </div>
+    </div>
+    </div><!-- /pg-modal-box -->
+  </div>
+
+  <!-- ═══ VIDEO GALLERY OVERLAY (futuriste) ═══ -->
+  <div id="video-gallery-overlay" class="vg-overlay" onclick="if(event.target===this)closeVideoGallery()">
+    <div class="vg-modal-box">
+    <div class="vg-header">
+      <div class="vg-header-left">
+        <div class="pg-dots">
+          <span onclick="closeVideoGallery()" title="Fermer" style="cursor:pointer;"></span>
+          <span></span><span></span>
+        </div>
+        <span class="vg-title" id="vg-title">VIDÉOS // AWENZER.EXE</span>
+      </div>
+      <button class="modal-fav-btn gallery-overlay-fav" id="vg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('video')">♡</button>
+      <button class="pg-close" onclick="closeVideoGallery()">✕ FERMER</button>
+    </div>
+    <div class="vg-gallery-info" id="vg-gallery-info" style="display:none;">
+      <p class="vg-gallery-desc" id="vg-gallery-desc"></p>
+      <div class="vg-gallery-skills" id="vg-gallery-skills"></div>
+    </div>
+    <div class="vg-desc" id="vg-desc"></div>
+    <div class="vg-grid" id="vg-grid"></div>
+    </div><!-- /vg-modal-box -->
+  </div>
+
+  <script src="js/gallery.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/minimap.js"></script>
+
+
+
+
+  <!-- FAVORITES INVENTORY -->
+  <div id="fav-inventory" class="fav-inventory empty">
+    <div class="fav-inventory-header" id="fav-inv-handle">
+      <span class="fav-inv-icon">◈</span>
+      <span class="fav-inv-title">FAVORIS</span>
+      <span class="fav-inv-count" id="fav-count">0</span>
+      <button class="fav-inv-toggle" id="fav-inv-toggle">−</button>
+    </div>
+    <div id="fav-inv-body">
+      <div class="fav-inv-grid-scroll">
+        <div class="fav-inv-grid" id="fav-grid">
+          <div class="fav-inv-empty">// Aucun favori</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SPOTIFY FLOATING PLAYER -->
+  <div id="spotify-player" class="spotify-float">
+    <div class="spotify-float-bar" id="spotify-drag-handle">
+      <span class="spotify-float-icon">♪</span>
+      <span class="spotify-float-label">OBLIGER — GREEN MONTANA</span>
+      <button class="spotify-float-toggle" id="spotify-toggle" title="Réduire">▼</button>
+    </div>
+    <div class="spotify-float-content" id="spotify-content">
+      <iframe
+        src="https://open.spotify.com/embed/track/4jxX1SYeB6AQTOdtOwr2hg?utm_source=generator&theme=0"
+        width="320" height="80" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+  <!-- FEATURED RANDOM PROJECTS -->
+  <script>
+  (function() {
+    // Exclus : projets initiaux de l'ancienne page d'accueil + entrées sans valeur d'affichage
+    var EXCLUDED = [
+      'youtube', 'galian', 'pullboy', 'krt',   // anciens projets statiques de la home
+      'generiqueAnime', 'scene3d', 'fiction',   // projets trop vagues / sans image
+      'laVision',                               // galerie vidéo sans image de couverture
+      'galianDA', 'galianSocial',               // doublons internes Galian
+      'galianPosts', 'galianShorts',            // galeries sans thumb utile
+    ];
+
+    function getProjectPool() {
+      if (!window.projectsData) return [];
+      return Object.keys(window.projectsData).filter(function(key) {
+        if (EXCLUDED.indexOf(key) !== -1) return false;
+        var d = window.projectsData[key];
+        return !!(d && d.title);
+      });
+    }
+
+    function getImg(d) {
+      return (d.imgs && d.imgs[0]) || (d.photos && d.photos[0]) || d.videoThumb || d.img || '';
+    }
+
+    function getTag(d) {
+      if (!d.tag) return '';
+      return d.tag.split('\u00b7').slice(0,2).map(function(s){ return s.trim(); }).join(' \u00b7 ');
+    }
+
+    function getDesc(d) {
+      if (!d.desc) return '';
+      var plain = d.desc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+      return plain.length > 120 ? plain.slice(0, 117) + '...' : plain;
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    var lastPick = [];
+
+    function buildCards(grid, picked) {
+      grid.innerHTML = '';
+      picked.forEach(function(key, i) {
+        var d   = window.projectsData[key];
+        var img = getImg(d);
+        var tag = getTag(d);
+        var desc = getDesc(d);
+        var year = d.year || (d.meta && (d.meta['ANNÉE'] || d.meta['PÉRIODE'])) || '';
+
+        var card = document.createElement('div');
+        card.className = 'project-card';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(14px)';
+        card.style.cursor = 'pointer';
+
+        // Assigner l'action au clic selon le type de projet
+        (function(k, data) {
+          if (data.photos) {
+            card.onclick = function(k){ return function(){ window.openPhotoGallery && window.openPhotoGallery(k); }; }(k);
+          } else if (data.links) {
+            card.onclick = function(k){ return function(){ window.openVideoGallery && window.openVideoGallery(k); }; }(k);
+          } else if (data.videoEmbed) {
+            card.onclick = function(k){ return function(){ window.openEmbedPlayer && window.openEmbedPlayer(k); }; }(k);
+          } else {
+            card.onclick = function(d){ return function(){ window.openModal && window.openModal(d); }; }(d);
+          }
+        })(key, d);
+
+        var imgNode = '';
+        if (img) {
+          imgNode = '<img src="' + img + '" alt="" style="width:100%;height:100%;object-fit:cover;">';
+        }
+        card.innerHTML =
+          '<div class="project-img-placeholder">' + imgNode + '</div>'
+          + '<div class="project-scan"></div>'
+          + '<div class="project-body">'
+          +   '<div class="project-tag">' + tag + (year ? ' \u00b7 ' + year : '') + '</div>'
+          +   '<h3 class="project-name">' + (d.title || '') + '</h3>'
+          +   '<p class="project-desc">' + desc + '</p>'
+          +   '<button class="project-link">VOIR LE PROJET</button>'
+          + '</div>';
+
+        grid.appendChild(card);
+
+        setTimeout((function(c){ return function(){
+          c.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+          c.style.opacity = '1';
+          c.style.transform = 'translateY(0)';
+        }; })(card), 40 + i * 90);
+      });
+    }
+
+    window.refreshFeatured = function(animate) {
+      var grid = document.getElementById('featured-grid');
+      if (!grid) return;
+      var pool = getProjectPool();
+      if (pool.length === 0) return;
+
+      var available = pool.filter(function(k){ return lastPick.indexOf(k) === -1; });
+      if (available.length < 4) available = pool;
+      var picked = shuffle(available).slice(0, 4);
+      lastPick = picked;
+
+      if (animate && grid.children.length > 0) {
+        var kids = Array.prototype.slice.call(grid.children);
+        kids.forEach(function(c, i){
+          c.style.transition = 'opacity 0.18s ' + (i*40) + 'ms, transform 0.18s ' + (i*40) + 'ms';
+          c.style.opacity = '0';
+          c.style.transform = 'translateY(10px)';
+        });
+        setTimeout(function(){ buildCards(grid, picked); }, 260);
+      } else {
+        buildCards(grid, picked);
+      }
+
+      // Animate icon
+      var icon = document.getElementById('featured-refresh-icon');
+      if (icon) {
+        icon.style.transition = 'transform 0.45s ease';
+        icon.style.transform = 'rotate(360deg)';
+        setTimeout(function(){
+          icon.style.transition = 'none';
+          icon.style.transform = 'rotate(0deg)';
+        }, 460);
+      }
+    };
+
+    // Init avec retry jusqu'à ce que projectsData soit disponible
+    function init() {
+      if (window.projectsData && Object.keys(window.projectsData).length > 0) {
+        window.refreshFeatured(false);
+      } else {
+        setTimeout(init, 60);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>
