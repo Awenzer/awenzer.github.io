@@ -444,13 +444,13 @@ document.addEventListener('DOMContentLoaded', () => {
     inv.style.left     = r.left + 'px';
     inv.style.top      = r.top  + 'px';
 
-    // Collapse
+    // Collapse — smooth via CSS class
     var collapsed = false;
-    if (toggle) {
+    if (toggle && body) {
       toggle.addEventListener('click', function(e) {
         e.stopPropagation();
         collapsed = !collapsed;
-        body.style.display = collapsed ? 'none' : '';
+        body.classList.toggle('fav-inv-collapsed', collapsed);
         toggle.textContent = collapsed ? '+' : '−';
       });
     }
@@ -676,6 +676,37 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (window.openModal) { window.openModal(data); }
       });
       grid.appendChild(thumb);
+    });
+  });
+})();
+
+// ── HAMBURGER MENU ─────────────────────────────
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn    = document.getElementById('nav-hamburger');
+    var drawer = document.getElementById('nav-mobile-drawer');
+    if (!btn || !drawer) return;
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = drawer.classList.toggle('open');
+      btn.classList.toggle('open', open);
+    });
+
+    // Close on link click
+    drawer.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!btn.contains(e.target) && !drawer.contains(e.target)) {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+      }
     });
   });
 })();

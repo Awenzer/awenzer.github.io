@@ -966,100 +966,281 @@ nav:hover::before {
 /* ── FAVORITES INVENTORY ─────────────────────── */
 .fav-inventory {
   position: fixed;
-  bottom: 160px; right: 24px;
+  bottom: 160px; right: 24px;   /* bien au-dessus du Spotify (~120px hauteur + 16px gap) */
   z-index: 2999;
-  width: 220px;
+  width: 228px;
   background: rgba(8,8,16,0.96);
   border: 1px solid rgba(255,215,0,0.22);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 0 20px rgba(255,215,0,0.04);
   border-radius: 2px;
-  overflow: visible;
-  transition: opacity 0.3s, transform 0.3s;
-  user-select: none;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.fav-inventory::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2px;
-  background:linear-gradient(90deg,#ffd700,rgba(255,215,0,0.2)); z-index:1; border-radius:2px 2px 0 0;
-}
-.fav-inventory.empty { opacity:0; pointer-events:none; transform:translateY(6px); }
+.fav-inventory.empty { opacity: 0; pointer-events: none; transform: translateY(6px); }
 
 .fav-inventory-header {
-  display:flex; align-items:center; gap:7px;
-  padding:7px 10px;
-  background:rgba(255,215,0,0.05);
-  border-bottom:1px solid rgba(255,215,0,0.12);
-  cursor:grab; border-radius:2px 2px 0 0;
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 10px;
+  background: rgba(255,215,0,0.05);
+  border-bottom: 1px solid rgba(255,215,0,0.12);
+  cursor: grab;
+  transition: background 0.2s;
 }
-.fav-inventory-header:active { cursor:grabbing; }
-.fav-inv-icon { font-size:10px; color:#ffd700; }
+.fav-inventory-header:hover { background: rgba(255,215,0,0.09); }
+.fav-inventory-header:active { cursor: grabbing; }
+.fav-inv-icon { font-size: 10px; color: #ffd700; }
 .fav-inv-title {
-  font-family:monospace; font-size:8px; letter-spacing:2.5px; color:#ffd700; flex:1;
+  font-family: var(--font-mono, monospace);
+  font-size: 8px; letter-spacing: 2.5px; color: #ffd700; flex: 1;
 }
 .fav-inv-count {
-  font-family:monospace; font-size:8px; color:var(--gray);
-  background:rgba(255,215,0,0.08); padding:1px 6px;
-  border-radius:8px; border:1px solid rgba(255,215,0,0.15);
+  font-family: var(--font-mono, monospace);
+  font-size: 8px; color: var(--gray);
+  background: rgba(255,215,0,0.08);
+  padding: 1px 6px; border-radius: 8px;
+  border: 1px solid rgba(255,215,0,0.15);
 }
 .fav-inv-toggle {
-  background:none; border:none; cursor:pointer;
-  color:var(--gray); font-size:15px; font-weight:300;
-  line-height:1; padding:0 2px; transition:color 0.2s;
+  background: none; border: none; cursor: pointer;
+  color: var(--gray); font-size: 15px; font-weight: 300;
+  line-height: 1; padding: 0 2px; transition: color 0.2s;
+  flex-shrink: 0;
 }
-.fav-inv-toggle:hover { color:#ffd700; }
+.fav-inv-toggle:hover { color: #ffd700; }
 
-/* scroll wrapper — overflow:visible on grid itself so hover menus aren't clipped */
-.fav-inv-grid-scroll { max-height:240px; overflow-y:auto; overflow-x:visible; }
-.fav-inv-grid-scroll::-webkit-scrollbar { width:2px; }
-.fav-inv-grid-scroll::-webkit-scrollbar-thumb { background:rgba(255,215,0,0.2); }
+/* Body — collapses smoothly */
+#fav-inv-body {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+  max-height: 300px; opacity: 1;
+}
+#fav-inv-body.fav-inv-collapsed { max-height: 0; opacity: 0; }
 
+/* Scroll wrapper — grid stays overflow:visible so hover menus aren't clipped */
+.fav-inv-grid-scroll {
+  max-height: 230px; overflow-y: auto; overflow-x: visible;
+}
+.fav-inv-grid-scroll::-webkit-scrollbar { width: 2px; }
+.fav-inv-grid-scroll::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.2); }
+
+/* Grid */
 .fav-inv-grid {
-  display:flex; flex-wrap:wrap; gap:18px 6px;
-  padding:12px 10px 14px;
-  overflow:visible;
+  display: flex; flex-wrap: wrap; gap: 18px 6px;
+  padding: 12px 10px 14px;
+  overflow: visible;
 }
+
 .fav-inv-empty {
-  font-family:monospace; font-size:8px; color:var(--gray);
-  opacity:0.45; letter-spacing:1.5px; text-align:center;
-  padding:14px 10px; width:100%;
+  font-family: var(--font-mono, monospace);
+  font-size: 8px; color: var(--gray); opacity: 0.45;
+  letter-spacing: 1.5px; text-align: center;
+  padding: 14px 10px; width: 100%;
 }
 
-/* Thumb */
 .fav-thumb {
-  width:60px; height:60px;
-  position:relative; cursor:pointer; flex-shrink:0;
-  background:rgba(140,70,240,0.12);
-  border:1px solid rgba(140,70,240,0.2);
-  border-radius:1px; overflow:visible;
-  transition:border-color 0.15s;
+  width: 48px; height: 48px;
+  position: relative; cursor: pointer; flex-shrink: 0;
+  background: rgba(140,70,240,0.12);
+  border: 1px solid rgba(140,70,240,0.2);
+  overflow: hidden; border-radius: 1px;
+  transition: transform 0.15s, border-color 0.15s;
 }
-.fav-thumb:hover { border-color:#ffd700; }
-
-/* Hover buttons (injected into body via JS) */
-.fav-btn-open:hover { background:rgba(192,132,252,0.15) !important; }
-.fav-btn-del:hover  { background:rgba(255,68,68,0.15) !important; }
+.fav-thumb:hover { transform: scale(1.06); border-color: #ffd700; z-index: 1; }
+.fav-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fav-thumb-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: rgba(140,70,240,0.35);
+}
+/* Remove × on hover */
+.fav-thumb-remove {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: #ff4444;
+  opacity: 0; transition: opacity 0.15s;
+  pointer-events: none;
+}
+.fav-thumb:hover .fav-thumb-remove { opacity: 1; pointer-events: auto; }
 
 /* Fav button inside modal */
 .modal-fav-btn {
-  font-size:17px; background:none; border:none;
-  cursor:pointer; color:var(--gray);
-  padding:4px 8px; transition:all 0.2s; line-height:1;
+  font-size: 17px; background: none; border: none;
+  cursor: pointer; color: var(--gray);
+  padding: 4px 8px; transition: all 0.2s; line-height: 1;
 }
-.modal-fav-btn:hover { color:#ffd700; transform:scale(1.2); }
-.modal-fav-btn.active { color:#ffd700; }
+.modal-fav-btn:hover { color: #ffd700; transform: scale(1.2); }
+.modal-fav-btn.active { color: #ffd700; }
 @keyframes favPop { 0%{transform:scale(1)} 50%{transform:scale(1.6)} 100%{transform:scale(1)} }
-.modal-fav-btn.pop { animation:favPop 0.28s ease; }
+.modal-fav-btn.pop { animation: favPop 0.28s ease; }
 
-/* ── GALLERY FAV BUTTON ──────────────────────── */
-.gallery-fav-btn {
-  background: none;
-  border: 1px solid rgba(255,215,0,0.2);
-  cursor: pointer;
-  color: var(--gray);
-  font-size: 16px;
-  padding: 3px 10px;
-  border-radius: 1px;
-  transition: all 0.2s;
-  line-height: 1;
-  margin-right: 8px;
+/* ── FIRST-SAVE TUTORIAL POPUP ───────────────── */
+.fav-tutorial-popup {
+  position: fixed;
+  bottom: 400px; right: 24px;
+  z-index: 4000;
+  width: 240px;
+  background: #0a0a14;
+  border: 1px solid rgba(255,215,0,0.4);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.8), 0 0 24px rgba(255,215,0,0.1);
+  padding: 16px 18px;
+  border-radius: 2px;
+  animation: tutSlide 0.35s ease;
+  pointer-events: none;
 }
-.gallery-fav-btn:hover { color: #ffd700; border-color: rgba(255,215,0,0.5); transform: scale(1.15); }
+@keyframes tutSlide { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+.fav-tutorial-popup.hide { animation: tutHide 0.3s ease forwards; pointer-events: none; }
+@keyframes tutHide { to{opacity:0;transform:translateY(8px)} }
+.fav-tut-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 9px; letter-spacing: 2px; color: #ffd700;
+  margin-bottom: 8px;
+}
+.fav-tut-body {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px; color: var(--gray); line-height: 1.7;
+}
+.fav-tut-arrow {
+  position: absolute; bottom: -8px; right: 30px;
+  width: 14px; height: 8px; overflow: hidden;
+}
+.fav-tut-arrow::before {
+  content: ''; position: absolute;
+  width: 10px; height: 10px;
+  background: #0a0a14; border: 1px solid rgba(255,215,0,0.4);
+  transform: rotate(45deg); top: -6px; left: 2px;
+}
+
+/* =============================================
+   MOBILE RESPONSIVE — max-width: 768px
+   ============================================= */
+@media (max-width: 768px) {
+
+  /* ── Cursor désactivé sur touch ── */
+  .cursor, .cursor-ring { display: none; }
+  body { cursor: auto; }
+
+  /* ── Nav : hamburger ── */
+  nav { padding: 0 16px; height: 56px; }
+  .nav-links { display: none; }
+  .nav-status { display: none; }
+
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    cursor: pointer;
+    background: none; border: none;
+    padding: 4px;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--purple-light);
+    transition: all 0.25s;
+    border-radius: 1px;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile nav drawer */
+  .nav-mobile-drawer {
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: rgba(5,5,8,0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+    z-index: 999;
+    padding: 0;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+  }
+  .nav-mobile-drawer.open {
+    max-height: 300px;
+    padding: 12px 0 16px;
+  }
+  .nav-mobile-drawer a {
+    display: block;
+    padding: 13px 24px;
+    font-family: var(--font);
+    font-size: 14px; font-weight: 600;
+    color: var(--gray);
+    text-decoration: none;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-left: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-mobile-drawer a:hover,
+  .nav-mobile-drawer a.active-page {
+    color: var(--purple-light);
+    border-left-color: var(--purple-light);
+    background: rgba(140,70,240,0.06);
+  }
+
+  /* ── Minimap + Spotify : cachés sur mobile ── */
+  #minimap { display: none !important; }
+  .spotify-float { display: none !important; }
+  .fav-inventory { display: none !important; }
+
+  /* ── Hero ── */
+  #hero { padding: 80px 20px 60px; min-height: auto; }
+  .hero-split { grid-template-columns: 1fr; gap: 32px; }
+  .hero-left { text-align: center; }
+  .hero-name { font-size: clamp(44px, 14vw, 72px); }
+  .hero-alias { letter-spacing: 5px; font-size: 13px; }
+  .hero-desc { font-size: 15px; margin: 0 auto 32px; }
+  .hero-stats { flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .hero-stat { min-width: 80px; }
+  .hero-cta { flex-direction: column; align-items: center; gap: 12px; }
+  .hero-cta .btn { width: 100%; max-width: 280px; text-align: center; justify-content: center; }
+  .hero-portrait { max-width: 180px; margin: 0 auto; }
+  .hero-system-text { font-size: 10px; letter-spacing: 2px; }
+
+  /* ── Sections générales ── */
+  section { padding: 64px 20px; }
+  .section-label { font-size: 9px; letter-spacing: 3px; }
+  .section-title { font-size: clamp(28px, 8vw, 48px); }
+
+  /* ── Featured projects grid ── */
+  .featured-grid { grid-template-columns: 1fr; gap: 2px; }
+  .project-card { min-height: 220px; }
+
+  /* ── Skills ── */
+  .skills-layout { grid-template-columns: 1fr; gap: 40px; }
+  .software-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  /* ── Modal projet ── */
+  .modal-overlay { padding: 0; align-items: flex-end; }
+  .modal-box {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 8px 8px 0 0;
+    transform: translateY(100%) !important;
+  }
+  .modal-overlay.open .modal-box { transform: translateY(0) !important; }
+  .modal-box.modal-dragged { position: relative !important; transform: none !important; }
+  .modal-topbar { cursor: default; padding: 12px 16px; }
+  .modal-topbar-title { font-size: 9px; letter-spacing: 1.5px; }
+  .modal-img { aspect-ratio: 16/9; }
+  .modal-body { padding: 16px; }
+  .modal-title { font-size: 20px; }
+  .modal-desc { font-size: 14px; }
+  .modal-meta-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .modal-close-btn { font-size: 10px; padding: 5px 10px; }
+
+  /* ── Footer ── */
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+  .footer-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
+}
+
+/* ── Hamburger caché sur desktop ── */
+.nav-hamburger { display: none; }
+.nav-mobile-drawer { display: none; }
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex; }
+  .nav-mobile-drawer { display: block; }
+}

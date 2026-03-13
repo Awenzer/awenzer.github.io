@@ -64,7 +64,17 @@
       <div class="status-dot"></div>
       GALERIE // AWENZER
     </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <!-- MOBILE NAV DRAWER -->
+  <div class="nav-mobile-drawer" id="nav-mobile-drawer">
+    <a href="index.html#featured">Accueil</a>
+    <a href="index.html#skills">Compétences</a>
+    <a href="projects.html" class="active-page">Galerie</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
   <!-- MINIMAP -->
   <div id="minimap">
@@ -553,7 +563,6 @@
       </div>
       <div class="pg-header-right">
         <span class="pg-counter" id="pg-counter">—</span>
-        <button class="gallery-fav-btn" id="pg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('photo')">♡</button>
         <button class="pg-close" onclick="closePhotoGallery()">✕ FERMER</button>
       </div>
     </div>
@@ -578,7 +587,6 @@
         <div class="pg-dots"><span></span><span></span><span></span></div>
         <span class="vg-title" id="vg-title">VIDÉOS // AWENZER.EXE</span>
       </div>
-      <button class="gallery-fav-btn" id="vg-fav-btn" title="Ajouter aux favoris" onclick="toggleGalleryFav('video')">♡</button>
       <button class="pg-close" onclick="closeVideoGallery()">✕ FERMER</button>
     </div>
     <div class="vg-desc" id="vg-desc"></div>
@@ -605,13 +613,18 @@
 
   <!-- FAVORITES INVENTORY -->
   <div id="fav-inventory" class="fav-inventory empty">
-    <div class="fav-inventory-header">
+    <div class="fav-inventory-header" id="fav-inv-handle">
       <span class="fav-inv-icon">◈</span>
       <span class="fav-inv-title">FAVORIS</span>
       <span class="fav-inv-count" id="fav-count">0</span>
+      <button class="fav-inv-toggle" id="fav-inv-toggle">−</button>
     </div>
-    <div class="fav-inv-grid" id="fav-grid">
-      <div class="fav-inv-empty">// Aucun favori</div>
+    <div id="fav-inv-body">
+      <div class="fav-inv-grid-scroll">
+        <div class="fav-inv-grid" id="fav-grid">
+          <div class="fav-inv-empty">// Aucun favori</div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- SPOTIFY FLOATING PLAYER -->
