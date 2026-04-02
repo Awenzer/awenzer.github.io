@@ -11,10 +11,10 @@
   --purple: #8b45f0;
   --purple-dim: #7030c8;
   --purple-light: #c084fc;
-  --accent: #8a8a9a;
+  --accent: #b0b0c8;
   --red: #ff2244;
-  --white: #e8e8f0;
-  --gray: #5a5a7a;
+  --white: #f0f0fa;
+  --gray: #c0c0d8;
   --border: rgba(140, 70, 240, 0.35);
   --border-a: rgba(138, 138, 154, 0.25);
   --glow-p: 0 0 10px rgba(140,70,240,0.7), 0 0 30px rgba(140,70,240,0.25);
@@ -107,7 +107,7 @@ nav::before {
    ============================================= */
 #minimap {
   position: fixed; top: 80px; right: 20px; z-index: 900;
-  width: 200px;
+  width: 160px;
   background: rgba(5,5,8,0.95);
   border: 1px solid var(--border);
   backdrop-filter: blur(20px);
@@ -895,7 +895,7 @@ nav:hover::before {
   position: fixed;
   bottom: 24px; right: 24px;
   z-index: 3000;
-  width: 320px;
+  width: 240px;
   background: #0a0a14;
   border: 1px solid rgba(140,70,240,0.3);
   box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(140,70,240,0.1);
@@ -966,9 +966,9 @@ nav:hover::before {
 /* ── FAVORITES INVENTORY ─────────────────────── */
 .fav-inventory {
   position: fixed;
-  bottom: 160px; right: 24px;   /* bien au-dessus du Spotify (~120px hauteur + 16px gap) */
+  bottom: 130px; right: 24px;
   z-index: 2999;
-  width: 228px;
+  width: 180px;
   background: rgba(8,8,16,0.96);
   border: 1px solid rgba(255,215,0,0.22);
   box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 0 20px rgba(255,215,0,0.04);

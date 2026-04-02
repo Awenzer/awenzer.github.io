@@ -69,6 +69,35 @@ window.openPhotoGallery = function(key) {
     });
   }
 
+  // Liens vidéo optionnels sous les photos (ex: La Vision)
+  if (data.links && data.links.length) {
+    const linksSection = document.createElement('div');
+    linksSection.style.cssText = 'grid-column:1/-1; padding:28px 4px 8px; border-top:1px solid rgba(140,70,240,0.2); margin-top:16px;';
+    linksSection.innerHTML = '<div style="font-family:var(--font-mono,\'Share Tech Mono\',monospace);font-size:10px;color:var(--purple-light,#c084fc);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;">// LIENS VIDÉO</div>';
+    const linksGrid = document.createElement('div');
+    linksGrid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;';
+    data.links.forEach((l, i) => {
+      const isIG = l.url && l.url.includes('instagram.com');
+      const card = document.createElement('a');
+      card.href = l.url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      card.style.cssText = 'display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(140,70,240,0.04);border:1px solid rgba(140,70,240,0.2);text-decoration:none;transition:all 0.2s;';
+      card.onmouseover = () => { card.style.borderColor = 'rgba(192,132,252,0.5)'; card.style.background = 'rgba(140,70,240,0.1)'; };
+      card.onmouseout  = () => { card.style.borderColor = 'rgba(140,70,240,0.2)';  card.style.background = 'rgba(140,70,240,0.04)'; };
+      card.innerHTML = `
+        <div style="width:36px;height:36px;border-radius:50%;background:${isIG ? 'linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)' : 'rgba(140,70,240,0.3)'};display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;flex-shrink:0;">${isIG ? '◈' : '▶'}</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:var(--font,\'Rajdhani\',sans-serif);font-size:13px;font-weight:600;color:#e8e8f0;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${l.label || 'Vidéo ' + (i+1)}</div>
+          <div style="font-family:monospace;font-size:9px;color:var(--gray,#9090b0);letter-spacing:1px;margin-top:2px;">${isIG ? 'INSTAGRAM REEL' : 'YOUTUBE'}</div>
+        </div>
+        <span style="color:var(--purple-light,#c084fc);font-size:14px;flex-shrink:0;">→</span>`;
+      linksGrid.appendChild(card);
+    });
+    linksSection.appendChild(linksGrid);
+    wall.appendChild(linksSection);
+  }
+
   // Open overlay
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -198,8 +227,17 @@ window.openVideoGallery = function(key) {
             onerror="this.src='https://img.youtube.com/vi/${ytId}/hqdefault.jpg'"
             style="width:100%;height:100%;object-fit:cover;display:block;" alt="${link.label || ''}">`;
         } else if (isIG) {
-          // Instagram gradient placeholder (API required for real thumb)
-          thumbHtml = `<div style="width:100%;height:100%;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);display:flex;align-items:center;justify-content:center;font-size:28px;color:rgba(255,255,255,0.6);">◈</div>`;
+          // Instagram — beau placeholder avec numéro et dégradé
+          const isReel = link.url.includes('/reel/');
+          const idMatch = link.url.match(/\/(reel|p)\/([A-Za-z0-9_-]+)/);
+          const shortId = idMatch ? idMatch[2].slice(0,8) : String(i+1).padStart(2,'0');
+          const numStr = String(i+1).padStart(2,'0');
+          thumbHtml = `<div style="width:100%;height:100%;background:linear-gradient(145deg,#0d0020 0%,#2d0b4e 45%,#6b1a8c 80%,#c2185b 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,0.025) 10px,rgba(255,255,255,0.025) 11px);"></div>
+            <div style="position:absolute;top:10px;left:12px;font-family:monospace;font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.35);">// ${numStr}</div>
+            <span style="font-size:32px;color:rgba(255,255,255,0.85);position:relative;z-index:1;">${isReel ? '▶' : '◈'}</span>
+            <span style="font-family:monospace;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,0.5);position:relative;z-index:1;text-transform:uppercase;">${isReel ? 'REEL' : 'POST'} INSTAGRAM</span>
+          </div>`;
         } else {
           thumbHtml = `<div style="width:100%;height:100%;background:linear-gradient(135deg,#050510,#0a0a1e);display:flex;align-items:center;justify-content:center;font-size:28px;color:rgba(255,255,255,0.3);">▶</div>`;
         }
@@ -212,7 +250,7 @@ window.openVideoGallery = function(key) {
           <div class="vg-card-body">
             <div class="vg-card-num">// ${String(i+1).padStart(2,'0')}</div>
             <div class="vg-card-title">${link.label || 'Vidéo ' + (i+1)}</div>
-            <div class="vg-card-url">${link.url.replace('https://','')}</div>
+            <div class="vg-card-url">${isIG ? 'instagram.com · REEL' : link.url.replace('https://www.youtube.com/watch?v=','youtu.be/').replace('https://','')}</div>
           </div>
           <span class="vg-card-arrow">→</span>`;
       } else {

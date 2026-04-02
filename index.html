@@ -33,10 +33,11 @@
       <li><a href="projects.html">Galerie</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-status">
+    <div class="nav-status" style="margin-left:auto; margin-right:8px;">
       <div class="status-dot"></div>
       AWENZER.EXE v2.0.26
     </div>
+    <button id="popup-toggle-btn" onclick="toggleAllPopups()" title="Fermer / rouvrir les widgets" style="font-family:'Share Tech Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;background:rgba(140,70,240,0.08);border:1px solid rgba(140,70,240,0.3);color:var(--gray);padding:5px 10px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;white-space:nowrap;" onmouseover="this.style.borderColor='var(--purple-light)';this.style.color='var(--purple-light)'" onmouseout="this.style.borderColor='rgba(140,70,240,0.3)';this.style.color='var(--gray)'">⊟ WIDGETS</button>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -54,6 +55,7 @@
     <div class="minimap-drag-handle" id="minimap-drag-handle" title="Cliquez pour réduire / déplacer">
       <span class="minimap-label">// MAP</span>
       <span class="minimap-toggle-icon" id="minimap-toggle-icon">−</span>
+      <button onclick="document.getElementById('minimap').style.display='none'" title="Fermer" style="background:none;border:none;cursor:pointer;color:#ff4455;font-size:11px;font-weight:700;padding:0 2px;line-height:1;margin-left:4px;transition:color 0.2s;" onmouseover="this.style.color='#ff2244'" onmouseout="this.style.color='#ff4455'">✕</button>
     </div>
 
     <div class="minimap-body" id="minimap-body">
@@ -248,30 +250,26 @@
       <div class="skills-software reveal-left">
         <h3>// LOGICIELS</h3>
         <div class="software-grid">
-          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · ADOBE',title:'Premiere Pro',desc:'Montage vidéo professionnel — outil principal de toute la chaîne de post-production.',meta:{TYPE:'NLE / Montage',ÉDITEUR:'Adobe',MAÎTRISE:'Expert'},skills:['Montage','Color grading','Export'],tools:['Premiere Pro']})">
+          <div class="sw-item">
             <div class="sw-icon">Pr</div><div class="sw-name">PREMIERE PRO</div>
           </div>
-          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · ADOBE',title:'Photoshop',desc:'Retouche photo, création de visuels et graphisme pour tous supports print et digital.',meta:{TYPE:'Retouche / Graphisme',ÉDITEUR:'Adobe',MAÎTRISE:'Avancé'},skills:['Retouche','Compositing','Design'],tools:['Photoshop']})">
+          <div class="sw-item">
             <div class="sw-icon">Ps</div><div class="sw-name">PHOTOSHOP</div>
           </div>
-          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · ADOBE',title:'After Effects',desc:'Motion design, animation graphique, VFX et titres animés.',meta:{TYPE:'Motion design',ÉDITEUR:'Adobe',MAÎTRISE:'Avancé'},skills:['Animation','Motion design','VFX'],tools:['After Effects']})">
+          <div class="sw-item">
             <div class="sw-icon" style="color:var(--accent)">Ae</div><div class="sw-name">AFTER EFFECTS</div>
           </div>
-          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · TEXTURING',title:'Substance',desc:'Texturing et création de matériaux PBR pour les productions 3D.',meta:{TYPE:'Texturing 3D',ÉDITEUR:'Adobe',MAÎTRISE:'Intermédiaire'},skills:['Texturing','Matériaux PBR'],tools:['Substance']})">
-            <div class="sw-icon" style="color:#ff6b35">S</div><div class="sw-name">SUBSTANCE</div>
+          <div class="sw-item">
+            <div class="sw-icon" style="color:#da4444">Dv</div><div class="sw-name">DAVINCI RESOLVE</div>
           </div>
-          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · 3D',title:'Blender',desc:'Modélisation 3D, rigging, animation et rendu cycles.',meta:{TYPE:'3D / Rendu',ÉDITEUR:'Blender Foundation',MAÎTRISE:'Intermédiaire'},skills:['Modélisation','Rendu','Animation 3D'],tools:['Blender']})">
+          <div class="sw-item">
             <div class="sw-icon" style="color:#e8602c">Bl</div><div class="sw-name">BLENDER</div>
           </div>
-          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · ADOBE',title:'Lightroom',desc:'Étalonnage photo et gestion de catalogues.',meta:{TYPE:'Photo / Étalonnage',ÉDITEUR:'Adobe',MAÎTRISE:'Avancé'},skills:['Étalonnage','Gestion catalogue'],tools:['Lightroom']})">
+          <div class="sw-item">
             <div class="sw-icon" style="color:var(--accent)">Lrc</div><div class="sw-name">LIGHTROOM</div>
           </div>
-          <div class="sw-item" onclick="openModal({tag:'LOGICIEL · WEB',title:'WordPress',desc:'Création et gestion de sites web avec WordPress.',meta:{TYPE:'CMS / Web',ÉDITEUR:'WordPress.org',MAÎTRISE:'Intermédiaire'},skills:['CMS','Gestion de contenu'],tools:['WordPress']})">
+          <div class="sw-item">
             <div class="sw-icon" style="color:#21759b">Wp</div><div class="sw-name">WORDPRESS</div>
-          </div>
-          <div class="sw-item" style="border-style:dashed; opacity:0.4; cursor:default;">
-            <div class="sw-icon" style="font-size:18px; color:var(--gray)">+</div>
-            <div class="sw-name">TON OUTIL</div>
           </div>
         </div>
 
@@ -309,39 +307,39 @@
       <div class="skills-bars reveal">
         <h3>// HARD SKILLS</h3>
 
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · VIDÉO',title:'Réalisation vidéo',desc:'Direction complète de productions vidéo : casting, tournage, direction technique et artistique.',meta:{NIVEAU:'Expert',EXPÉRIENCE:'6+ ans'},skills:['Tournage','Direction artistique','Cadrage','Lumière'],tools:['Premiere Pro','After Effects','Lightroom']})">
+        <div class="skill-bar-item">
           <div class="skill-bar-header"><span class="skill-bar-name">Réalisation vidéo</span><span class="skill-bar-pct">95%</span></div>
           <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95%"></div></div>
         </div>
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · POST-PROD',title:'Montage vidéo',desc:'Post-production professionnelle : montage, étalonnage, sound design et exports multi-formats.',meta:{NIVEAU:'Expert',EXPÉRIENCE:'6+ ans'},skills:['Montage','Étalonnage','Sound design'],tools:['Premiere Pro','After Effects']})">
+        <div class="skill-bar-item">
           <div class="skill-bar-header"><span class="skill-bar-name">Montage vidéo</span><span class="skill-bar-pct">92%</span></div>
           <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92%"></div></div>
         </div>
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · SCRIPT',title:'Écriture de script',desc:'Écriture de scénarios, narration documentaire et création de structures narratives visuelles.',meta:{NIVEAU:'Avancé',EXPÉRIENCE:'4+ ans'},skills:['Scénarisation','Narration','Worldbuilding','Structure narrative'],tools:[]})">
+        <div class="skill-bar-item">
           <div class="skill-bar-header"><span class="skill-bar-name">Écriture de script</span><span class="skill-bar-pct">88%</span></div>
           <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
         </div>
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · DA',title:'Direction artistique',desc:'Définition de l\'identité visuelle, direction de shooting, création de chartes graphiques.',meta:{NIVEAU:'Avancé',EXPÉRIENCE:'4+ ans'},skills:['Identité visuelle','Charte graphique','Direction de shooting'],tools:['Photoshop','After Effects']})">
+        <div class="skill-bar-item">
           <div class="skill-bar-header"><span class="skill-bar-name">Direction artistique</span><span class="skill-bar-pct">88%</span></div>
           <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
         </div>
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · MOTION',title:'Motion design',desc:'Animation graphique, titres cinématiques, motion graphics pour productions vidéo.',meta:{NIVEAU:'Avancé',EXPÉRIENCE:'3+ ans'},skills:['Animation','Typography','VFX léger'],tools:['After Effects','Premiere Pro']})">
-          <div class="skill-bar-header"><span class="skill-bar-name">Motion design</span><span class="skill-bar-pct">80%</span></div>
-          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80%"></div></div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">Motion design</span><span class="skill-bar-pct">60%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60%"></div></div>
         </div>
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · 3D',title:'Modélisation 3D',desc:'Modélisation, texturing et rendu 3D sous Blender et Substance.',meta:{NIVEAU:'Intermédiaire',EXPÉRIENCE:'2+ ans'},skills:['Modélisation','Texturing','Rendu'],tools:['Blender','Substance']})">
-          <div class="skill-bar-header"><span class="skill-bar-name">Modélisation 3D</span><span class="skill-bar-pct">72%</span></div>
-          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="72%"></div></div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">Modélisation 3D</span><span class="skill-bar-pct">60%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60%"></div></div>
         </div>
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · COULEUR',title:'Colorimétrie',desc:'Étalonnage couleur de photos et vidéos, création de LUTs et directions artistiques chromatiques.',meta:{NIVEAU:'Avancé',EXPÉRIENCE:'4+ ans'},skills:['Étalonnage','LUTs','Color grading'],tools:['Premiere Pro','Lightroom']})">
-          <div class="skill-bar-header"><span class="skill-bar-name">Colorimétrie</span><span class="skill-bar-pct">85%</span></div>
-          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">Colorimétrie</span><span class="skill-bar-pct">60%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60%"></div></div>
         </div>
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · CONTENU',title:'Création de contenu',desc:'Stratégie et exécution de contenu multi-plateforme : YouTube, Instagram, LinkedIn.',meta:{NIVEAU:'Expert',EXPÉRIENCE:'6+ ans'},skills:['Scripting','Storytelling','SEO YouTube'],tools:['Premiere Pro','Photoshop','Lightroom']})">
+        <div class="skill-bar-item">
           <div class="skill-bar-header"><span class="skill-bar-name">Création de contenu</span><span class="skill-bar-pct">96%</span></div>
           <div class="skill-bar-track"><div class="skill-bar-fill" data-width="96%"></div></div>
         </div>
-        <div class="skill-bar-item" onclick="openModal({tag:'COMPÉTENCE · DIGITAL',title:'Stratégie contenu digital',desc:'Analyse des performances, planification éditoriale et optimisation des canaux digitaux.',meta:{NIVEAU:'Intermédiaire',EXPÉRIENCE:'3+ ans'},skills:['Analytics','Planification','SEO','Community management'],tools:['WordPress']})">
+        <div class="skill-bar-item">
           <div class="skill-bar-header"><span class="skill-bar-name">Stratégie contenu digital</span><span class="skill-bar-pct">78%</span></div>
           <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78%"></div></div>
         </div>
@@ -349,7 +347,10 @@
         <div style="margin-top:48px; padding:24px; border:1px solid var(--border); background:rgba(140,70,240,0.03);">
           <div style="font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:700; color:var(--accent); letter-spacing:3px; margin-bottom:16px;">// FORMATIONS</div>
           <div style="margin-bottom:16px;">
-            <div style="font-family:'Orbitron',monospace; font-size:14px; color:var(--white); margin-bottom:4px;">Master Direction Artistique</div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+              <div style="font-family:'Orbitron',monospace; font-size:14px; color:var(--white);">Master Direction Artistique</div>
+              <span style="font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;color:#ff2244;border:1px solid #ff2244;padding:2px 7px;letter-spacing:2px;text-transform:uppercase;opacity:0.85;">STOPPÉ</span>
+            </div>
             <div style="font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:600; color:var(--purple-light);">My Digital School Rennes · 2025–2026</div>
           </div>
           <div>
@@ -430,6 +431,7 @@
     </div><!-- /vg-modal-box -->
   </div>
 
+  <script src="js/embed-player.js"></script>
   <script src="js/gallery.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/main.js"></script>
@@ -442,9 +444,10 @@
   <div id="fav-inventory" class="fav-inventory empty">
     <div class="fav-inventory-header" id="fav-inv-handle">
       <span class="fav-inv-icon">◈</span>
-      <span class="fav-inv-title">FAVORIS</span>
+      <span class="fav-inv-title">INVENTAIRE</span>
       <span class="fav-inv-count" id="fav-count">0</span>
-      <button class="fav-inv-toggle" id="fav-inv-toggle">−</button>
+      <button class="fav-inv-toggle" id="fav-inv-toggle" title="Réduire">−</button>
+      <button onclick="document.getElementById('fav-inventory').style.display='none'" title="Fermer" style="background:none;border:none;cursor:pointer;color:#ff4455;font-size:12px;font-weight:700;padding:0 2px;line-height:1;margin-left:2px;transition:color 0.2s;" onmouseover="this.style.color='#ff2244'" onmouseout="this.style.color='#ff4455'">✕</button>
     </div>
     <div id="fav-inv-body">
       <div class="fav-inv-grid-scroll">
@@ -460,11 +463,12 @@
       <span class="spotify-float-icon">♪</span>
       <span class="spotify-float-label">OBLIGER — GREEN MONTANA</span>
       <button class="spotify-float-toggle" id="spotify-toggle" title="Réduire">▼</button>
+      <button onclick="document.getElementById('spotify-player').style.display='none'" title="Fermer" style="background:none;border:none;cursor:pointer;color:#ff4455;font-size:11px;font-weight:700;padding:0 2px;line-height:1;flex-shrink:0;transition:color 0.2s;" onmouseover="this.style.color='#ff2244'" onmouseout="this.style.color='#ff4455'">✕</button>
     </div>
     <div class="spotify-float-content" id="spotify-content">
       <iframe
         src="https://open.spotify.com/embed/track/4jxX1SYeB6AQTOdtOwr2hg?utm_source=generator&theme=0"
-        width="320" height="80" frameborder="0"
+        width="240" height="80" frameborder="0"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy">
       </iframe>
@@ -549,14 +553,23 @@
         if (img) {
           imgNode = '<img src="' + img + '" alt="" style="width:100%;height:100%;object-fit:cover;">';
         }
+
+        var isEmbed = !!d.videoEmbed;
+        var badge = isEmbed ? '<div class="ep-card-badge">▶ INTÉGRÉ</div>' : '';
+        var playOverlay = isEmbed
+          ? '<div class="ep-card-play-overlay"><div class="ep-card-play-btn">▶</div></div>'
+          : '';
+        var btnLabel = isEmbed ? '▶ LIRE LA VIDÉO' : 'VOIR LE PROJET';
+        var btnClass = isEmbed ? 'project-link project-link-embed' : 'project-link';
+
         card.innerHTML =
-          '<div class="project-img-placeholder">' + imgNode + '</div>'
+          '<div class="project-img-placeholder" style="position:relative;">' + imgNode + badge + playOverlay + '</div>'
           + '<div class="project-scan"></div>'
           + '<div class="project-body">'
           +   '<div class="project-tag">' + tag + (year ? ' \u00b7 ' + year : '') + '</div>'
           +   '<h3 class="project-name">' + (d.title || '') + '</h3>'
           +   '<p class="project-desc">' + desc + '</p>'
-          +   '<button class="project-link">VOIR LE PROJET</button>'
+          +   '<button class="' + btnClass + '">' + btnLabel + '</button>'
           + '</div>';
 
         grid.appendChild(card);
@@ -619,6 +632,26 @@
       init();
     }
   })();
+  </script>
+
+  <script>
+  // ── Toggle tous les widgets (MAP, Spotify, Inventaire) ──
+  var _popupsHidden = false;
+  function toggleAllPopups() {
+    _popupsHidden = !_popupsHidden;
+    ['minimap','spotify-player','fav-inventory'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (_popupsHidden) {
+        el.dataset.wasVisible = el.style.display !== 'none' ? '1' : '0';
+        el.style.display = 'none';
+      } else {
+        if (el.dataset.wasVisible !== '0') el.style.display = '';
+      }
+    });
+    var btn = document.getElementById('popup-toggle-btn');
+    if (btn) btn.textContent = _popupsHidden ? '⊞ WIDGETS' : '⊟ WIDGETS';
+  }
   </script>
 </body>
 </html>

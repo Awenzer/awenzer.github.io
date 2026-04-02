@@ -113,9 +113,18 @@ window.projectsData = {
     desc: 'Post-production complète de vidéos sportives pour la chaîne YouTube Pull Boy. Montage, étalonnage, motion design et gestion des exports finaux.',
     linkType: 'video',
     links: [
-      { label: 'Vidéo Pull Boy — 01', url: 'LIEN_PULLBOY_1' },
-      { label: 'Vidéo Pull Boy — 02', url: 'LIEN_PULLBOY_2' },
-      { label: 'Vidéo Pull Boy — 03', url: 'LIEN_PULLBOY_3' },
+      { label: 'Pull Boy — 01', url: 'https://www.youtube.com/watch?v=NL_Aw1cOqkY' },
+      { label: 'Pull Boy — 02', url: 'https://www.youtube.com/watch?v=21UXL78qLK4' },
+      { label: 'Pull Boy — 03', url: 'https://www.youtube.com/watch?v=beVcBen0ORo' },
+      { label: 'Pull Boy — 04', url: 'https://www.youtube.com/watch?v=V336dVY8z0Y' },
+      { label: 'Pull Boy — 05', url: 'https://www.youtube.com/watch?v=76k1_vtRAss' },
+      { label: 'Pull Boy — 06', url: 'https://www.youtube.com/watch?v=YejrHBJa19E' },
+      { label: 'Pull Boy — 07', url: 'https://www.youtube.com/watch?v=gKoJGrWoT9U' },
+      { label: 'Pull Boy — 08', url: 'https://www.youtube.com/watch?v=OVfto3QXR8Q' },
+      { label: 'Pull Boy — 09', url: 'https://www.youtube.com/watch?v=53JnRYiAAbs' },
+      { label: 'Pull Boy — 10', url: 'https://www.youtube.com/watch?v=SVAGJE_MVRk' },
+      { label: 'Pull Boy — 11', url: 'https://www.youtube.com/watch?v=s4PD9L361uI' },
+      { label: 'Pull Boy — 12', url: 'https://www.youtube.com/watch?v=g9JJTbLqUtQ' },
     ],
     meta: {
       'PÉRIODE': '2023 — 2024',
@@ -153,7 +162,7 @@ window.projectsData = {
     title: 'Nostalgia+ — Green Montana',
     desc: `Nostalgia+, Le Gouffre A est un film narratif de 40 minutes inspiré de l’univers de l’album Nostalgia+ de Green Montana. <strong>L’idée était de proposer un format différent des analyses rap classiques sur YouTube : transformer un album en expérience immersive</strong>, où le spectateur explore un monde fictif représentant l’esprit de l’artiste et ses souvenirs.<br><br>La vidéo prend la forme d’un voyage narratif. Le spectateur incarne Ward, un personnage envoyé sur la planète Nostalgia+ pour retrouver Green Montana, porté disparu. En explorant ce monde, il découvre différentes zones représentant des formes de nostalgie (créative, affective, comparatrice, mélancolique…), chacune matérialisée par un environnement visuel et une narration spécifique.<br><br>Le projet a été entièrement réalisé seul. J’ai écrit le scénario, conçu la direction artistique et créé les environnements en 3D sur Blender. L’objectif était de construire un univers cohérent, inspiré à la fois des jeux vidéo narratifs et de l’animation, tout en restant minimaliste et symbolique.<br><br>Le montage et la post-production ont été réalisés avec <strong>Adobe Premiere Pro et After Effects</strong>. <strong>Nostalgia+ est aujourd’hui le projet le plus ambitieux que j’ai réalisé.</strong><br><br>Il représente plusieurs mois de travail mêlant écriture, worldbuilding, modélisation 3D et storytelling afin de créer un format hybride entre analyse musicale et film immersif.<br><br>Après la sortie du projet, <strong>Green Montana lui-même a repartagé la vidéo en story et m’a envoyé un message vocal</strong> pour soutenir le travail. J’ai également reçu les félicitations de son directeur artistique, ce qui a été une reconnaissance importante pour ce projet.`,
     link: 'https://youtu.be/xVT-5BexUuc',
-    meta: { 'DURÉE': '40 min', 'TYPE': 'Film narratif', 'PLATEFORME': 'YouTube', 'ANNÉE': '2026' },
+    meta: { 'DURÉE': '40 min', 'TYPE': 'Film narratif', 'PLATEFORME': 'YouTube', 'ANNÉE': '2024' },
     skills: ['Écriture', 'Worldbuilding', 'Direction artistique', 'Réalisation', 'Montage', 'Modélisation 3D'],
     tools: ['Blender', 'Premiere Pro', 'After Effects'],
   },
@@ -164,7 +173,7 @@ window.projectsData = {
     title: 'Vald et la malédiction de Vent Brisé',
     desc: `Vald et la malédiction de Vent Brisé est une vidéo narrative inspirée de l’univers artistique de Vald et de l’esthétique sombre de ses derniers projets. <strong>L’objectif n’était pas de réaliser une analyse musicale classique, mais plutôt de construire une fiction psychologique</strong> qui s’inscrit dans les thématiques récurrentes de l’artiste : la paranoïa, la folie et la perception altérée de la réalité.<br><br>La vidéo raconte l’histoire de Ward, un personnage qui sombre progressivement dans une psychose hallucinatoire chronique. À travers une série de tableaux narratifs, le spectateur traverse différentes périodes de sa vie : la pression familiale, un traumatisme lié à la drogue, la paranoïa dans un village isolé, puis une descente progressive vers une réalité totalement déformée. Chaque tableau fonctionne comme une pièce d’un musée mental représentant l’évolution de son état psychologique.<br><br>Le projet a été entièrement réalisé seul. J’ai écrit le scénario et conçu toute la direction artistique afin de créer un univers visuel minimaliste et symbolique, inspiré du cinéma psychologique et de l’horreur existentielle. Les environnements et éléments visuels ont été conçus en 3D sur <strong>Blender</strong>, avec l’objectif de créer des espaces mentaux abstraits représentant l’état intérieur du personnage.<br><br>Le montage et la post-production ont été réalisés avec la suite Adobe, principalement <strong>Premiere Pro et After Effects</strong>. L’intelligence artificielle a également été utilisée pour générer certains éléments visuels, notamment les tableaux présents dans la narration, afin de renforcer l’esthétique étrange et instable du récit.<br><br>Ce projet s’inscrit dans ma démarche de création de <strong>formats hybrides sur YouTube, à mi-chemin entre storytelling, fiction et analyse culturelle.</strong>`,
     link: 'https://youtu.be/mxFWV8hGKhg',
-    meta: { 'TYPE': 'Fiction psychologique', 'PLATEFORME': 'YouTube', 'ANNÉE': '2026' },
+    meta: { 'TYPE': 'Fiction psychologique', 'PLATEFORME': 'YouTube', 'ANNÉE': '2024' },
     skills: ['Écriture', 'Direction artistique', 'Réalisation', 'Montage', 'Modélisation 3D'],
     tools: ['Blender', 'Premiere Pro', 'After Effects', 'IA générative'],
   },
@@ -183,11 +192,11 @@ window.projectsData = {
   doc8songs: {
     year: '2026', views: '400',  videoId: 'bVZNTE-iFhk',
     imgs: ['images/8songs/8songs-1.jpg', 'images/8songs/8songs-2.jpg', 'images/8songs/8songs-3.jpg', 'images/8songs/8songs-4.jpg'],
-    tag: 'YOUTUBE · EXPÉRIENCE IMMERSIVE · 2026',
+    tag: 'YOUTUBE · EXPÉRIENCE IMMERSIVE · 2025',
     title: '8 chansons qui TE font culpabiliser',
     desc: `8 chansons qui te font culpabiliser est une vidéo construite autour d’un concept à mi-chemin entre analyse musicale, fiction et expérience immersive. <strong>L’idée était de partir de plusieurs morceaux de rap évoquant différentes formes de culpabilité pour créer un parcours narratif</strong>, où chaque chanson ouvre la porte à un espace mental, une émotion ou une mise en scène différente.<br><br>La vidéo explore plusieurs visages de la culpabilité : les regrets liés au passé, le deuil, les non-dits, l’ignorance et la violence involontaire que l’on peut exercer sur les autres sans en mesurer immédiatement les conséquences. Le spectateur avance dans la vidéo comme dans une descente symbolique, de chanson en chanson, à travers des univers visuels distincts qui traduisent l’état émotionnel évoqué par chaque morceau.<br><br>Le projet a été entièrement réalisé seul. J’ai écrit le concept, imaginé la structure narrative et conçu toute la direction artistique de la vidéo pour transformer un simple classement en expérience beaucoup plus sensorielle et troublante. <strong>L’objectif était de dépasser le format classique du commentaire musical</strong> en donnant à chaque transition, chaque décor et chaque rupture de ton une vraie fonction émotionnelle dans le récit.<br><br>La production visuelle s’appuie à la fois sur la suite Adobe, <strong>Blender</strong> et des outils d’intelligence artificielle. J’ai utilisé Blender pour créer certains environnements et séquences en 3D, afin de renforcer la sensation de progression dans des espaces mentaux abstraits. Le montage, le sound design et la post-production ont ensuite été réalisés avec <strong>Premiere Pro et After Effects</strong>, dans une logique de tension progressive, de rupture visuelle et d’immersion.<br><br>Ce projet représente bien ma manière d’aborder la vidéo sur YouTube : partir d’un sujet culturel accessible, ici la musique, pour le faire basculer vers une forme plus cinématographique, introspective et expérimentale. <strong>L’objectif n’était pas seulement de parler de chansons, mais de faire ressentir physiquement au spectateur les émotions qu’elles réveillent.</strong>`,
     link: 'https://youtu.be/bVZNTE-iFhk',
-    meta: { 'TYPE': 'Expérience immersive', 'PLATEFORME': 'YouTube', 'ANNÉE': '2026' },
+    meta: { 'TYPE': 'Expérience immersive', 'PLATEFORME': 'YouTube', 'ANNÉE': '2025' },
     skills: ['Écriture', 'Direction artistique', 'Réalisation', 'Montage', 'Modélisation 3D'],
     tools: ['Blender', 'Premiere Pro', 'After Effects', 'IA générative'],
   },
@@ -274,8 +283,7 @@ window.projectsData.shortfilmCAS = {
 
 
 window.projectsData.laVision = {
-  img: 'images/lavision-1.jpg',
-  tag: 'VIDÉO · MÉDIA RAP · 2024',
+  tag: 'JOURNALISME · MÉDIA RAP · 2024',
   title: 'La Vision',
   desc: "Créateur de contenu pour le média rap La Vision. Opportunité bénévole qui m'a apporté des contacts et des accès à des évènements.",
   linkType: 'video',
@@ -284,7 +292,7 @@ window.projectsData.laVision = {
     { label: 'La Vision — Reel 02', url: 'https://www.instagram.com/reel/C5RCJattus_/' },
     { label: 'La Vision — Reel 03', url: 'https://www.instagram.com/reel/C5jMSO5Lv3i/' },
   ],
-  meta: { 'TYPE': 'Contenu bénévole', 'MÉDIA': 'La Vision', 'FORMAT': 'Reels Instagram', 'ANNÉE': '2024' },
+  meta: { 'TYPE': 'Journalisme / Bénévole', 'MÉDIA': 'La Vision', 'FORMAT': 'Reels Instagram', 'ANNÉE': '2024' },
   skills: ['Réalisation', 'Montage', 'Direction artistique'],
   tools: ['Premiere Pro', 'After Effects'],
 };
@@ -298,17 +306,21 @@ window.projectsData.laVision = {
 // ─── DATA ─────────────────────────────────────
 
 window.projectsData.galianOctobreRose = {
-  img: 'images/galian/octobre-rose.jpg',
-  tag: 'GALIAN · VIDÉO · PUBLICITAIRE · 2025',
+  videoEmbed: 'https://www.youtube.com/embed/DuTXhqu0peY?autoplay=1',
+  videoThumb: 'https://img.youtube.com/vi/DuTXhqu0peY/maxresdefault.jpg',
+  link: 'https://www.youtube.com/watch?v=DuTXhqu0peY',
+  tag: 'GALIAN · VIDÉO · PRÉVENTION · 2025',
   title: 'Octobre Rose',
-  desc: 'Vidéo publicitaire réalisée dans le cadre de la campagne Octobre Rose pour Galian. Production complète : script, tournage, montage et post-production.',
-  meta: { 'CLIENT': 'Galian', 'TYPE': 'Vidéo publicitaire', 'FORMAT': 'Horizontal', 'ANNÉE': '2025' },
-  skills: ['Réalisation', 'Montage', 'Direction artistique'],
+  desc: 'Campagne de prévention réalisée dans le cadre d\'Octobre Rose pour Galian. Production complète incluant une interview. Il s\'agit d\'une campagne de prévention contre le cancer du sein, et non d\'une vidéo publicitaire.',
+  meta: { 'CLIENT': 'Galian', 'TYPE': 'Campagne de prévention', 'FORMAT': 'Horizontal', 'ANNÉE': '2025' },
+  skills: ['Réalisation', 'Montage', 'Direction artistique', 'Interview'],
   tools: ['Premiere Pro', 'After Effects'],
 };
 
 window.projectsData.galianBosch = {
-  img: 'images/galian/bosch.jpg',
+  videoEmbed: 'https://www.youtube.com/embed/tPwU_SNTIGM?autoplay=1',
+  videoThumb: 'https://img.youtube.com/vi/tPwU_SNTIGM/maxresdefault.jpg',
+  link: 'https://www.youtube.com/watch?v=tPwU_SNTIGM',
   tag: 'GALIAN · VIDÉO · PUBLICITAIRE · 2025',
   title: 'Bosch — Nouveau vélo',
   desc: 'Vidéo publicitaire pour la sortie du nouveau vélo Bosch, distribué par Galian. Mise en valeur du produit, storytelling visuel et motion design.',
@@ -318,7 +330,9 @@ window.projectsData.galianBosch = {
 };
 
 window.projectsData.galianLevee = {
-  img: 'images/galian/levee-fonds.jpg',
+  videoEmbed: 'https://www.youtube.com/embed/fIu24uP--dc?autoplay=1',
+  videoThumb: 'https://img.youtube.com/vi/fIu24uP--dc/maxresdefault.jpg',
+  link: 'https://www.youtube.com/watch?v=fIu24uP--dc',
   tag: 'GALIAN · VIDÉO · INSTITUTIONNEL · 2025',
   title: 'Levée de fond',
   desc: 'Film institutionnel pour accompagner la levée de fond de Galian. Vidéo de présentation à destination des investisseurs, mêlant interviews et motion design.',
@@ -328,7 +342,9 @@ window.projectsData.galianLevee = {
 };
 
 window.projectsData.galianNoel = {
-  img: 'images/galian/offre-noel.jpg',
+  videoEmbed: 'https://www.youtube.com/embed/jWqhU3AX5rk?autoplay=1',
+  videoThumb: 'https://img.youtube.com/vi/jWqhU3AX5rk/maxresdefault.jpg',
+  link: 'https://www.youtube.com/watch?v=jWqhU3AX5rk',
   tag: 'GALIAN · VIDÉO · PUBLICITAIRE · 2025',
   title: 'Offre de Noël',
   desc: `Vidéo promotionnelle pour l\'offre de Noël Galian. Motion design, animation de textes et habillage graphique sur la charte de marque.`,
@@ -338,12 +354,14 @@ window.projectsData.galianNoel = {
 };
 
 window.projectsData.galianSpecialiste = {
-  img: 'images/galian/le-specialiste.jpg',
-  tag: 'GALIAN · VIDÉO · SÉRIE · 2025',
+  videoEmbed: 'https://www.youtube.com/embed/Y6WEx6HNvNc?autoplay=1',
+  videoThumb: 'https://img.youtube.com/vi/Y6WEx6HNvNc/maxresdefault.jpg',
+  link: 'https://www.youtube.com/watch?v=Y6WEx6HNvNc',
+  tag: 'GALIAN · VIDÉO · PUBLICITAIRE · 2025',
   title: 'Le Spécialiste',
-  desc: `Série de vidéos "Le Spécialiste" pour Galian. Format récurrent mettant en avant les experts de l\'entreprise à travers des portraits filmés et interviews.`,
-  meta: { 'CLIENT': 'Galian', 'TYPE': 'Série vidéo', 'FORMAT': 'Horizontal', 'ANNÉE': '2025' },
-  skills: ['Réalisation', 'Interviews', 'Direction artistique', 'Montage'],
+  desc: `Vidéo publicitaire pour le nouveau modèle de vélo Galian. Mise en avant du produit à travers un format "spécialiste" — storytelling visuel et motion design sur la charte de marque.`,
+  meta: { 'CLIENT': 'Galian', 'TYPE': 'Vidéo publicitaire · Nouveau vélo', 'FORMAT': 'Horizontal', 'ANNÉE': '2025' },
+  skills: ['Réalisation', 'Montage', 'Direction artistique'],
   tools: ['Premiere Pro', 'After Effects'],
 };
 
@@ -372,10 +390,17 @@ window.projectsData.galianShorts = {
   desc: 'Collection de vidéos courtes réalisées pour les réseaux sociaux de Galian (Instagram Reels, stories). Cliquez sur les liens pour visionner.',
   linkType: 'video',
   links: [
-    { label: 'Short — Titre 1', url: 'https://www.instagram.com/reel/XXXX/' },
-    { label: 'Short — Titre 2', url: 'https://www.instagram.com/reel/XXXX/' },
-    { label: 'Short — Titre 3', url: 'https://www.instagram.com/reel/XXXX/' },
-    // Remplacez les URL par vos vrais liens Instagram
+    { label: 'Short Galian — 01', url: 'https://www.instagram.com/reel/DRhnROHDCBv/' },
+    { label: 'Short Galian — 02', url: 'https://www.instagram.com/reel/DRe8WeXjPqx/' },
+    { label: 'Short Galian — 03', url: 'https://www.instagram.com/reel/DVYsrEXDMi_/' },
+    { label: 'Short Galian — 04', url: 'https://www.instagram.com/reel/DOn7aWwge_Y/' },
+    { label: 'Short Galian — 05', url: 'https://www.instagram.com/reel/DUF3_utiFrK/' },
+    { label: 'Short Galian — 06', url: 'https://www.instagram.com/reel/DT-PUrrDCJc/' },
+    { label: 'Short Galian — 07', url: 'https://www.instagram.com/reel/DSCF9YRjNHU/' },
+    { label: 'Short Galian — 08', url: 'https://www.instagram.com/reel/DQB0Ju8jEdT/' },
+    { label: 'Short Galian — 09', url: 'https://www.instagram.com/reel/DO8BuNXkdrw/' },
+    { label: 'Short Galian — 10', url: 'https://www.instagram.com/reel/DI3THbxqbdE/' },
+    { label: 'Short Galian — 11', url: 'https://www.instagram.com/reel/DIwFBI-qFEU/' },
   ],
   meta: { 'CLIENT': 'Galian', 'TYPE': 'Reels / Shorts', 'PLATEFORME': 'Instagram', 'ANNÉE': '2025–2026' },
   skills: ['Montage vertical', 'Motion design', 'Content creation'],
@@ -387,12 +412,23 @@ window.projectsData.galianPosts = {
   tag: 'GALIAN · RÉSEAUX SOCIAUX · PUBLICATIONS · 2025–2026',
   title: 'Publications Instagram',
   desc: 'Galerie de publications Instagram créées pour Galian — visuels, carousels et stories.',
-  linkType: 'post',
+  linkType: 'video',
   links: [
-    { label: 'Post — Titre 1', url: 'https://www.instagram.com/p/XXXX/' },
-    { label: 'Post — Titre 2', url: 'https://www.instagram.com/p/XXXX/' },
-    { label: 'Post — Titre 3', url: 'https://www.instagram.com/p/XXXX/' },
-    // Remplacez les URL par vos vrais liens Instagram
+    { label: 'Publication Galian — 01', url: 'https://www.instagram.com/p/DV8V_0tCl_g/?img_index=1' },
+    { label: 'Publication Galian — 02', url: 'https://www.instagram.com/p/DTaH2lECg-e/?img_index=1' },
+    { label: 'Publication Galian — 03', url: 'https://www.instagram.com/p/DTMv5sDCtKt/' },
+    { label: 'Publication Galian — 04', url: 'https://www.instagram.com/p/DS9zJDbiu6o/?img_index=1' },
+    { label: 'Publication Galian — 05', url: 'https://www.instagram.com/p/DSriNflivys/?img_index=1' },
+    { label: 'Publication Galian — 06', url: 'https://www.instagram.com/p/DSm_1aCCoPr/?img_index=1' },
+    { label: 'Publication Galian — 07', url: 'https://www.instagram.com/p/DScvozpisQE/?img_index=1' },
+    { label: 'Publication Galian — 08', url: 'https://www.instagram.com/p/DSScinEjEcz/?img_index=1' },
+    { label: 'Publication Galian — 09', url: 'https://www.instagram.com/p/DSJ0X8TjCUN/?img_index=1' },
+    { label: 'Publication Galian — 10', url: 'https://www.instagram.com/p/DRU3w8QDDV1/?img_index=1' },
+    { label: 'Publication Galian — 11', url: 'https://www.instagram.com/p/DRMjpK1jKoZ/?img_index=1' },
+    { label: 'Publication Galian — 12', url: 'https://www.instagram.com/p/DRFa-hHjM6g/' },
+    { label: 'Publication Galian — 13', url: 'https://www.instagram.com/p/DQ9VDkYiLXr/?img_index=1' },
+    { label: 'Publication Galian — 14', url: 'https://www.instagram.com/p/DPTuSuPjMsD/?img_index=1' },
+    { label: 'Publication Galian — 15', url: 'https://www.instagram.com/p/DOGj2k_jIuG/?img_index=1' },
   ],
   meta: { 'CLIENT': 'Galian', 'TYPE': 'Publications', 'PLATEFORME': 'Instagram', 'ANNÉE': '2025–2026' },
   skills: ['Design graphique', 'Direction artistique', 'Community management'],
@@ -400,6 +436,7 @@ window.projectsData.galianPosts = {
 };
 
 window.projectsData.galianPhotos = {
+  img: 'images/galian/photo-1.jpg',
   tag: 'GALIAN · PHOTOS · 2025–2026',
   title: 'Galerie Photos',
   desc: 'Photos réalisées dans le cadre de la mission Galian — prises de vue événementielles, produits et portraits.',

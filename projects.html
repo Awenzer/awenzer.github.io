@@ -71,10 +71,11 @@
       <li><a href="projects.html" style="color:var(--purple-light)">Galerie</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-status">
+    <div class="nav-status" style="margin-left:auto; margin-right:8px;">
       <div class="status-dot"></div>
       GALERIE // AWENZER
     </div>
+    <button id="popup-toggle-btn" onclick="toggleAllPopups()" title="Fermer / rouvrir les widgets" style="font-family:'Share Tech Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;background:rgba(140,70,240,0.08);border:1px solid rgba(140,70,240,0.3);color:var(--gray);padding:5px 10px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;white-space:nowrap;" onmouseover="this.style.borderColor='var(--purple-light)';this.style.color='var(--purple-light)'" onmouseout="this.style.borderColor='rgba(140,70,240,0.3)';this.style.color='var(--gray)'">⊟ WIDGETS</button>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -92,6 +93,7 @@
     <div class="minimap-drag-handle" id="minimap-drag-handle" title="Cliquez pour réduire / déplacer">
       <span class="minimap-label">// MAP</span>
       <span class="minimap-toggle-icon" id="minimap-toggle-icon">−</span>
+      <button onclick="document.getElementById('minimap').style.display='none'" title="Fermer" style="background:none;border:none;cursor:pointer;color:#ff4455;font-size:11px;font-weight:700;padding:0 2px;line-height:1;margin-left:4px;transition:color 0.2s;" onmouseover="this.style.color='#ff2244'" onmouseout="this.style.color='#ff4455'">✕</button>
     </div>
     <div class="minimap-body" id="minimap-body">
       <div class="minimap-canvas-wrap">
@@ -131,8 +133,8 @@
       <button class="cat-btn" data-cat="youtube">▶ YOUTUBE</button>
       <button class="cat-btn" data-cat="video">◈ VIDÉO</button>
       <button class="cat-btn" data-cat="galian">⬡ GALIAN</button>
-      <button class="cat-btn" data-cat="graphisme">◎ GRAPHISME</button>
-      <button class="cat-btn" data-cat="autres">+ AUTRES</button>
+      <button class="cat-btn" data-cat="graphisme" style="opacity:0.35;cursor:not-allowed;pointer-events:none;" title="Bientôt disponible">◎ GRAPHISME 🔒</button>
+      <button class="cat-btn" data-cat="autres" style="opacity:0.35;cursor:not-allowed;pointer-events:none;" title="Bientôt disponible">+ AUTRES 🔒</button>
     </div>
   </section>
 
@@ -143,8 +145,8 @@
       <button class="gallery-nav-btn" data-cat="youtube">YOUTUBE</button>
       <button class="gallery-nav-btn" data-cat="video">VIDÉO</button>
       <button class="gallery-nav-btn" data-cat="galian">GALIAN</button>
-      <button class="gallery-nav-btn" data-cat="graphisme">GRAPHISME</button>
-      <button class="gallery-nav-btn" data-cat="autres">AUTRES</button>
+      <button class="gallery-nav-btn" data-cat="graphisme" style="opacity:0.35;cursor:not-allowed;pointer-events:none;" title="Bientôt disponible">GRAPHISME 🔒</button>
+      <button class="gallery-nav-btn" data-cat="autres" style="opacity:0.35;cursor:not-allowed;pointer-events:none;" title="Bientôt disponible">AUTRES 🔒</button>
       <div class="gallery-count" id="gallery-count"><span>—</span> PROJETS</div>
     </div>
 
@@ -325,30 +327,27 @@
           </div>
         </div>
 
+
       </div>
 
       <div class="gallery-subsection-divider"></div>
 
-      <!-- PULLBOY -->
-      <div class="gallery-subsection-label">// PULLBOY</div>
+      <!-- MONTAGE VIDÉO -->
+      <div class="gallery-subsection-label">// MONTAGE VIDÉO</div>
       <div class="gallery-grid" style="margin-bottom:40px;">
+
         <div class="gallery-item" onclick="openVideoGallery('pullboy')">
           <div class="gallery-item-img">
             <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
-            <img src="images/pullboy-1.jpg" alt="Pull Boy" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>PULL BOY</div>'">
+            <img src="https://img.youtube.com/vi/NL_Aw1cOqkY/mqdefault.jpg" alt="Pull Boy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://img.youtube.com/vi/NL_Aw1cOqkY/hqdefault.jpg'">
+            <div class="gallery-item-play-badge">▶</div>
           </div>
           <div class="gallery-item-body">
             <div class="gallery-item-name">Montage Sportif — Pull Boy</div>
             <div class="gallery-item-meta">PULL BOY · 2023–2024 · MONTAGE</div>
           </div>
         </div>
-      </div>
 
-      <div class="gallery-subsection-divider"></div>
-
-      <!-- KRT STUDIOS -->
-      <div class="gallery-subsection-label">// KRT STUDIOS</div>
-      <div class="gallery-grid" style="margin-bottom:40px;">
         <div class="gallery-item" onclick="openVideoGallery('krt')">
           <div class="gallery-item-img">
             <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
@@ -359,21 +358,25 @@
             <div class="gallery-item-meta">KRT STUDIOS · 2024 · E-SPORT</div>
           </div>
         </div>
+
       </div>
 
       <div class="gallery-subsection-divider"></div>
 
-      <!-- LA VISION -->
-      <div class="gallery-subsection-label">// LA VISION</div>
+      <!-- JOURNALISME -->
+      <div class="gallery-subsection-label">// JOURNALISME</div>
       <div class="gallery-grid">
         <div class="gallery-item" onclick="openVideoGallery('laVision')">
           <div class="gallery-item-img">
             <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
-            <img src="images/lavision-1.jpg" alt="La Vision" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d0020,#2d0b4e,#6b1a8c);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+              <span style="font-size:28px;color:rgba(255,255,255,0.7);">◈</span>
+              <span style="font-family:monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.4);">INSTAGRAM REELS</span>
+            </div>
           </div>
           <div class="gallery-item-body">
-            <div class="gallery-item-name">La Vision</div>
-            <div class="gallery-item-meta">AWENZER · 2024 · VIDÉO</div>
+            <div class="gallery-item-name">La Vision — Média Rap</div>
+            <div class="gallery-item-meta">JOURNALISME · 2024 · REELS</div>
           </div>
         </div>
       </div>
@@ -395,60 +398,67 @@
       </div>
       <div class="gallery-grid">
 
-          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianOctobreRose)">
+          <div class="gallery-item" onclick="openEmbedPlayer('galianOctobreRose')">
             <div class="gallery-item-img">
-              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-              <img src="images/galian/octobre-rose.jpg" alt="Octobre Rose" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>OCTOBRE ROSE</div>'">
+              <div class="gallery-item-hover-overlay">▶ VOIR LA VIDÉO</div>
+              <img src="https://img.youtube.com/vi/DuTXhqu0peY/mqdefault.jpg" alt="Octobre Rose" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://img.youtube.com/vi/DuTXhqu0peY/hqdefault.jpg'">
+              <div class="gallery-item-play-badge">▶</div>
             </div>
             <div class="gallery-item-body">
-              <div class="gallery-item-name">Octobre Rose</div>
-              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+              <div class="gallery-item-name">Octobre Rose — Prévention</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · INTERVIEW</div>
             </div>
           </div>
 
-          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianBosch)">
+          <div class="gallery-item" onclick="openEmbedPlayer('galianSpecialiste')">
             <div class="gallery-item-img">
-              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-              <img src="images/galian/bosch.jpg" alt="Bosch" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>BOSCH VÉLO</div>'">
+              <div class="gallery-item-hover-overlay">▶ VOIR LA VIDÉO</div>
+              <img src="https://img.youtube.com/vi/Y6WEx6HNvNc/mqdefault.jpg" alt="Le Spécialiste" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://img.youtube.com/vi/Y6WEx6HNvNc/hqdefault.jpg'">
+              <div class="gallery-item-play-badge">▶</div>
             </div>
             <div class="gallery-item-body">
-              <div class="gallery-item-name">Bosch — Vélo électrique</div>
-              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+              <div class="gallery-item-name">Le Spécialiste — Nouveau vélo</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · PUB PRODUIT</div>
             </div>
           </div>
 
-          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianLevee)">
+          <div class="gallery-item" onclick="openEmbedPlayer('galianLevee')">
             <div class="gallery-item-img">
-              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-              <img src="images/galian/levee-fonds.jpg" alt="Levée de fond" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>LEVÉE DE FOND</div>'">
+              <div class="gallery-item-hover-overlay">▶ VOIR LA VIDÉO</div>
+              <img src="https://img.youtube.com/vi/fIu24uP--dc/mqdefault.jpg" alt="Levée de fond" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://img.youtube.com/vi/fIu24uP--dc/hqdefault.jpg'">
+              <div class="gallery-item-play-badge">▶</div>
             </div>
             <div class="gallery-item-body">
               <div class="gallery-item-name">Levée de fond</div>
-              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · INSTITUTIONNEL</div>
             </div>
           </div>
 
-          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianNoel)">
+          <div class="gallery-item" onclick="openEmbedPlayer('galianNoel')">
             <div class="gallery-item-img">
-              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-              <img src="images/galian/offre-noel.jpg" alt="Offre de Noël" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>OFFRE DE NOËL</div>'">
+              <div class="gallery-item-hover-overlay">▶ VOIR LA VIDÉO</div>
+              <img src="https://img.youtube.com/vi/jWqhU3AX5rk/mqdefault.jpg" alt="Offre de Noël" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://img.youtube.com/vi/jWqhU3AX5rk/hqdefault.jpg'">
+              <div class="gallery-item-play-badge">▶</div>
             </div>
             <div class="gallery-item-body">
               <div class="gallery-item-name">Offre de Noël</div>
-              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · PROMO</div>
             </div>
           </div>
 
-          <div class="gallery-item" onclick="openModal(window.projectsData&&window.projectsData.galianSpecialiste)">
+          <div class="gallery-item" onclick="openEmbedPlayer('galianBosch')">
             <div class="gallery-item-img">
-              <div class="gallery-item-hover-overlay">→ VOIR LE PROJET</div>
-              <img src="images/galian/le-specialiste.jpg" alt="Le Spécialiste" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>LE SPÉCIALISTE</div>'">
+              <div class="gallery-item-hover-overlay">▶ VOIR LA VIDÉO</div>
+              <img src="https://img.youtube.com/vi/tPwU_SNTIGM/mqdefault.jpg" alt="Bosch — Nouveau vélo" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://img.youtube.com/vi/tPwU_SNTIGM/hqdefault.jpg'">
+              <div class="gallery-item-play-badge">▶</div>
             </div>
             <div class="gallery-item-body">
-              <div class="gallery-item-name">Le Spécialiste</div>
-              <div class="gallery-item-meta">GALIAN · 2025 · VIDÉO</div>
+              <div class="gallery-item-name">Bosch — Nouveau vélo</div>
+              <div class="gallery-item-meta">GALIAN · 2025 · PUB PRODUIT</div>
             </div>
           </div>
+
+          <!-- SAV serie below -->
 
           <div class="gallery-item" onclick="openVideoGallery('galianSAV')">
             <div class="gallery-item-img">
@@ -506,7 +516,7 @@
           <div class="gallery-item" onclick="openPhotoGallery('galianPhotos')">
             <div class="gallery-item-img">
               <div class="gallery-item-hover-overlay">→ VOIR LA GALERIE</div>
-              <img src="images/galian/photos-cover.jpg" alt="Photos Galian" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>GALERIE PHOTOS</div>'">
+              <img src="images/galian/photo-1.jpg" alt="Photos Galian" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=font-size:11px;color:var(--gray);letter-spacing:2px;>GALERIE PHOTOS</div>'">
             </div>
             <div class="gallery-item-body">
               <div class="gallery-item-name">Galerie Photos</div>
@@ -677,6 +687,7 @@
     </div>
   </footer>
 
+  <script src="js/embed-player.js"></script>
   <script src="js/gallery.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/main.js"></script>
@@ -689,9 +700,10 @@
   <div id="fav-inventory" class="fav-inventory empty">
     <div class="fav-inventory-header" id="fav-inv-handle">
       <span class="fav-inv-icon">◈</span>
-      <span class="fav-inv-title">FAVORIS</span>
+      <span class="fav-inv-title">INVENTAIRE</span>
       <span class="fav-inv-count" id="fav-count">0</span>
-      <button class="fav-inv-toggle" id="fav-inv-toggle">−</button>
+      <button class="fav-inv-toggle" id="fav-inv-toggle" title="Réduire">−</button>
+      <button onclick="document.getElementById('fav-inventory').style.display='none'" title="Fermer" style="background:none;border:none;cursor:pointer;color:#ff4455;font-size:12px;font-weight:700;padding:0 2px;line-height:1;margin-left:2px;transition:color 0.2s;" onmouseover="this.style.color='#ff2244'" onmouseout="this.style.color='#ff4455'">✕</button>
     </div>
     <div id="fav-inv-body">
       <div class="fav-inv-grid-scroll">
@@ -707,11 +719,12 @@
       <span class="spotify-float-icon">♪</span>
       <span class="spotify-float-label">OBLIGER — GREEN MONTANA</span>
       <button class="spotify-float-toggle" id="spotify-toggle" title="Réduire">▼</button>
+      <button onclick="document.getElementById('spotify-player').style.display='none'" title="Fermer" style="background:none;border:none;cursor:pointer;color:#ff4455;font-size:11px;font-weight:700;padding:0 2px;line-height:1;flex-shrink:0;transition:color 0.2s;" onmouseover="this.style.color='#ff2244'" onmouseout="this.style.color='#ff4455'">✕</button>
     </div>
     <div class="spotify-float-content" id="spotify-content">
       <iframe
         src="https://open.spotify.com/embed/track/4jxX1SYeB6AQTOdtOwr2hg?utm_source=generator&theme=0"
-        width="320" height="80" frameborder="0"
+        width="240" height="80" frameborder="0"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy">
       </iframe>
@@ -862,94 +875,26 @@
   })();
   </script>
 
-  <!-- EMBED VIDEO PLAYER MODAL -->
-  <div id="embed-player-overlay" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.92);backdrop-filter:blur(8px);align-items:center;justify-content:center;flex-direction:column;">
-    <div style="position:relative;width:90vw;max-width:900px;">
-      <div style="position:absolute;top:-44px;right:0;display:flex;align-items:center;gap:10px;">
-        <button id="embed-fav-btn" onclick="toggleEmbedFav()" style="background:none;border:1px solid rgba(255,215,0,0.25);color:#5a5a7a;font-size:17px;padding:4px 12px;cursor:pointer;transition:all 0.2s;line-height:1;" title="Ajouter aux favoris">♡</button>
-        <button onclick="closeEmbedPlayer()" style="background:none;border:1px solid rgba(255,255,255,0.2);color:#fff;font-family:monospace;font-size:11px;letter-spacing:2px;padding:6px 14px;cursor:pointer;">✕ FERMER</button>
-      </div>
-      <div id="embed-player-title" style="font-family:monospace;font-size:11px;letter-spacing:3px;color:var(--purple-light);margin-bottom:12px;"></div>
-      <!-- Custom player : miniature + bouton YouTube -->
-      <div id="embed-player-box" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:1px solid var(--border);background:#000;cursor:pointer;" onclick="openEmbedExternal()">
-        <img id="embed-player-thumb" src="" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.85;">
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
-          <div id="embed-play-icon" style="width:72px;height:72px;background:rgba(255,0,0,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;transition:transform 0.2s;box-shadow:0 4px 24px rgba(0,0,0,0.6);">▶</div>
-          <div style="font-family:monospace;font-size:11px;letter-spacing:2px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,0.8);text-transform:uppercase;">Ouvrir sur YouTube</div>
-        </div>
-      </div>
-      <div id="embed-player-desc" style="margin-top:12px;font-family:monospace;font-size:11px;color:var(--gray);line-height:1.7;"></div>
-    </div>
-  </div>
+  <!-- embed-player.js gère le lecteur YouTube intégré -->
 
   <script>
-  var _currentEmbedKey = null;
-  window.openEmbedPlayer = function(key) {
-    var data = window.projectsData && window.projectsData[key];
-    if (!data) return;
-    _currentEmbedKey = key;
-    var ov    = document.getElementById('embed-player-overlay');
-    var thumb = document.getElementById('embed-player-thumb');
-    var title = document.getElementById('embed-player-title');
-    var desc  = document.getElementById('embed-player-desc');
-    if (thumb) thumb.src = data.videoThumb || '';
-    if (title) title.textContent = (data.title || '').toUpperCase() + ' // AWENZER.EXE';
-    if (desc)  desc.textContent = data.desc || '';
-    ov.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    updateEmbedFavBtn(key);
-  };
-  window.openEmbedExternal = function() {
-    var data = window.projectsData && window.projectsData[_currentEmbedKey];
-    if (data && data.link) window.open(data.link, '_blank', 'noopener');
-  };
-  function getFavKey(data) {
-    return data && (data.title || data.tag || JSON.stringify(data).slice(0, 40));
+  // ── WIDGETS TOGGLE (Fermer / Rouvrir tous les popups) ──
+  var _popupsHidden = false;
+  function toggleAllPopups() {
+    _popupsHidden = !_popupsHidden;
+    ['minimap','spotify-player','fav-inventory'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (_popupsHidden) {
+        el.dataset.wasVisible = el.style.display !== 'none' ? '1' : '0';
+        el.style.display = 'none';
+      } else {
+        if (el.dataset.wasVisible !== '0') el.style.display = '';
+      }
+    });
+    var btn = document.getElementById('popup-toggle-btn');
+    if (btn) btn.textContent = _popupsHidden ? '⊞ WIDGETS' : '⊟ WIDGETS';
   }
-  function loadFavsEmbed() {
-    try { return JSON.parse(sessionStorage.getItem('awenzer_favs') || '{}'); } catch(e) { return {}; }
-  }
-  function saveFavsEmbed(f) {
-    try { sessionStorage.setItem('awenzer_favs', JSON.stringify(f)); } catch(e) {}
-  }
-  function updateEmbedFavBtn(key) {
-    var btn = document.getElementById('embed-fav-btn');
-    if (!btn) return;
-    var data = window.projectsData && window.projectsData[key];
-    if (!data) return;
-    var favs = loadFavsEmbed();
-    var isFav = !!favs[getFavKey(data)];
-    btn.textContent = isFav ? '♥' : '♡';
-    btn.style.color = isFav ? '#ffd700' : '#5a5a7a';
-    btn.style.borderColor = isFav ? 'rgba(255,215,0,0.5)' : 'rgba(255,215,0,0.25)';
-  }
-  window.toggleEmbedFav = function() {
-    if (!_currentEmbedKey) return;
-    var data = window.projectsData && window.projectsData[_currentEmbedKey];
-    if (!data) return;
-    var key = getFavKey(data);
-    var favs = loadFavsEmbed();
-    if (favs[key]) {
-      delete favs[key];
-    } else {
-      favs[key] = { data: data, addedAt: Date.now() };
-      var btn = document.getElementById('embed-fav-btn');
-      if (btn) { btn.style.transform = 'scale(1.4)'; setTimeout(function(){ btn.style.transform=''; }, 200); }
-    }
-    saveFavsEmbed(favs);
-    updateEmbedFavBtn(_currentEmbedKey);
-    document.dispatchEvent(new CustomEvent('favs-updated'));
-  };
-  window.closeEmbedPlayer = function() {
-    var ov = document.getElementById('embed-player-overlay');
-    var thumb = document.getElementById('embed-player-thumb');
-    if (thumb) thumb.src = '';
-    if (ov) ov.style.display = 'none';
-    document.body.style.overflow = '';
-  };
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') window.closeEmbedPlayer();
-  });
   </script>
 </body>
 </html>

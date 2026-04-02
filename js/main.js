@@ -497,7 +497,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var keys = Object.keys(favs);
     if (counter) counter.textContent = keys.length;
+    // Si on avait manuellement fermé (✕) mais qu'on ajoute un nouveau favori → rouvrir
+    // Mais pas si les widgets sont cachés via toggleAllPopups
+    const wasManuallyHidden = inv.style.display === 'none';
+    const globalHidden = window._popupsHidden === true;
     inv.classList.toggle('empty', keys.length === 0);
+    if (keys.length > 0 && wasManuallyHidden && !globalHidden) {
+      inv.style.display = '';
+    }
     grid.innerHTML = '';
 
     if (keys.length === 0) {
